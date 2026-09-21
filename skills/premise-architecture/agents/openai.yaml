@@ -1,0 +1,3 @@
+interface:
+  display_name: "Premise Architecture"
+  short_description: "分析故事前提改变了哪些基础条件"
