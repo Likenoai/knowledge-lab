@@ -1,0 +1,3 @@
+interface:
+  display_name: "Evidence-Based Review"
+  short_description: "用提取、纠错、对比和迁移进行科学复习"
