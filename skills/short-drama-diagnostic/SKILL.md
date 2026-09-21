@@ -1,122 +1,60 @@
-# Short Drama Diagnostic Skill
-
-版本：v1.0
-
-## 目的
-
-用于分析短剧、电影、小说等叙事素材，识别其有效的注意力机制、冲突结构和人物问题。
-
-该 Skill 不负责评价作品好坏，而负责诊断：
-
-- 为什么观众继续观看？
-- 哪些机制有效？
-- 哪些地方依赖廉价刺激？
-- 如何替换为更高质量实现？
-
+---
+name: short-drama-diagnostic
+description: Run a full short-drama diagnostic.
+disable-model-invocation: true
+argument-hint: "作品、剧本、剧情摘要或你希望诊断的片段"
 ---
 
-# 输入
+# Short Drama Diagnostic（短剧综合诊断）
 
-提供：
+Run a structured diagnosis of the supplied work. This is an orchestration skill: diagnose the work, then use narrower model-invoked skills only when their scope is actually relevant.
 
-- 作品名称
-- 剧情文本/剧本/视频摘要
-- 分析目标
+## Process（执行流程）
 
----
+### ◆ Establish the diagnostic target（确定诊断对象）
 
-# 分析流程
+Identify the exact material and the user's current question. If the user has not named a narrower goal, diagnose why the work does or does not sustain attention as a short drama.
 
-## Step 1：识别基础叙事结构
+**Completion criterion:** the analysis target and material boundary are explicit.
 
-分析：
+### ◆ Reconstruct observable story state（重建可观察故事状态）
 
-- 主角是谁
-- 当前状态
-- 外部目标
-- 核心阻碍
-- 第一状态变化
+Extract only what the material supports: protagonist, current state, immediate goal, obstacles, information distribution, relationship changes, and major state changes.
 
----
+**Completion criterion:** later diagnosis is grounded in observable story evidence rather than assumed author intent.
 
-## Step 2：分析注意力来源
+### ◆ Locate the viewing engine（定位观看驱动力）
 
-检查：
+Identify the concrete mechanisms currently creating forward pull, such as unresolved information, risk, status change, relationship change, expectation, or impending consequence.
 
-- 信息缺口
-- 风险升级
-- 情绪期待
-- 状态变化
-- 关系变化
+**Completion criterion:** every claimed attraction mechanism points to a specific moment or structure in the material.
 
-回答：
+### ◆ Diagnose failure points（诊断失效点）
 
-> 观众为什么愿意继续看？
+Identify where the work loses force and state the mechanism-level reason. Separate symptoms from causes.
 
----
+Examples of symptoms include slow feeling, weak conflict, repetitive reversals, or low information density; the diagnosis must explain what structural condition produces the symptom.
 
-## Step 3：分析冲突质量
+### ◆ Delegate narrower analysis（分派窄能力）
 
-识别冲突来源：
+If the diagnosis turns on a high-concept premise, call the Skill tool with `premise-architecture`. If that analysis identifies an advantage premise, that skill may continue into `advantage-architecture`.
 
-- 利益冲突
-- 信息差
-- 能力差
-- 价值冲突
-- 规则冲突
+Use future narrower skills in the same way when they become stable enough to exist independently.
 
-判断是否存在：
+### ◆ Propose minimum repair direction（提出最小修复方向）
 
-- 人物降智
-- 强行误会
-- 巧合推动
-- 反派工具化
+Preserve the intended dramatic effect while changing the mechanism that causes the problem. Prefer the smallest structural intervention that addresses the diagnosed cause.
 
----
+**Completion criterion:** each proposed repair maps back to a diagnosed failure point.
 
-## Step 4：反转分析
+## Output（输出）
 
-区分：
+Return:
 
-低级反转：
-
-新增事实。
-
-高级反转：
-
-新的解释模型重新解释过去信息。
-
----
-
-## Step 5：高级替代分析
-
-如果存在廉价机制：
-
-不要删除效果。
-
-寻找更可信实现。
-
-例如：
-
-身份打脸
-→ 能力、信息、价值判断导致局势改变。
-
----
-
-# 输出格式
-
-## 作品概览
-
-## 核心吸引机制
-
-## 状态变化链
-
-## 冲突结构
-
-## 注意力机制
-
-## 廉价机制检测
-
-## 高级替代方向
-
-## 可迁移创作规律
+- diagnostic target;
+- observable story state;
+- current viewing engine;
+- primary failure points and causes;
+- narrower Skill findings when invoked;
+- minimum repair directions;
+- unresolved questions.
