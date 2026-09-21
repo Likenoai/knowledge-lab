@@ -1,0 +1,98 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #f7f7f7; stroke: #333333; stroke-width: 1.4; rx: 10; ry: 10; }
+    .subbox { fill: #fbfbfb; stroke: #666666; stroke-width: 1.1; rx: 8; ry: 8; }
+    .title { font: 700 20px sans-serif; fill: #111111; }
+    .head { font: 700 16px sans-serif; fill: #111111; }
+    .text { font: 14px sans-serif; fill: #222222; }
+    .small { font: 12px sans-serif; fill: #333333; }
+    .line { stroke: #666666; stroke-width: 1.3; fill: none; }
+    .dashed { stroke: #888888; stroke-width: 1.2; stroke-dasharray: 5 5; fill: none; }
+  </style>
+
+  <rect class="bg" x="0" y="0" width="1600" height="980"/>
+
+  <rect class="box" x="610" y="20" width="380" height="58"/>
+  <text class="title" x="665" y="55">短剧题材研究｜层级地图</text>
+
+  <line class="line" x1="800" y1="78" x2="800" y2="105"/>
+
+  <rect class="box" x="40" y="120" width="270" height="280"/>
+  <text class="head" x="65" y="150">Layer 0（第0层）</text>
+  <text class="text" x="65" y="175">Market Genre Labels（市场题材标签）</text>
+  <text class="text" x="65" y="210">• 重生</text>
+  <text class="text" x="65" y="235">• 系统</text>
+  <text class="text" x="65" y="260">• 穿越</text>
+  <text class="text" x="65" y="285">• 神豪</text>
+  <text class="text" x="65" y="310">• 战神</text>
+  <text class="text" x="65" y="335">• 甜宠 / 霸总</text>
+  <text class="text" x="65" y="360">• 复仇 / 末世</text>
+
+  <rect class="box" x="345" y="120" width="390" height="330"/>
+  <text class="head" x="370" y="150">Layer 1（第1层）</text>
+  <text class="text" x="370" y="175">Premise Architecture（故事前提架构）</text>
+  <text class="text" x="370" y="210">• Advantage Architecture（优势架构）</text>
+  <text class="text" x="370" y="235">• Constraint / Disadvantage Architecture（约束 / 劣势架构）</text>
+  <text class="text" x="370" y="260">• Trade-off Architecture（交换 / 代价架构）</text>
+  <text class="text" x="370" y="285">• Transformation Architecture（状态转换架构）</text>
+  <text class="text" x="370" y="310">• World-Rule Architecture（世界规则架构）</text>
+  <text class="text" x="370" y="335">• Epistemic Architecture（信息 / 认知架构）</text>
+  <text class="text" x="370" y="360">• Problem / Threat Architecture（问题 / 威胁架构）</text>
+  <text class="text" x="370" y="385">• Relationship Architecture（关系架构）</text>
+
+  <rect class="box" x="770" y="120" width="390" height="430"/>
+  <text class="head" x="795" y="150">Layer 2（第2层）</text>
+  <text class="text" x="795" y="175">Advantage Architecture（优势架构）</text>
+  <text class="text" x="795" y="210">• Advantage Source（优势来源）</text>
+  <text class="text" x="795" y="235">• Advantage Legitimation（优势合理化）</text>
+  <text class="text" x="795" y="260">• Advantage Type（优势类型）</text>
+  <text class="small" x="820" y="286">- Information Advantage（信息优势）</text>
+  <text class="small" x="820" y="308">- Experience Advantage（经验优势）</text>
+  <text class="small" x="820" y="330">- Skill Advantage（能力优势）</text>
+  <text class="small" x="820" y="352">- Resource Advantage（资源优势）</text>
+  <text class="small" x="820" y="374">- Status Advantage（地位优势）</text>
+  <text class="small" x="820" y="396">- Power Advantage（权力优势）</text>
+  <text class="text" x="795" y="425">• Relative Asymmetry（相对不对称）</text>
+  <text class="text" x="795" y="450">• Magnitude（优势强度）</text>
+  <text class="text" x="795" y="475">• Scope（优势范围）</text>
+  <text class="text" x="795" y="500">• Cost（代价）</text>
+  <text class="text" x="795" y="525">• Exclusivity（独占性） / Stability（稳定性）</text>
+
+  <rect class="box" x="1195" y="120" width="360" height="300"/>
+  <text class="head" x="1220" y="150">Layer 3（第3层）</text>
+  <text class="text" x="1220" y="175">Audience-side Value（观众侧价值）</text>
+  <text class="small" x="1220" y="200">当前只作为层级占位，暂不展开</text>
+  <text class="text" x="1220" y="235">• Competence（胜任感）</text>
+  <text class="text" x="1220" y="260">• Wishful Identification（愿望性认同）</text>
+  <text class="text" x="1220" y="285">• Payoff Reward（收益奖励）</text>
+  <text class="text" x="1220" y="310">• Counterfactual Satisfaction（反事实满足）</text>
+  <text class="text" x="1220" y="335">• Possible Self（可能自我）</text>
+  <text class="text" x="1220" y="360">• Self-Projection（自我投射）</text>
+
+  <rect class="box" x="1195" y="470" width="360" height="210"/>
+  <text class="head" x="1220" y="500">Layer 4（第4层）</text>
+  <text class="text" x="1220" y="525">Plot / Story Dynamics（剧情 / 故事动力）</text>
+  <text class="small" x="1220" y="550">当前研究主线暂缓</text>
+  <text class="text" x="1220" y="585">• Goal / Action（目标 / 行动）</text>
+  <text class="text" x="1220" y="610">• Plot Causality（剧情因果）</text>
+  <text class="text" x="1220" y="635">• Payoff Structure（收益结构）</text>
+  <text class="text" x="1220" y="660">• Story Progression（故事推进）</text>
+
+  <line class="line" x1="800" y1="105" x2="175" y2="120"/>
+  <line class="line" x1="800" y1="105" x2="540" y2="120"/>
+  <line class="line" x1="800" y1="105" x2="965" y2="120"/>
+  <line class="line" x1="800" y1="105" x2="1375" y2="120"/>
+
+  <line class="line" x1="1375" y1="420" x2="1375" y2="470"/>
+
+  <rect class="subbox" x="345" y="520" width="390" height="160"/>
+  <text class="head" x="370" y="550">当前 Premise（故事前提）研究边界</text>
+  <text class="text" x="370" y="585">研究：前提改变了什么基础条件？</text>
+  <text class="text" x="370" y="610">研究：优势 / 劣势 / 交换 / 状态 / 世界 / 信息 / 问题 / 关系</text>
+  <text class="text" x="370" y="635">暂不研究：这些前提如何进一步形成剧情推进</text>
+
+  <line class="dashed" x1="540" y1="450" x2="540" y2="520"/>
+  <line class="dashed" x1="965" y1="550" x2="965" y2="720"/>
+  <text class="small" x="815" y="745">Advantage Conversion（优势转化）与 Plot Causality（剧情因果）保留到未来剧情专题</text>
+</svg>
