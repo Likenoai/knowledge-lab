@@ -29,6 +29,9 @@ SKILL.md 只保留触发条件、稳定步骤、关键边界和完成条件；�
 ◇ [advantage-architecture](./advantage-architecture/SKILL.md)  
 当故事前提产生相对正向不对称时，分析这个优势相对于谁成立、是什么优势、具有哪些边界。当前变量定义以研究文档为唯一来源。
 
+◇ [evidence-based-review](./evidence-based-review/SKILL.md)  
+对已学知识执行科学复习：先提取，再诊断、纠错、对比、自我解释和迁移；科学依据以 `research/learning-science/01_复习方法的科学证据.md` 为唯一来源。
+
 ### User-invoked（用户调用）
 
 ◇ [short-drama-diagnostic](./short-drama-diagnostic/SKILL.md)  
