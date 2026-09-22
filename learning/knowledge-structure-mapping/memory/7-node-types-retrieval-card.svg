@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="950" viewBox="0 0 1400 950">
+  <defs>
+    <style>
+      .title{font:700 40px 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; fill:#171717}
+      .subtitle{font:400 20px 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; fill:#555}
+      .section{font:700 26px 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; fill:#171717}
+      .small{font:400 18px 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; fill:#444}
+      .blank{font:700 26px 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; fill:#888}
+      .hint{font:400 17px 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; fill:#666}
+    </style>
+  </defs>
+  <rect width="1400" height="950" fill="#f7f7f4"/>
+  <text x="80" y="90" class="title">7 类 Node Type（节点类型）｜Retrieval Card（提取卡）</text>
+  <text x="80" y="125" class="subtitle">先遮住答案，自行回忆；答完再对照完整图。</text>
+
+  <rect x="80" y="180" rx="24" ry="24" width="1240" height="680" fill="#ffffff" stroke="#171717" stroke-width="3"/>
+
+  <text x="150" y="260" class="section">① Object（对象）</text>
+  <text x="150" y="300" class="hint">它是什么东西？</text>
+  <rect x="150" y="340" rx="18" ry="18" width="460" height="90" fill="#D9EFFF" stroke="#1f4e79" stroke-width="2"/>
+  <text x="180" y="396" class="blank">1. ________</text>
+  <rect x="150" y="455" rx="18" ry="18" width="460" height="90" fill="#D9EFFF" stroke="#1f4e79" stroke-width="2"/>
+  <text x="180" y="511" class="blank">2. ________</text>
+
+  <text x="760" y="260" class="section">② Description（描述）</text>
+  <text x="760" y="300" class="hint">我们怎样描述它？</text>
+  <rect x="760" y="340" rx="18" ry="18" width="460" height="90" fill="#FBE3C3" stroke="#9a5b00" stroke-width="2"/>
+  <text x="790" y="396" class="blank">3. ________</text>
+  <rect x="760" y="455" rx="18" ry="18" width="460" height="90" fill="#FBE3C3" stroke="#9a5b00" stroke-width="2"/>
+  <text x="790" y="511" class="blank">4. ________</text>
+
+  <text x="150" y="640" class="section">③ Structure（结构）</text>
+  <text x="150" y="680" class="hint">它怎样在结构里存在 / 运动 / 连接？</text>
+  <rect x="150" y="720" rx="18" ry="18" width="320" height="90" fill="#DBF1D8" stroke="#2d6a32" stroke-width="2"/>
+  <text x="180" y="776" class="blank">5. ________</text>
+  <rect x="500" y="720" rx="18" ry="18" width="320" height="90" fill="#DBF1D8" stroke="#2d6a32" stroke-width="2"/>
+  <text x="530" y="776" class="blank">6. ________</text>
+  <rect x="850" y="720" rx="18" ry="18" width="320" height="90" fill="#DBF1D8" stroke="#2d6a32" stroke-width="2"/>
+  <text x="880" y="776" class="blank">7. ________</text>
+
+  <text x="150" y="890" class="small">提示：按 2–2–3 结构回忆。Object（对象）2 项 → Description（描述）2 项 → Structure（结构）3 项。</text>
+</svg>
