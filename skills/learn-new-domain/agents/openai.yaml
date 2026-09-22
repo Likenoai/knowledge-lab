@@ -1,0 +1,5 @@
+interface:
+  display_name: "Learn New Domain"
+  short_description: "建立并持续维护一个新领域学习工作区"
+policy:
+  allow_implicit_invocation: false
