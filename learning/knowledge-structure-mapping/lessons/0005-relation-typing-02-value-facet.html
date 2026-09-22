@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>第五课｜Relation Typing 02：VALUE_OF 与 FACET_OF</title>
+<style>
+:root{--bg:#f7f7f4;--paper:#fff;--ink:#171717;--muted:#666;--line:#ddd;--blue:#e8f2ff;--orange:#fff0d9;--green:#e8f5e9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
+main{max-width:980px;margin:48px auto;padding:0 24px 84px}
+.hero,.panel,.case{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+.hero{padding:40px}
+h1{font-size:40px;line-height:1.15;margin:.2em 0}
+h2{font-size:27px;margin:40px 0 16px}
+h3{font-size:20px;margin:18px 0 8px}
+.kicker,.small{font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{border-radius:16px;padding:18px;border:1px solid var(--line)}
+.blue{background:var(--blue)} .orange{background:var(--orange)} .green{background:var(--green)}
+.rule{background:#111;color:#fff;border-radius:16px;padding:18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:#f1f1ed}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="kicker">Knowledge Structure Mapping · Relation Typing 02</div>
+<h1>VALUE_OF 与 FACET_OF</h1>
+<p>这一单元只增加两个关系：一个连接“取值 ↔ 维度”，一个连接“维度 ↔ 被描述的整体模型”。</p>
+</section>
+
+<h2>1. VALUE_OF（是某维度的取值）</h2>
+<div class="card blue">
+<p><strong>测试：</strong>A 是不是 B 这个 Dimension（维度）上的一个 Value（取值）？</p>
+<div class="rule">Advantage
+→ VALUE_OF
+→ Relative Effect
+
+High Cost
+→ VALUE_OF
+→ Cost</div>
+</div>
+
+<h2>2. FACET_OF / DIMENSION_OF（是某模型的一个维度 / 分面）</h2>
+<div class="card orange">
+<p><strong>测试：</strong>A 是不是用来描述 B 的一个独立观察轴？</p>
+<div class="rule">Cost
+→ FACET_OF
+→ Advantage Architecture
+
+Relative Effect
+→ FACET_OF
+→ Premise Architecture</div>
+</div>
+
+<h2>3. 最关键的链</h2>
+<div class="panel green">
+<div class="rule">High Cost
+→ VALUE_OF
+→ Cost
+→ FACET_OF
+→ Advantage Architecture</div>
+<p>三层角色分别是：</p>
+<p>Value（取值） → Dimension（维度） → Model / Concept（被描述的整体模型）</p>
+</div>
+
+<h2>4. 为什么不能都画成父子？</h2>
+<table>
+<tr><th>节点 A</th><th>关系</th><th>节点 B</th><th>语义</th></tr>
+<tr><td>High Cost</td><td>VALUE_OF</td><td>Cost</td><td>取值属于某个维度</td></tr>
+<tr><td>Cost</td><td>FACET_OF</td><td>Advantage Architecture</td><td>维度属于一个模型的描述轴</td></tr>
+</table>
+
+<p>如果无标签地画成：</p>
+<div class="rule">Advantage Architecture
+└─ Cost
+   └─ High Cost</div>
+<p>视觉上虽然像层级，但两条边的语义完全不同。</p>
+
+<h2>5. 第一轮练习</h2>
+<div class="case">
+<p>A. Advantage —— ? —— Relative Effect</p>
+</div>
+<div class="case">
+<p>B. Relative Effect —— ? —— Premise Architecture</p>
+</div>
+<div class="case">
+<p>C. High Cost —— ? —— Cost</p>
+</div>
+<div class="case">
+<p>D. Cost —— ? —— Advantage Architecture</p>
+</div>
+<div class="case">
+<p>E. Relationship —— ? —— Locus</p>
+</div>
+
+<h2>6. 本单元只带走一句话</h2>
+<div class="rule">Value → VALUE_OF → Dimension
+Dimension → FACET_OF → Model</div>
+
+<p class="small">依据：research/structure-mapping/02_结构关系词表与判定规则.md</p>
+</main>
+</body>
+</html>
