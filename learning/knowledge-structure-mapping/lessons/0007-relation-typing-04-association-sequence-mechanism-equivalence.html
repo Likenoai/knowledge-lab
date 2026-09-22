@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>第六课｜Relation Typing 04：关联、顺序、机制与等价</title>
+<style>
+:root{--bg:#f7f7f4;--paper:#fff;--ink:#171717;--muted:#666;--line:#ddd;
+--blue:#e9f3ff;--green:#e9f6e7;--orange:#fff1dc;--pink:#fdebf4;--purple:#eee9ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
+main{max-width:1020px;margin:48px auto;padding:0 24px 84px}
+.hero,.panel,.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+.hero{padding:40px}
+h1{font-size:40px;line-height:1.15;margin:.2em 0}
+h2{font-size:27px;margin:40px 0 16px}
+h3{font-size:20px;margin:16px 0 8px}
+.kicker,.small{font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.blue{background:var(--blue)} .green{background:var(--green)} .orange{background:var(--orange)}
+.pink{background:var(--pink)} .purple{background:var(--purple)}
+.rule{background:#111;color:#fff;border-radius:16px;padding:18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:#f1f1ed}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="kicker">Knowledge Structure Mapping · Relation Typing 04</div>
+<h1>关联、顺序、机制与等价</h1>
+<p>这一课继续扩展 Relation Typing。目标不是背名字，而是建立“看到一条边，就先判断它属于哪一类语义”的结构意识。</p>
+</section>
+
+<h2>1. BROADER / NARROWER（更广 / 更窄）</h2>
+<div class="panel blue">
+<p>用于概念广狭关系，尤其当我们只想表达“一个概念比另一个更一般 / 更具体”，但不准备做严格的 subclass（子类）声明时。</p>
+<div class="rule">较窄概念 → NARROWER → 较广概念
+较广概念 → BROADER → 较窄概念</div>
+<p>它比 IS_A 更保守。IS_A 是“定义上是一种”；BROADER / NARROWER 只先承诺概念范围的广狭。</p>
+</div>
+
+<h2>2. ASSOCIATED_WITH（关联）</h2>
+<div class="panel green">
+<p>当两个概念稳定相关，但不存在可靠的上下位、部分整体、取值维度、时间先后或机制关系时，用 ASSOCIATED_WITH。</p>
+<div class="rule">Suspense
+↔ ASSOCIATED_WITH ↔
+Curiosity</div>
+<p>关键点：<strong>“关系强”不等于“有层级”。</strong></p>
+</div>
+
+<h2>3. PRECEDES（先于）</h2>
+<div class="panel orange">
+<p>PRECEDES 只表达 temporal / procedural order（时间 / 流程顺序）。</p>
+<div class="rule">Premise Analysis
+→ PRECEDES
+→ Plot Analysis</div>
+<p>A 在 B 前面，不代表 A 是 B 的父节点、组成部分或原因。</p>
+</div>
+
+<h2>4. CAUSES / ENABLES / CONSTRAINS（导致 / 使能 / 约束）</h2>
+<div class="grid">
+<div class="card pink">
+<h3>CAUSES（导致）</h3>
+<p>A 的变化会产生 B，强调因果生成。</p>
+<div class="rule">A → CAUSES → B</div>
+</div>
+<div class="card purple">
+<h3>ENABLES（使能）</h3>
+<p>A 让 B 成为可能，但 A 本身未必足以保证 B 发生。</p>
+<div class="rule">Information Asymmetry
+→ ENABLES
+→ Dramatic Irony</div>
+</div>
+<div class="card blue">
+<h3>CONSTRAINS（约束）</h3>
+<p>A 限制 B 的可选范围、行为方式或状态空间。</p>
+<div class="rule">Budget
+→ CONSTRAINS
+→ Production Choices</div>
+</div>
+</div>
+
+<h2>5. EQUIVALENT_TO / SAME_AS（等价 / 同一）</h2>
+<div class="panel">
+<p>这是非常强的关系，只有在两个节点真正等价或指向同一对象时才使用。</p>
+<p>以下情况都不足以推出 EQUIVALENT_TO：</p>
+<ul>
+<li>高度相似</li>
+<li>当前外延恰好相同</li>
+<li>经常一起出现</li>
+<li>在某个案例里暂时可互换</li>
+</ul>
+<div class="rule">Similarity ≠ Equivalence
+Association ≠ Equivalence
+Same current extension ≠ Same concept</div>
+</div>
+
+<h2>6. 把关系按“语义家族”整理</h2>
+<table>
+<tr><th>Relation Family（关系家族）</th><th>核心关系</th><th>回答的问题</th></tr>
+<tr><td>Instantiation（实例化）</td><td>INSTANCE_OF</td><td>这个具体对象属于哪一类？</td></tr>
+<tr><td>Taxonomic / Hierarchical（分类 / 层级）</td><td>IS_A, BROADER / NARROWER</td><td>哪一个概念更一般 / 更具体？</td></tr>
+<tr><td>Mereological（部分—整体）</td><td>PART_OF</td><td>谁是谁的组成部分？</td></tr>
+<tr><td>Faceted（分面）</td><td>VALUE_OF, FACET_OF</td><td>哪个是取值、哪个是维度、维度描述哪个模型？</td></tr>
+<tr><td>Associative（关联）</td><td>ASSOCIATED_WITH</td><td>两个概念是否相关，但不构成其他更强关系？</td></tr>
+<tr><td>Temporal / Procedural（时间 / 流程）</td><td>PRECEDES</td><td>谁先发生？</td></tr>
+<tr><td>Mechanistic（机制）</td><td>CAUSES, ENABLES, CONSTRAINS</td><td>A 如何影响 B？</td></tr>
+<tr><td>Equivalence（等价）</td><td>EQUIVALENT_TO / SAME_AS</td><td>两个节点是否真正等价 / 同一？</td></tr>
+</table>
+
+<h2>7. Structure Mapping 的关键升级</h2>
+<div class="panel">
+<p>以前的问题是：</p>
+<div class="rule">看到三个相关概念
+→ 先想谁是父节点、谁是子节点</div>
+<p>现在应该变成：</p>
+<div class="rule">看到两个节点
+→ 先判断 Node Type
+→ 再判断 Relation Type
+→ 最后才决定结构表示</div>
+</div>
+
+<h2>8. 下一阶段：由关系决定结构表示</h2>
+<div class="panel">
+<div class="rule">主要是单一层级关系
+→ Tree / DAG
+
+多个独立描述轴
+→ Faceted Model
+
+is-a + part-of + causal + temporal + association 混合
+→ Labeled Graph</div>
+<p>这将是 Relation Typing 之后的下一主节点。</p>
+</div>
+
+<p class="small">依据：research/structure-mapping/01_知识结构梳理的形式基础.md 与 02_结构关系词表与判定规则.md。</p>
+</main>
+</body>
+</html>
