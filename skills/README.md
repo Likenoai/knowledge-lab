@@ -32,6 +32,9 @@ SKILL.md 只保留触发条件、稳定步骤、关键边界和完成条件；�
 ◇ [evidence-based-review](./evidence-based-review/SKILL.md)  
 对已学知识执行科学复习：先提取，再诊断、纠错、对比、自我解释和迁移；科学依据以 `research/learning-science/01_复习方法的科学证据.md` 为唯一来源。
 
+◇ [structured-memory](./structured-memory/SKILL.md)  
+把已经基本理解的小型知识集整理成可提取的记忆结构：语义组块、稳定视觉提示、答案版 / 提取版，以及必要时的 HTML + SVG 记忆资产；长期间隔复习交给 `evidence-based-review`。
+
 ### User-invoked（用户调用）
 
 ◇ [learn-new-domain](./learn-new-domain/SKILL.md)  
