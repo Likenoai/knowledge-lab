@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>第三课｜Node Typing（节点定型）</title>
+<style>
+:root{--bg:#f7f7f4;--paper:#fff;--ink:#171717;--muted:#666;--line:#deded8;--soft:#f0f0eb;--warn:#fff6d8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
+main{max-width:980px;margin:48px auto;padding:0 24px 80px}
+.hero{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:40px;box-shadow:0 10px 28px rgba(0,0,0,.04)}
+.kicker{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:42px;line-height:1.15;margin:.35em 0 .25em}
+h2{font-size:26px;margin:46px 0 16px}
+p{margin:10px 0}
+.lead{font-size:20px;color:#333;max-width:790px}
+.diagram{background:#111;color:#f7f7f4;border-radius:18px;padding:22px;overflow:auto;font:15px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre}
+.rule{border-left:4px solid #111;padding:14px 18px;background:var(--paper);border-radius:0 12px 12px 0;margin:20px 0}
+.warn{background:var(--warn);border:1px solid #eadb98;border-radius:14px;padding:16px 18px}
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line)}
+th,td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--soft)}
+.quiz{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
+.small{font-size:14px;color:var(--muted)}
+code{background:var(--soft);padding:.12em .35em;border-radius:6px}
+.footer{margin-top:48px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="kicker">Knowledge Structure Mapping · Lesson 0003</div>
+<h1>Node Typing（节点定型）</h1>
+<p class="lead">这一课只训练一个问题：<strong>节点已经找出来之后，它到底是什么类型的东西？</strong></p>
+</section>
+
+<h2>1. 为什么 Node Extraction 之后还要 Typing？</h2>
+<p>因为两个词都能成为节点，并不意味着它们可以直接并列。</p>
+<div class="diagram">Relative Effect
+Advantage</div>
+<p>两者都可以是节点，但前者更像 Dimension / Facet（维度 / 分面），后者更像 Value（取值）。如果忽略节点类型，就很容易制造“伪同级”。</p>
+
+<div class="rule">
+<strong>Node Typing 的作用：</strong><br/>
+先判断“这个节点是什么类型”，再判断它和其他节点能否形成同级、上下位、取值或组成关系。
+</div>
+
+<h2>2. 当前项目使用的 7 类 Node Type</h2>
+<table>
+<thead><tr><th>Node Type</th><th>判断问题</th><th>示例</th></tr></thead>
+<tbody>
+<tr><td>Instance（实例）</td><td>这是一个具体对象 / 个案吗？</td><td>某一部具体短剧、某一个角色</td></tr>
+<tr><td>Class / Concept（类 / 概念）</td><td>这是一个一般概念或一类对象吗？</td><td>重生题材、优势</td></tr>
+<tr><td>Dimension / Facet（维度 / 分面）</td><td>这是描述对象的一条观察轴吗？</td><td>Relative Effect、Cost</td></tr>
+<tr><td>Value（取值）</td><td>这是某个 Dimension 上的一个具体状态 / 类别吗？</td><td>Advantage、Disadvantage</td></tr>
+<tr><td>Component（组成部分）</td><td>这是某个整体内部的组成单元吗？</td><td>工作流中的一个模块</td></tr>
+<tr><td>Process / Stage（过程 / 阶段）</td><td>这是一个过程或过程中的阶段吗？</td><td>Research、Synthesis</td></tr>
+<tr><td>Relation（关系）</td><td>它主要是在连接两个节点吗？</td><td>CAUSES、PART_OF、PRECEDES</td></tr>
+</tbody>
+</table>
+
+<h2>3. 一个重要修正：角色、机制不是必须新增的 Node Type</h2>
+<p>我们之前说过“Entity / Actor（实体 / 行动者）”“Mechanism（机制）”。这些词可以描述节点的<strong>语义角色</strong>，但当前正式 Node Type 体系里没有单独把它们列成顶层类型。</p>
+<div class="diagram">“主角”
+→ 通常先定为 Instance（具体角色实例）
+
+“重生”
+→ 可能是 Class / Concept
+→ 也可能在某个事件模型中被建成 Process / Stage
+→ 具体取决于建模目的
+
+“机制”
+→ 更像节点在当前解释中的功能角色
+→ 不一定需要新增成第 8 类 Node Type</div>
+
+<h2>4. 最容易混淆的一组：Dimension vs Value</h2>
+<p>这是我们当前最重要的训练点。</p>
+<div class="diagram">Relative Effect（相对效应）
+    ├─ Advantage（优势）
+    ├─ Disadvantage（劣势）
+    └─ Trade-off（交换 / 代价）</div>
+<p>这里：</p>
+<div class="diagram">Relative Effect = Dimension
+Advantage / Disadvantage / Trade-off = Value</div>
+
+<p>判断口诀：</p>
+<div class="rule">
+<strong>Dimension 回答：</strong>“我们在比较 / 描述什么轴？”<br/>
+<strong>Value 回答：</strong>“这个轴上当前是什么状态 / 类别？”
+</div>
+
+<h2>5. 同一个词，类型可能因任务改变</h2>
+<p>例如“重生”：</p>
+<div class="diagram">研究题材分类：
+重生 = Class / Concept
+
+研究一部具体剧情：
+“主角在第 1 集发生重生”
+重生 = Process / Event-like node（可按过程 / 阶段建模）
+
+研究某个具体作品：
+《某重生短剧》 = Instance</div>
+
+<div class="warn">
+Node Typing 不是给词永久贴标签，而是在<strong>当前模型</strong>里判断它承担什么类型。
+</div>
+
+<h2>6. 第三课的最小判断流程</h2>
+<div class="diagram">找到候选节点
+↓
+这是具体个体还是一般概念？
+↓
+它是观察轴，还是这个轴上的取值？
+↓
+它是整体中的组成部分，还是过程中的阶段？
+↓
+它其实是不是一条 Relation？</div>
+
+<h2>7. 练习</h2>
+<p>请对下面 6 个节点定型。只需要写“节点 → 类型 + 一句理由”。</p>
+
+<div class="quiz"><strong>① 主角“林凡”</strong><br/><span class="small">这是一个具体角色，还是一般角色类别？</span></div>
+<div class="quiz"><strong>② 重生题材</strong><br/><span class="small">它是某一部作品，还是一种一般概念 / 类？</span></div>
+<div class="quiz"><strong>③ Relative Effect（相对效应）</strong><br/><span class="small">它是一种具体状态，还是一条观察轴？</span></div>
+<div class="quiz"><strong>④ Advantage（优势）</strong><br/><span class="small">它是观察轴，还是轴上的一个取值？</span></div>
+<div class="quiz"><strong>⑤ Research → Synthesis 中的 Research</strong><br/><span class="small">它更像概念，还是流程阶段？</span></div>
+<div class="quiz"><strong>⑥ CAUSES（导致）</strong><br/><span class="small">它是节点内容，还是连接两个节点的关系？</span></div>
+
+<h2>8. 本课只带走一句话</h2>
+<div class="rule">
+<strong>Same nodehood does not imply same type.</strong><br/>
+“都能成为节点”不等于“它们是同一种节点”，更不等于“它们可以并列”。
+</div>
+
+<div class="footer">依据项目参考：research/structure-mapping/01_知识结构梳理的形式基础.md 与 02_结构关系词表与判定规则.md。</div>
+</main>
+</body>
+</html>
