@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>第四课｜Relation Typing（关系定型）01</title>
+<style>
+:root{--bg:#f7f7f4;--paper:#fff;--ink:#171717;--muted:#666;--line:#ddd;--blue:#e8f2ff;--green:#e9f6e7;--orange:#fff1dc;--red:#fdeaea}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
+main{max-width:980px;margin:48px auto;padding:0 24px 84px}
+.hero,.panel,.case{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+.hero{padding:40px}
+h1{font-size:40px;line-height:1.15;margin:.2em 0}
+h2{font-size:27px;margin:40px 0 16px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:10px 0}
+.kicker{font-size:14px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.lead{font-size:20px;color:#333}
+.rule{background:#111;color:#fff;border-radius:16px;padding:18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.card{border-radius:16px;padding:18px;border:1px solid var(--line)}
+.blue{background:var(--blue)} .green{background:var(--green)} .orange{background:var(--orange)} .red{background:var(--red)}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:#f1f1ed}
+.small{font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="kicker">Knowledge Structure Mapping · Lesson 0004</div>
+<h1>Relation Typing（关系定型）｜第一单元</h1>
+<p class="lead">这一单元只解决一个问题：<strong>两个节点之间的箭头，到底表示什么关系？</strong></p>
+</section>
+
+<h2>1. Relation Typing 是什么？</h2>
+<div class="rule">Node Typing：
+“这个节点是什么？”
+
+Relation Typing：
+“节点 A 与节点 B 之间，是什么语义关系？”</div>
+
+<p>不能因为两个节点“有关”，就画一条没有标签的父子线。先判断 relation type（关系类型），再决定它们是否构成 hierarchy（层级）。</p>
+
+<h2>2. 第一组只学 3 种关系</h2>
+<div class="grid">
+  <div class="card blue">
+    <h3>INSTANCE_OF（实例属于类）</h3>
+    <p><strong>测试：</strong>A 是 B 的一个具体实例吗？</p>
+    <p>形式直觉：<code>x ∈ A</code></p>
+    <p>例：某一部具体作品 INSTANCE_OF 重生短剧。</p>
+  </div>
+  <div class="card green">
+    <h3>IS_A / SUBCLASS_OF（是一种 / 子类）</h3>
+    <p><strong>测试：</strong>任何 A，在定义上都应该是 B 吗？</p>
+    <p>形式直觉：<code>A ⊆ B</code></p>
+    <p>例：Information Advantage IS_A Advantage。</p>
+  </div>
+  <div class="card orange">
+    <h3>PART_OF（部分—整体）</h3>
+    <p><strong>测试：</strong>A 是构成 B 的一部分，而不是一种 B 吗？</p>
+    <p>例：资产抽取模块 PART_OF 影视生产工作流。</p>
+  </div>
+</div>
+
+<h2>3. 最容易混淆：INSTANCE_OF vs IS_A</h2>
+<table>
+<tr><th></th><th>INSTANCE_OF</th><th>IS_A</th></tr>
+<tr><td>左边节点</td><td>具体实例</td><td>类 / 概念</td></tr>
+<tr><td>右边节点</td><td>类 / 概念</td><td>更一般的类 / 概念</td></tr>
+<tr><td>典型问法</td><td>“它是这一类中的一个具体对象吗？”</td><td>“这一类本身是不是另一类的子类？”</td></tr>
+</table>
+
+<div class="panel">
+<p><strong>对比：</strong></p>
+<div class="rule">林凡 INSTANCE_OF 主角
+主角 IS_A 角色</div>
+<p>“林凡”是具体人物；“主角”与“角色”都是类别层面的概念。</p>
+</div>
+
+<h2>4. IS_A vs PART_OF</h2>
+<div class="panel red">
+<p>这两个最容易因为都能画成“上下结构”而混淆。</p>
+<div class="rule">金毛犬 IS_A 狗
+车轮 PART_OF 汽车</div>
+<p>金毛犬本身就是一种狗；车轮不是一种汽车，它只是汽车的一部分。</p>
+</div>
+
+<h2>5. Direction（方向）也属于关系的一部分</h2>
+<div class="rule">具体实例 → INSTANCE_OF → 类
+子类 → IS_A → 上位类
+部分 → PART_OF → 整体</div>
+<p>把箭头反过来，语义就变了。</p>
+
+<h2>6. 第一轮练习</h2>
+<div class="case">
+<h3>A</h3>
+<p>《逆流人生》是一部具体的重生短剧。</p>
+<p>《逆流人生》 —— ? —— 重生短剧</p>
+</div>
+
+<div class="case">
+<h3>B</h3>
+<p>信息优势是一种优势。</p>
+<p>信息优势 —— ? —— 优势</p>
+</div>
+
+<div class="case">
+<h3>C</h3>
+<p>角色资产抽取模块是影视生产工作流的一部分。</p>
+<p>角色资产抽取模块 —— ? —— 影视生产工作流</p>
+</div>
+
+<div class="case">
+<h3>D｜边界题</h3>
+<p>林凡是这部剧的主角；主角是一种角色。</p>
+<p>林凡 —— ? —— 主角</p>
+<p>主角 —— ? —— 角色</p>
+</div>
+
+<h2>7. 本单元只带走一句话</h2>
+<div class="rule">不要先画父子关系。
+
+先问：
+“这是 INSTANCE_OF、IS_A，还是 PART_OF？”</div>
+
+<p class="small">依据：项目研究文件 research/structure-mapping/01_知识结构梳理的形式基础.md 与 02_结构关系词表与判定规则.md。</p>
+</main>
+</body>
+</html>
