@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>第六课｜Relation Typing 03：BROADER / NARROWER</title>
+<style>
+:root{--bg:#f7f7f4;--paper:#fff;--ink:#171717;--muted:#666;--line:#ddd;--blue:#eaf2ff;--orange:#fff1dc;--green:#e8f5e9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
+main{max-width:960px;margin:48px auto;padding:0 24px 84px}
+.hero,.panel,.case{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+.hero{padding:40px}
+h1{font-size:40px;line-height:1.15;margin:.2em 0}
+h2{font-size:27px;margin:40px 0 16px}
+.rule{background:#111;color:#fff;border-radius:16px;padding:18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.blue{background:var(--blue)} .orange{background:var(--orange)} .green{background:var(--green)}
+.small{font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="small">Knowledge Structure Mapping · Relation Typing 03</div>
+<h1>BROADER / NARROWER（更广 / 更窄）</h1>
+<p>当两个概念明显存在语义上的广狭关系，但还不准备做严格的 IS_A / SUBCLASS_OF 声明时，可以使用 BROADER / NARROWER。</p>
+</section>
+
+<h2>1. 为什么还需要 BROADER / NARROWER？</h2>
+<div class="panel blue">
+<p><strong>IS_A</strong> 是较强的本体声明：</p>
+<div class="rule">A IS_A B
+≈ “任何 A，在定义上都应该属于 B。”</div>
+<p>如果我们只确定“B 比 A 更广”，但还没有足够依据证明严格 subclass，则可先用更保守的 BROADER / NARROWER。</p>
+</div>
+
+<h2>2. 方向</h2>
+<div class="rule">较窄概念 → NARROWER_THAN → 较广概念
+较广概念 → BROADER_THAN → 较窄概念</div>
+
+<div class="panel orange">
+<p>在项目词表里，我们主要用 <strong>BROADER / NARROWER</strong> 表示概念广狭；实际画图时必须保持方向一致，不要只写一个无方向的“broader”。</p>
+</div>
+
+<h2>3. 与 IS_A 的差别</h2>
+<div class="panel green">
+<div class="rule">IS_A：
+严格子类关系
+
+BROADER / NARROWER：
+概念层面的广狭关系，
+但不一定承诺严格 subclass</div>
+</div>
+
+<h2>4. 第一轮练习</h2>
+<div class="case">
+<p>A. “奇幻题材”比“修仙题材”更广。若暂时不做严格 subclass 声明：</p>
+<p>修仙题材 → ? → 奇幻题材</p>
+</div>
+<div class="case">
+<p>B. “生成式 AI”比“图像生成模型”更广。若这里只表达概念广狭：</p>
+<p>生成式 AI → ? → 图像生成模型</p>
+</div>
+<div class="case">
+<p>C. 已经有充分定义依据：金毛犬是一种狗。</p>
+<p>金毛犬 → ? → 狗</p>
+</div>
+<div class="case">
+<p>D. “短剧”与“悬念”高度相关，但不存在广狭关系。</p>
+<p>这里是否应该用 BROADER / NARROWER？</p>
+</div>
+
+<h2>5. 本单元只带走一句话</h2>
+<div class="rule">能严格证明“是一种” → IS_A
+只确认“更广 / 更窄” → BROADER / NARROWER</div>
+
+<p class="small">依据：research/structure-mapping/02_结构关系词表与判定规则.md；W3C SKOS 区分 hierarchical broader/narrower 与 associative related。</p>
+</main>
+</body>
+</html>
