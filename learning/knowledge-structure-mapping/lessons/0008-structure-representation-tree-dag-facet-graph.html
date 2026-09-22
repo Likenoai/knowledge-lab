@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>第七课｜Structure Representation：Tree / DAG / Faceted Model / Labeled Graph</title>
+<style>
+:root{--bg:#f7f7f4;--paper:#fff;--ink:#171717;--muted:#666;--line:#ddd;
+--blue:#e9f3ff;--green:#e9f6e7;--orange:#fff1dc;--purple:#eee9ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
+main{max-width:1040px;margin:48px auto;padding:0 24px 84px}
+.hero,.panel,.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+.hero{padding:40px}
+h1{font-size:40px;line-height:1.15;margin:.2em 0}
+h2{font-size:27px;margin:40px 0 16px}
+h3{font-size:20px;margin:16px 0 8px}
+.kicker,.small{font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.blue{background:var(--blue)} .green{background:var(--green)} .orange{background:var(--orange)} .purple{background:var(--purple)}
+.rule{background:#111;color:#fff;border-radius:16px;padding:18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:#f1f1ed}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="kicker">Knowledge Structure Mapping · Structure Representation</div>
+<h1>Tree / DAG / Faceted Model / Labeled Graph</h1>
+<p>Node Type 和 Relation Type 解决“节点是什么、边是什么”；Structure Representation（结构表示）解决第三个问题：<strong>整组知识应该用什么形状来表示？</strong></p>
+</section>
+
+<h2>1. 不要先选图形</h2>
+<div class="panel">
+<div class="rule">错误顺序：
+“我想画一棵树”
+→ 强行寻找父子关系
+
+正确顺序：
+Node Type
+→ Relation Type
+→ 观察整体关系模式
+→ 再选 Representation</div>
+<p>图形不是知识结构本身；图形只是对已识别关系的表示。</p>
+</div>
+
+<h2>2. Tree（树）</h2>
+<div class="card blue">
+<p>适合主要由<strong>同一种层级关系</strong>组织，并且每个非根节点只有一个直接父节点的情况。</p>
+<div class="rule">动物
+├─ 哺乳动物
+│  ├─ 狗
+│  └─ 猫
+└─ 鸟类</div>
+<p>Tree 的优势是清晰、导航成本低；代价是表达能力弱，容易把“多父节点”或“多种关系”压扁。</p>
+</div>
+
+<h2>3. DAG（Directed Acyclic Graph，有向无环图）</h2>
+<div class="card green">
+<p>当关系仍然主要是同一种 hierarchy relation（层级关系），但一个节点允许有多个直接上位节点时，Tree 不够了。</p>
+<div class="rule">A ─┐
+   ├→ C
+B ─┘
+
+C 同时受 A、B 两个上位节点约束 / 归属</div>
+<p>DAG 允许 multiple inheritance（多重上位），但仍然要求没有有向环。</p>
+<p>Tree 可以看作 DAG 的一个更严格特例。</p>
+</div>
+
+<h2>4. Faceted Model（分面模型）</h2>
+<div class="card orange">
+<p>当一个对象需要从多个<strong>彼此独立的描述轴</strong>来描述时，不应该把这些轴的取值混成一棵树。</p>
+<div class="rule">Premise Architecture
+
+Locus（改变落点）
+├─ Character
+├─ Relationship
+└─ World / Rule
+
+Operation（变化方式）
+├─ Add
+├─ Remove
+└─ Transform
+
+Relative Effect（相对效应）
+├─ Advantage
+├─ Disadvantage
+└─ Trade-off</div>
+<p>这里 Character、Transform、Advantage 不是 siblings（同级兄弟）；它们来自不同 facet（分面）。</p>
+</div>
+
+<h2>5. Labeled Graph（带标签关系图）</h2>
+<div class="card purple">
+<p>当同一组知识里同时存在多种关系类型，例如 IS_A、PART_OF、PRECEDES、CAUSES、ASSOCIATED_WITH，就应显式给边加标签。</p>
+<div class="rule">重生
+→ ENABLES → 信息优势
+
+信息优势
+→ ASSOCIATED_WITH → 戏剧性反讽
+
+Premise Analysis
+→ PRECEDES → Plot Analysis
+
+角色资产抽取
+→ PART_OF → 影视生产工作流</div>
+<p>此时强行画成一棵树，会丢失真正的语义。</p>
+</div>
+
+<h2>6. 四种结构的选择逻辑</h2>
+<table>
+<tr><th>情况</th><th>优先表示</th><th>关键条件</th></tr>
+<tr><td>单一层级 + 单父节点</td><td>Tree</td><td>每个节点只有一个直接父节点</td></tr>
+<tr><td>单一层级 + 多父节点</td><td>DAG</td><td>允许 multiple inheritance；无环</td></tr>
+<tr><td>多个独立描述轴</td><td>Faceted Model</td><td>每个 facet 回答不同分类 / 描述问题</td></tr>
+<tr><td>多种关系混合</td><td>Labeled Graph</td><td>边需要显式 Relation Type</td></tr>
+</table>
+
+<h2>7. 一个更准确的理解：这些不是互斥“世界”</h2>
+<div class="panel">
+<p>真实知识系统常常是组合结构：</p>
+<div class="rule">一个 Labeled Graph
+内部包含：
+- 某个 IS_A 子图：DAG
+- 某个流程子图：PRECEDES chain
+- 某个对象描述区：Faceted Model
+- 某个局部导航视图：Tree</div>
+<p>所以“选 Tree 还是 Graph”并不是一次性全局二选一，而是选择当前任务最合适的表示层。</p>
+</div>
+
+<h2>8. Representation 与 Ontology 的区别</h2>
+<div class="panel">
+<p><strong>Ontology / Model（本体 / 模型）</strong>决定节点和关系的语义。</p>
+<p><strong>Representation（表示）</strong>决定这些语义如何被呈现给人或系统。</p>
+<div class="rule">Semantics first.
+Representation second.
+
+先决定“是什么关系”
+再决定“画成什么样”</div>
+</div>
+
+<h2>9. 当前项目中的直接例子</h2>
+<div class="panel">
+<p><strong>错误：</strong></p>
+<div class="rule">Premise Architecture
+├─ Advantage
+├─ Transformation
+├─ Relationship
+└─ World-Rule</div>
+
+<p><strong>问题：</strong>这些节点来自不同 facet，伪装成同级。</p>
+
+<p><strong>修正：</strong></p>
+<div class="rule">Premise Architecture
+├─ Locus
+│  ├─ Character
+│  ├─ Relationship
+│  └─ World / Rule
+├─ Operation
+│  ├─ Add
+│  ├─ Remove
+│  └─ Transform
+└─ Relative Effect
+   ├─ Advantage
+   ├─ Disadvantage
+   └─ Trade-off</div>
+<p>这里本质上是 Faceted Model；如果再加入因果、流程、关联关系，就进一步升级成 Labeled Graph。</p>
+</div>
+
+<h2>10. 最小决策框架</h2>
+<div class="rule">① 关系是不是主要只有一种层级关系？
+   是 → 继续看是否多父节点
+      单父 → Tree
+      多父 → DAG
+
+② 是否存在多个独立描述轴？
+   是 → Faceted Model
+
+③ 是否混合多种 Relation Type？
+   是 → Labeled Graph</div>
+
+<h2>11. 下一节点</h2>
+<div class="panel">
+<p>Structure Representation 之后，下一步将进入：</p>
+<div class="rule">Sibling Check（同级检查）
++ Single-axis Check（单轴检查）
++ Partition Claim Check（划分声明检查）</div>
+<p>也就是：当你准备把 A / B / C 放在同一层时，怎样判断它们真的有资格并列。</p>
+</div>
+
+<p class="small">依据：research/structure-mapping/01_知识结构梳理的形式基础.md 与 02_结构关系词表与判定规则.md。</p>
+</main>
+</body>
+</html>
