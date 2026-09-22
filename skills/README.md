@@ -32,10 +32,10 @@ SKILL.md 只保留触发条件、稳定步骤、关键边界和完成条件；�
 ◇ [evidence-based-review](./evidence-based-review/SKILL.md)  
 对已学知识执行科学复习：先提取，再诊断、纠错、对比、自我解释和迁移；科学依据以 `research/learning-science/01_复习方法的科学证据.md` 为唯一来源。
 
+### User-invoked（用户调用）
+
 ◇ [learn-new-domain](./learn-new-domain/SKILL.md)  
 系统学习一个新领域的长期编排 Skill。源自 Matt Pocock 的 `teach`，负责 Mission、Resources、Glossary、Learning Records、逐课反馈闭环与学习状态维护；复习阶段委托给 `evidence-based-review`。
-
-### User-invoked（用户调用）
 
 ◇ [short-drama-diagnostic](./short-drama-diagnostic/SKILL.md)  
 启动一次完整的短剧综合诊断。它是 orchestration skill（编排 Skill），负责组织诊断过程；不是注意力、冲突、人物等知识本身的仓库。
@@ -51,6 +51,12 @@ genre-mechanism-research
                     │
                     └─ 命中 Advantage Architecture（优势架构）
                        → advantage-architecture
+
+learn-new-domain
+用户主动启动长期学习
+        │
+        ├─ 新知识不足 → 研究 / 高可信资源
+        └─ 需要巩固 → evidence-based-review
 
 short-drama-diagnostic
 用户主动启动综合诊断
