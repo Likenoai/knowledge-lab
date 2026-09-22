@@ -1,0 +1,3 @@
+interface:
+  display_name: "Structured Memory"
+  short_description: "把已理解的小型知识集整理为可提取的记忆结构"
