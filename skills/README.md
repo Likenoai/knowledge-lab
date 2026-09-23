@@ -16,6 +16,24 @@ SKILL.md 只保留触发条件、稳定步骤、关键边界和完成条件；�
 ◆ **Invocation follows agency（调用方式服从任务性质）**  
 模型应自主发现的基础能力使用 Model-invoked（模型可调用）；只有用户明确启动才合理的完整任务编排使用 User-invoked（用户调用）。
 
+## 项目运行约定
+
+◆ **Skill Library Root（Skill 库根路径）**  
+GitHub：`skills/`
+
+◆ **Task-time Skill Discovery（任务时 Skill 发现）**  
+进行非平凡的研究、结构梳理、诊断、学习编排等任务前，先浏览 `skills/` 目录或本 README，识别与当前任务匹配的 Skill；命中后先读取对应 `SKILL.md`，再按 Context Pointer 加载必要 Reference。
+
+◆ **Use, don't merely remember（命中即使用）**  
+相关 Skill 存在时，不只把它作为背景知识；应按 Skill 的 Process 与 Completion Criteria 执行。典型映射：
+- 题材机制研究 → `genre-mechanism-research`
+- 层级 / 节点 / 关系审查 → `knowledge-structure-mapping`
+- 前提结构 → `premise-architecture`
+- 优势结构 → `advantage-architecture`
+
+◆ **Progressive Disclosure（按需加载）**  
+“浏览目录”用于发现 Skill，不等于每次加载全部 Skill 正文。只读取当前任务真正命中的 Skill 与必要 Reference，避免上下文污染。
+
 ## 自研 Skill
 
 ### Model-invoked（模型可调用）
