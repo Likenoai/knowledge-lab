@@ -1,0 +1,3 @@
+interface:
+  display_name: "Knowledge Structure Mapping"
+  short_description: "精确判断节点、关系、同级资格与 Tree / DAG / Facet / Graph 结构"
