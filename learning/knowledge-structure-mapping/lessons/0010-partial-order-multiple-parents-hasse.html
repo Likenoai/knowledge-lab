@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>第九课｜Partial Order：层级的数学骨架</title>
+<style>
+:root{--bg:#f7f7f4;--paper:#fff;--ink:#171717;--muted:#666;--line:#ddd;--blue:#e9f3ff;--green:#e9f6e7;--orange:#fff1dc;--red:#fdeaea;--purple:#eee9ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
+main{max-width:1040px;margin:48px auto;padding:0 24px 84px}
+.hero,.panel,.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+.hero{padding:40px}
+h1{font-size:40px;line-height:1.15;margin:.2em 0}
+h2{font-size:27px;margin:40px 0 16px}
+h3{font-size:20px;margin:16px 0 8px}
+.kicker,.small{font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.blue{background:var(--blue)} .green{background:var(--green)} .orange{background:var(--orange)} .red{background:var(--red)} .purple{background:var(--purple)}
+.rule{background:#111;color:#fff;border-radius:16px;padding:18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:#f1f1ed}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="kicker">Knowledge Structure Mapping · Partial Order</div>
+<h1>Partial Order（偏序）：层级的数学骨架</h1>
+<p>这一课解释：为什么 hierarchy（层级）不等于一条线、不等于一棵树，也不要求所有节点都能互相比较。</p>
+</section>
+
+<h2>1. 先限定：偏序只讨论“同一种关系”</h2>
+<div class="panel red">
+<p>不能把 IS_A、PART_OF、CAUSES 混在一起后问它们是否构成一个偏序。</p>
+<div class="rule">先固定 Relation Type
+↓
+再检查这一个 relation 是否形成 order</div>
+<p>在知识层级中，最典型的是对同一种 subsumption / broader-than relation 做偏序分析。</p>
+</div>
+
+<h2>2. Partial Order 的三个性质</h2>
+<div class="grid">
+<div class="card blue">
+<h3>Reflexive（自反）</h3>
+<p>每个元素都与自身满足该关系。</p>
+<div class="rule">A ≤ A</div>
+<p>在可视化中通常不会画这条自环。</p>
+</div>
+
+<div class="card green">
+<h3>Antisymmetric（反对称）</h3>
+<p>如果 A ≤ B 且 B ≤ A，那么 A 与 B 应视为同一位置 / 同一元素。</p>
+<div class="rule">A ≤ B
+B ≤ A
+⇒ A = B</div>
+<p>如果两个不同概念互相都是对方的上位，通常说明存在建模冲突或实际上应处理为等价。</p>
+</div>
+
+<div class="card orange">
+<h3>Transitive（传递）</h3>
+<p>如果 A ≤ B 且 B ≤ C，那么 A ≤ C。</p>
+<div class="rule">A ≤ B
+B ≤ C
+⇒ A ≤ C</div>
+<p>层级中常依赖传递性推导祖先关系。</p>
+</div>
+</div>
+
+<h2>3. Incomparability（不可比较）</h2>
+<div class="panel">
+<p>偏序与 total order（全序）的关键区别：并不是任意两个节点都必须能排出上下。</p>
+<div class="rule">狗 IS_A 动物
+猫 IS_A 动物
+
+但：
+狗 不是 IS_A 猫
+猫 也不是 IS_A 狗</div>
+<p>狗和猫在这个 IS_A order 中可以是 incomparable（不可比较）的。</p>
+</div>
+
+<h2>4. “不可比较”不等于“来自不同轴”</h2>
+<div class="panel purple">
+<p>这两个概念要严格区分：</p>
+<div class="rule">狗 vs 猫
+→ 同一个 IS_A hierarchy 中不可比较
+
+Advantage vs Relationship
+→ 本来就属于不同 facet
+→ 不是“同一个偏序里的两个不可比较节点”那么简单</div>
+<p>前者共享同一种 relation system；后者首先要拆分 relation / facet。</p>
+</div>
+
+<h2>5. Multiple Parents（多父节点）</h2>
+<div class="panel">
+<p>一个节点可以同时拥有多个直接上位节点，只要它们使用的是同一种 hierarchy relation。</p>
+<div class="rule">A ─┐
+   ├→ C
+B ─┘</div>
+<p>这种结构不再是 Tree，但仍可以是 DAG / finite poset representation。</p>
+</div>
+
+<h2>6. Multiple Parents 与 Facet 不能混淆</h2>
+<div class="panel red">
+<div class="rule">同一种 relation：
+C IS_A A
+C IS_A B
+→ Multiple Parents
+→ DAG
+
+不同 facet：
+Advantage VALUE_OF Relative Effect
+Relationship VALUE_OF Locus
+→ 不是 multiple inheritance
+→ Faceted Model</div>
+<p>判断多父节点之前，必须先确认两条父边是同一种 Relation Type。</p>
+</div>
+
+<h2>7. Cycle（环）通常是层级冲突信号</h2>
+<div class="panel">
+<div class="rule">A IS_A B
+B IS_A C
+C IS_A A</div>
+<p>若 A、B、C 被认为是不同概念，这与反对称层级直觉冲突。常见解释：</p>
+<ul>
+<li>节点其实等价 / 重复命名；</li>
+<li>某条边 Relation Type 判错；</li>
+<li>结构中出现了真正的建模错误。</li>
+</ul>
+</div>
+
+<h2>8. Hasse Diagram（哈斯图）思维</h2>
+<div class="panel green">
+<p>层级展示时，不需要把所有可由传递性推出的祖先边都画出来。</p>
+<div class="rule">A → B → C
+
+已知传递性可推出：
+A → C
+
+但图中通常只保留：
+A → B
+B → C</div>
+<p>这种“只显示最近直接关系”的思维，可以显著降低知识图的视觉噪音。</p>
+</div>
+
+<h2>9. Direct Parent（直接父节点）不是所有 Ancestor（祖先）</h2>
+<div class="panel">
+<div class="rule">金毛犬 → 狗 → 哺乳动物 → 动物
+
+直接上位：
+狗
+
+祖先：
+狗、哺乳动物、动物</div>
+<p>构建层级时，优先记录 direct relation；更高祖先由 transitivity 推导。</p>
+</div>
+
+<h2>10. Tree 与 DAG 的正式边界</h2>
+<table>
+<tr><th>结构</th><th>直接父节点</th><th>是否允许不可比较</th><th>是否允许多父</th></tr>
+<tr><td>Tree</td><td>每个非根节点恰有一个</td><td>允许</td><td>不允许</td></tr>
+<tr><td>DAG / Poset graph</td><td>可以有多个</td><td>允许</td><td>允许</td></tr>
+</table>
+
+<h2>11. 一个极重要的判断顺序</h2>
+<div class="rule">① Relation Type 一样吗？
+↓
+② 是否具备 hierarchy / order 语义？
+↓
+③ 是否存在 cycle？
+↓
+④ 是否允许 multiple parents？
+↓
+⑤ 是否有 incomparable nodes？
+↓
+⑥ 决定 Tree 还是 DAG
+↓
+⑦ 只显示 direct / cover relations</div>
+
+<h2>12. 到这里，你已经能判断大多数“层级”问题</h2>
+<div class="panel">
+<p>现在只剩最后一个实用收尾模块：</p>
+<div class="rule">Current-node Localization（当前节点定位）
+Conflict / Unknown Marking（冲突 / 未确定标记）
+↓
+把一个具体概念放回整个知识结构里</div>
+<p>完成这一模块后，就可以停止扩展理论，开始高浓度 Markdown 归档与 Skill 设计。</p>
+</div>
+
+<p class="small">依据：research/structure-mapping/01_知识结构梳理的形式基础.md 与 02_结构关系词表与判定规则.md。</p>
+</main>
+</body>
+</html>
