@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>第八课｜Sibling Check：同级资格、单轴检查与划分声明</title>
+<style>
+:root{--bg:#f7f7f4;--paper:#fff;--ink:#171717;--muted:#666;--line:#ddd;--blue:#e9f3ff;--green:#e9f6e7;--orange:#fff1dc;--red:#fdeaea;--purple:#eee9ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
+main{max-width:1040px;margin:48px auto;padding:0 24px 84px}
+.hero,.panel,.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+.hero{padding:40px}
+h1{font-size:40px;line-height:1.15;margin:.2em 0}
+h2{font-size:27px;margin:40px 0 16px}
+h3{font-size:20px;margin:16px 0 8px}
+.kicker,.small{font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.blue{background:var(--blue)} .green{background:var(--green)} .orange{background:var(--orange)} .red{background:var(--red)} .purple{background:var(--purple)}
+.rule{background:#111;color:#fff;border-radius:16px;padding:18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:#f1f1ed}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="kicker">Knowledge Structure Mapping · Sibling Check</div>
+<h1>同级资格、单轴检查与划分声明</h1>
+<p>这一阶段解决一个非常常见的问题：为什么几个概念“都和父节点有关”，却仍然不能放成同一层？</p>
+</section>
+
+<h2>1. Sibling（同级）不是视觉位置，而是结构声明</h2>
+<div class="panel">
+<p>当你画出：</p>
+<div class="rule">Parent
+├─ A
+├─ B
+└─ C</div>
+<p>你实际上在暗示：A、B、C 是在同一个 criterion（划分标准）下，以相同 relation type（关系类型）连接到 Parent 的可比较节点。</p>
+</div>
+
+<h2>2. Sibling Check 的五个核心问题</h2>
+<div class="grid">
+<div class="card blue"><h3>① Criterion</h3><p>A / B / C 是否回答同一个分类问题？</p></div>
+<div class="card green"><h3>② Node Type</h3><p>A / B / C 是否是同一种 Node Type？</p></div>
+<div class="card orange"><h3>③ Relation Type</h3><p>A / B / C 与 Parent 的边是否属于同一种 Relation Type？</p></div>
+<div class="card purple"><h3>④ Overlap</h3><p>兄弟节点之间能否重叠？如果允许，必须明确。</p></div>
+<div class="card red"><h3>⑤ Exhaustiveness</h3><p>是否声称已经覆盖完整空间？如果没有，不要暗示“只有这些”。</p></div>
+</div>
+
+<h2>3. Single-axis Check（单轴检查）</h2>
+<div class="panel">
+<p>“同级”最重要的必要条件之一，是它们来自同一个 axis / facet（轴 / 分面）。</p>
+<div class="rule">错误：
+Premise Architecture
+├─ Advantage
+├─ Transformation
+└─ Relationship
+
+原因：
+Advantage → Relative Effect
+Transformation → Operation
+Relationship → Locus</div>
+<p>三者并不是同一轴上的值，因此不能作为 siblings。</p>
+</div>
+
+<h2>4. Node Type Check（节点类型检查）</h2>
+<div class="panel">
+<p>即使语义上相关，如果节点类型不同，也要警惕伪同级。</p>
+<div class="rule">年龄
+22岁
+程序员</div>
+<p>年龄 = Dimension；22岁 = Value；程序员在“职业分类”中可作为 Class，在“人物档案”中可作为 Value。它们不能因为都描述人物就自动并列。</p>
+</div>
+
+<h2>5. Relation Type Check（边类型检查）</h2>
+<div class="panel">
+<div class="rule">Parent
+├─ A  [IS_A]
+├─ B  [PART_OF]
+└─ C  [FACET_OF]</div>
+<p>即使视觉上都挂在 Parent 下，三条边语义不同，也不构成规范的 sibling group。</p>
+</div>
+
+<h2>6. Overlap（重叠）不是一定错误</h2>
+<div class="panel">
+<p>有些分类要求互斥，有些允许多重归属。</p>
+<div class="rule">例如：
+“用户画像标签”
+可以同时是：
+- 新用户
+- 高价值用户
+- 移动端用户</div>
+<p>这里 overlap 可能是设计目标，而不是错误。</p>
+<p>关键不是“必须互斥”，而是：<strong>是否明确知道它们会重叠，以及这种重叠是否符合当前建模目的。</strong></p>
+</div>
+
+<h2>7. Partition Claim Check（划分声明检查）</h2>
+<div class="panel">
+<p>如果你说“X 分为 A、B、C 三类”，这不是普通罗列，而是在做一个强声明。</p>
+<p>严格 partition（划分）通常要求：</p>
+<div class="rule">Pairwise Disjoint
+两两不重叠
+
+Collectively Exhaustive
+合起来覆盖全集</div>
+<p>也就是常说的“互斥 + 穷尽”。</p>
+</div>
+
+<h2>8. Taxonomy 不一定要求严格 Partition</h2>
+<div class="panel">
+<p>重要区别：</p>
+<div class="rule">“这些是几个常见类型”
+≠
+“X 只能分成这几类，而且彼此完全不重叠”</div>
+<p>知识分类可以是开放的、重叠的、非穷尽的；只有当你明确声称完整划分时，才需要承担更强的 partition 约束。</p>
+</div>
+
+<h2>9. 一个实用的 Sibling Gate（同级门槛）</h2>
+<div class="panel">
+<div class="rule">准备把 A / B / C 放成同级前：
+
+1. 同一个问题吗？
+2. 同一种 Node Type 吗？
+3. 与 Parent 是同一种 Relation 吗？
+4. 是否允许重叠？
+5. 是否声称完整分类？
+
+任一项不清楚
+→ 暂缓并列
+→ 改为分面 / 图 / 未确定关系</div>
+</div>
+
+<h2>10. 为什么这一步特别重要</h2>
+<div class="panel">
+<p>很多“知识树看起来怪”的根源，不是节点名称不好，而是 sibling claim（同级声明）本身不成立。</p>
+<div class="rule">真正的错误常常不是：
+“父节点选错了”
+
+而是：
+“这些孩子根本不是一批孩子”</div>
+</div>
+
+<h2>11. 下一阶段</h2>
+<div class="panel">
+<p>Sibling Check 之后，将进入：</p>
+<div class="rule">Partial-order Check（偏序检查）
+Multiple Parents（多父节点）
+Incomparability（不可比较）
+Tree vs DAG 的数学边界</div>
+<p>这一步会解释：为什么“层级”不等于一棵树，也不等于所有节点都必须能互相比较。</p>
+</div>
+
+<p class="small">依据：research/structure-mapping/01_知识结构梳理的形式基础.md 与 02_结构关系词表与判定规则.md。</p>
+</main>
+</body>
+</html>
