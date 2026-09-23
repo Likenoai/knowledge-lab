@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>第十课｜Current-node Localization 与 Conflict / Unknown</title>
+<style>
+:root{--bg:#f7f7f4;--paper:#fff;--ink:#171717;--muted:#666;--line:#ddd;
+--blue:#e9f3ff;--green:#e9f6e7;--orange:#fff1dc;--red:#fdeaea;--purple:#eee9ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
+main{max-width:1040px;margin:48px auto;padding:0 24px 84px}
+.hero,.panel,.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+.hero{padding:40px}
+h1{font-size:40px;line-height:1.15;margin:.2em 0}
+h2{font-size:27px;margin:40px 0 16px}
+h3{font-size:20px;margin:16px 0 8px}
+.kicker,.small{font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.blue{background:var(--blue)} .green{background:var(--green)} .orange{background:var(--orange)} .red{background:var(--red)} .purple{background:var(--purple)}
+.rule{background:#111;color:#fff;border-radius:16px;padding:18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:#f1f1ed}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="kicker">Knowledge Structure Mapping · Final Core Module</div>
+<h1>Current-node Localization 与 Conflict / Unknown</h1>
+<p>前面的模块解决“结构是否正确”；这一课解决最后一个实用问题：<strong>当我们正在研究某个具体节点时，怎样准确描述它在整个知识结构中的位置，并保留尚未解决的不确定性。</strong></p>
+</section>
+
+<h2>1. Current Node（当前节点）不是“当前页面标题”</h2>
+<div class="panel">
+<p>Current Node 是当前分析焦点在结构中的语义位置。</p>
+<div class="rule">Current Node:
+Node Type:
+Relation to Parent:
+Parent:
+Siblings under same criterion:
+Children / narrower concepts:
+Orthogonal facets:
+Upstream prerequisites:
+Downstream consequences:
+Unresolved relation conflicts:</div>
+<p>这份模板的目的不是把所有字段都填满，而是防止把不同方向的关系混成“父子”。</p>
+</div>
+
+<h2>2. Parent（父 / 直接上位）必须带 Relation Type</h2>
+<div class="panel blue">
+<p>不要只写：</p>
+<div class="rule">Parent: Relative Effect</div>
+<p>更准确：</p>
+<div class="rule">Current Node: Advantage
+Node Type: Value
+Relation to Parent: VALUE_OF
+Parent: Relative Effect</div>
+<p>“Parent”只是结构位置；真正的语义由 Relation Type 决定。</p>
+</div>
+
+<h2>3. Siblings（同级）必须满足同级资格</h2>
+<div class="panel green">
+<div class="rule">Current Node: Advantage
+Parent: Relative Effect
+Relation: VALUE_OF
+
+Valid siblings:
+- Disadvantage
+- Trade-off</div>
+<p>因为它们在同一个 Dimension 下，以同一种 VALUE_OF 关系连接，并回答同一个问题。</p>
+<p>Relationship 不是 sibling，因为它属于 Locus。</p>
+</div>
+
+<h2>4. Children / Narrower Concepts（子节点 / 更窄概念）</h2>
+<div class="panel">
+<p>“Children”是一个视觉位置词，不是固定 Relation Type。</p>
+<p>因此要继续标记：</p>
+<div class="rule">Information Advantage
+IS_A
+Advantage</div>
+<p>这里 Information Advantage 可以被视为 Advantage 的 narrower concept / subtype；但如果关系尚未验证，不应强行声明 IS_A。</p>
+</div>
+
+<h2>5. Orthogonal Facets（正交分面）</h2>
+<div class="panel orange">
+<p>Orthogonal Facet 指：与当前节点有关，但不与它竞争同一轴位置的其他描述维度。</p>
+<div class="rule">Current Node: Advantage
+belongs to: Relative Effect
+
+Orthogonal facets:
+- Locus
+- Operation</div>
+<p>这能防止把“不同轴上的相关节点”误当 sibling。</p>
+</div>
+
+<h2>6. Upstream / Downstream 不是 Parent / Child</h2>
+<div class="panel red">
+<div class="rule">Upstream
+= 前置条件、来源、先行机制、输入
+
+Downstream
+= 后果、结果、后续机制、输出
+
+Parent / Child
+= hierarchy / classification position</div>
+<p>例如：</p>
+<div class="rule">重生
+→ ENABLES
+→ 信息优势</div>
+<p>重生可以是信息优势的 upstream mechanism，但它不是信息优势的 parent。</p>
+</div>
+
+<h2>7. Current-node Localization 的核心价值</h2>
+<div class="panel">
+<p>它把“当前研究位置”拆成多个方向：</p>
+<table>
+<tr><th>方向</th><th>典型问题</th></tr>
+<tr><td>Up（上位）</td><td>我属于哪个更一般结构？通过什么关系？</td></tr>
+<tr><td>Side（同轴横向）</td><td>我有哪些真正 siblings？</td></tr>
+<tr><td>Down（下位）</td><td>有哪些 subtype / narrower / component？</td></tr>
+<tr><td>Orthogonal（正交）</td><td>有哪些其他 facet？</td></tr>
+<tr><td>Upstream（上游）</td><td>什么产生 / 支持 / 约束我？</td></tr>
+<tr><td>Downstream（下游）</td><td>我会导致 / 使能 / 约束什么？</td></tr>
+</table>
+</div>
+
+<h2>8. Unknown（未确定）必须是一等状态</h2>
+<div class="panel purple">
+<p>成熟的知识结构不要求每条边立刻有答案。</p>
+<div class="rule">UNKNOWN
+= 当前证据不足，无法可靠判定 Relation Type</div>
+<p>UNKNOWN 不是失败，而是避免伪造结构。</p>
+</div>
+
+<h2>9. Conflict（冲突）与 Unknown 不同</h2>
+<div class="panel red">
+<table>
+<tr><th>状态</th><th>含义</th></tr>
+<tr><td>UNKNOWN</td><td>证据不足，尚不能判断</td></tr>
+<tr><td>CONFLICT</td><td>存在互相不兼容的结构证据或声明</td></tr>
+<tr><td>MULTIPLE_CANDIDATES</td><td>存在多个可能关系，尚未排除</td></tr>
+<tr><td>UNRESOLVED</td><td>问题已识别，但暂未解决</td></tr>
+</table>
+</div>
+
+<h2>10. Conflict 的常见来源</h2>
+<div class="grid">
+<div class="card red">
+<h3>Relation Conflict</h3>
+<p>一处说 A IS_A B，另一处说 A PART_OF B。</p>
+</div>
+<div class="card orange">
+<h3>Axis Conflict</h3>
+<p>同一节点在两个不兼容 facet 中被当作同轴 value。</p>
+</div>
+<div class="card purple">
+<h3>Cycle Conflict</h3>
+<p>A IS_A B，B IS_A C，C IS_A A，但三者又被视为不同概念。</p>
+</div>
+<div class="card blue">
+<h3>Granularity Conflict</h3>
+<p>同一层混入过粗和过细节点，导致比较单位不一致。</p>
+</div>
+</div>
+
+<h2>11. 最小 Current-node 模板</h2>
+<div class="rule">Current Node:
+Node Type:
+
+Parent:
+Relation to Parent:
+
+Same-axis Siblings:
+Children / Narrower:
+
+Orthogonal Facets:
+
+Upstream:
+Downstream:
+
+Unknowns:
+Conflicts:</div>
+
+<h2>12. 最终执行链已经闭合</h2>
+<div class="panel green">
+<div class="rule">Research Question
+↓
+Node Extraction
+↓
+Node Typing
+↓
+Relation Typing
+↓
+Sibling / Single-axis Check
+↓
+Partition Claim Check
+↓
+Partial-order / Multiple-parent Check
+↓
+Structure Representation
+↓
+Current-node Localization
+↓
+Unknown / Conflict Marking</div>
+<p>到这里，已经足以处理大多数知识层级、概念关系、研究地图和 Agent / Skill 架构问题。</p>
+</div>
+
+<h2>13. 理论收尾</h2>
+<div class="panel">
+<p>后续不再继续扩展新的理论体系。下一步将把本课程中稳定、可复用、非教学性的知识压缩成一份高浓度 Markdown Reference，并据此构建 `knowledge-structure-mapping` Skill。</p>
+</div>
+
+<p class="small">依据：research/structure-mapping/01_知识结构梳理的形式基础.md 与 02_结构关系词表与判定规则.md。</p>
+</main>
+</body>
+</html>
