@@ -56,6 +56,15 @@ GitHub：`skills/`
 ◇ [knowledge-structure-mapping](./knowledge-structure-mapping/SKILL.md)  
 构建或审查知识结构：先判 Node Type 与 Relation Type，再检查同级、分面、划分、偏序与多父节点，最后选择 Tree / DAG / Faceted Model / Labeled Graph；操作语义以 `research/structure-mapping/03_层级构建核心参考.md` 为唯一来源。
 
+◇ [lenses](./lenses/SKILL.md)  
+固定五视角 + 动态领域专家的独立多视角调查；负责扩大问题空间，不负责最终裁决。
+
+◇ [challenge](./challenge/SKILL.md)  
+对候选结论执行反证、替代解释、来源独立性和证据范围压力测试。
+
+◇ [judge](./judge/SKILL.md)  
+在证据冲突时进行裁决，按来源适配性、质量、独立性、直接性和边界给出 Epistemic Status。
+
 ### 高频入口（User-invoked）
 
 ◇ [map](./map/SKILL.md)  
@@ -65,6 +74,10 @@ GitHub：`skills/`
 高频讲解入口。基于 Knowledge Structure 为当前受众设计 Explanation Path，用连贯表达把复杂内容讲清楚。
 
 ### User-invoked（用户调用）
+
+◇ [truth](./truth/SKILL.md)  
+启动完整求真工作流：定界 → 五视角 / 动态专家 → 独立取证 → 反证挑战 → 证据裁决。
+
 
 ◇ [learn-new-domain](./learn-new-domain/SKILL.md)  
 系统学习一个新领域的长期编排 Skill。源自 Matt Pocock 的 `teach`，负责 Mission、Resources、Glossary、Learning Records、逐课反馈闭环与学习状态维护；复习阶段委托给 `evidence-based-review`。
