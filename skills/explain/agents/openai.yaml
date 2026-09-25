@@ -1,0 +1,5 @@
+interface:
+  display_name: "Explain"
+  short_description: "沿自然理解路径把复杂内容讲清楚"
+policy:
+  allow_implicit_invocation: false
