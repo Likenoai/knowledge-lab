@@ -1,0 +1,63 @@
+# RESOURCES
+
+## Research-question formulation
+
+### Richardson et al. (1995) — The well-built clinical question
+- Type: foundational evidence-based medicine paper
+- Source: PubMed
+- DOI: 10.7326/ACPJC-1995-123-3-A12
+- Use: PICO / well-built question tradition; establishes the idea that question structure guides evidence retrieval.
+
+### Aslam & Emmanuel (2010) — Formulating a researchable question
+- Type: methodological review
+- Source: PubMed Central
+- URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC3140151/
+- Use: PICO, FINER, background vs foreground questions, researchability.
+
+### Farrugia et al. (2010) — Research questions, hypotheses and objectives
+- Type: methodological article
+- Source: PubMed Central
+- URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC2912019/
+- Use: relationship among research question, PICOT, hypothesis, objectives, FINER.
+
+### Gionfriddo et al. (2024) — Back to the basics: guidance for formulating good research questions
+- Type: contemporary methodological guidance
+- Source: PubMed Central
+- URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC11129835/
+- Use: modern synthesis of PICO + FINER and common formulation pitfalls.
+
+## Problem framing / design
+
+### Dorst & Cross (2001) — Creativity in the design process: co-evolution of problem–solution
+- Type: empirical design research
+- Source: Design Studies / Elsevier
+- DOI: 10.1016/S0142-694X(01)00009-6
+- Use: problem and solution spaces co-evolve; useful boundary against treating framing as a one-shot preprocessing step.
+
+### Dorst (2011) — The core of design thinking and its application
+- Type: design research
+- Source: Design Studies / Elsevier
+- DOI: 10.1016/j.destud.2011.07.006
+- Use: framing and frame creation as core design practices.
+
+## Operationalization
+
+### APA Dictionary — operational definition
+- Type: authoritative terminology reference
+- Source: American Psychological Association
+- URL: https://dictionary.apa.org/operational-definition
+- Use: defines operational definition in terms of procedures by which a construct can be observed and measured.
+
+### “We urgently need a culture of multi-operationalization in psychological research” (2024)
+- Type: methodological commentary
+- Source: Communications Psychology / Nature Portfolio
+- URL: https://www.nature.com/articles/s44271-024-00084-7
+- Use: demonstrates how alternative operationalizations of the same research question can materially change results.
+
+## Testability / falsifiability
+
+### Stanford Encyclopedia of Philosophy — Scientific Method
+- Type: scholarly reference
+- Source: Stanford Encyclopedia of Philosophy
+- URL: https://plato.stanford.edu/entries/scientific-method/
+- Use: hypothesis testing, falsification, corroboration, and limits of simplistic falsificationism.
