@@ -1,0 +1,5 @@
+interface:
+  display_name: "Truth"
+  short_description: "多视角研究、反证挑战与证据裁决"
+policy:
+  allow_implicit_invocation: false
