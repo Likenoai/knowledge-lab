@@ -56,6 +56,14 @@ GitHub：`skills/`
 ◇ [knowledge-structure-mapping](./knowledge-structure-mapping/SKILL.md)  
 构建或审查知识结构：先判 Node Type 与 Relation Type，再检查同级、分面、划分、偏序与多父节点，最后选择 Tree / DAG / Faceted Model / Labeled Graph；操作语义以 `research/structure-mapping/03_层级构建核心参考.md` 为唯一来源。
 
+### 高频入口（User-invoked）
+
+◇ [map](./map/SKILL.md)  
+高频结构梳理入口。输出 Map View；实际结构判定复用 `knowledge-structure-mapping`，避免重复维护。
+
+◇ [explain](./explain/SKILL.md)  
+高频讲解入口。基于 Knowledge Structure 为当前受众设计 Explanation Path，用连贯表达把复杂内容讲清楚。
+
 ### User-invoked（用户调用）
 
 ◇ [learn-new-domain](./learn-new-domain/SKILL.md)  
