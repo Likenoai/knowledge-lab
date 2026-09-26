@@ -110,6 +110,9 @@
 ## Smuggled Assumption（偷带前提）
 问题在没有先建立证据的情况下，把一个尚未得到支持、且会影响后续推理的关键命题预先当作真的。
 
+## Leading Question（诱导性问题）
+通过措辞、价值暗示、身份标签或答案结构，使某一类回答显得更正确、更体面或更符合预期，从而把回答者推向特定方向。
+
 ## Decision-Relevant Information（决策相关信息）
 一旦其取值发生变化，就可能改变可选行动的排序或最终选择的信息。
 
@@ -133,3 +136,4 @@
 - Mediator ≠ Moderator：Mediator 在因果路径内部承接作用；Moderator 改变这条路径的强弱或方向。
 - Objective ≠ Constraint：Objective 规定要优化什么；Constraint 规定哪些边界不能突破。
 - Objective ≠ Means：Objective 规定要达到或优化什么结果；Means 是实现该结果的行动或策略。
+- Smuggled Assumption ≠ Leading Question：前者把未经支持的命题当作已成立前提；后者通过措辞或价值暗示把回答推向特定方向。一个问题可以同时具有两者。
