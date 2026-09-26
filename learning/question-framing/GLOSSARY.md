@@ -59,6 +59,12 @@
 ## Discriminant Evidence（区分证据）
 证明目标构念的测量能够与理论上不同但相近的其他构念区分开的证据。
 
+## Reliability（信度）
+在目标状态没有实质变化时，测量结果在重复条件下保持一致的程度。
+
+## Validity（效度）
+经验与理论证据对“根据测量结果所作解释和用途”的支持程度。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
@@ -69,3 +75,4 @@
 - Construct ≠ Operationalization：前者是想研究的抽象东西，后者是让它变得可观察的规则。
 - Construct Underrepresentation ≠ Construct-Irrelevant Variance：前者是“测少了”，后者是“测杂了”。
 - Convergent Evidence ≠ Discriminant Evidence：前者看“该聚在一起的是否聚在一起”，后者看“该分开的是否能够分开”。
+- Reliability ≠ Validity：前者问“稳不稳”，后者问“这个结果是否支持我们对目标构念的解释”。高信度不保证高效度。
