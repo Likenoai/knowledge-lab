@@ -125,3 +125,10 @@
 - Source: PubMed Central
 - URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC12206152/
 - Use: mediator as an intermediate variable on a causal pathway; distinguishes direct and indirect effects and supports mechanism-oriented questions.
+
+
+### MacKinnon (2011) — Integrating Mediators and Moderators in Research Design
+- Type: methodological review
+- Source: PubMed Central
+- URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC3366634/
+- Use: defines moderators as variables that change the strength or form of the X–Y relation; distinguishes moderators from mediators, which sit on an intermediate causal pathway.
