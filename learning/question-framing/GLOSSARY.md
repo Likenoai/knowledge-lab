@@ -89,6 +89,12 @@
 ## Mechanism Question（机制问题）
 在已有或假设的因果关系基础上，追问 X 通过什么中间过程、结构或活动产生 Y。
 
+## Mediator（中介变量）
+位于 X→Y 因果路径中的中间变量；X 先影响它，再由它继续影响 Y，用于解释“X 通过什么过程影响 Y”。
+
+## Moderator（调节变量）
+改变 X→Y 关系强度、方向或形式的变量；它回答“X 对 Y 的作用在什么条件下、对哪些人更强或更弱”。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
@@ -106,3 +112,4 @@
 - Prediction Question ≠ Prediction Result：一个问题可以明确要求预测，但在获得数据或模型输出之前，并不会自动包含具体的预测结果。
 - Comparative 不等于独立的推断类型：一个问题可以同时是 Comparative + Descriptive，也可以是 Comparative + Causal。比较回答“组间是否不同”，而因果回答“这种差异是否由某个改变造成”。
 - Causation ≠ Mechanism：前者问“X 是否改变 Y”，后者问“X 通过什么中间过程产生 Y”。
+- Mediator ≠ Moderator：Mediator 在因果路径内部承接作用；Moderator 改变这条路径的强弱或方向。
