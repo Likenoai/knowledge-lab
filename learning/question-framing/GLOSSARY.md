@@ -119,6 +119,9 @@
 ## Ambiguity（歧义）
 问题中的关键词允许多个实质不同的解释，而这些解释会导向不同的测量、证据或答案。
 
+## Scope Drift（范围漂移）
+研究问题、数据或证据只覆盖某一人群、时间、情境或变量边界，但在解释或结论阶段把适用范围扩大、缩小或改变，导致结论超出原始证据能够支持的边界。
+
 ## Decision-Relevant Information（决策相关信息）
 一旦其取值发生变化，就可能改变可选行动的排序或最终选择的信息。
 
@@ -145,3 +148,4 @@
 - Objective ≠ Means：Objective 规定要达到或优化什么结果；Means 是实现该结果的行动或策略。
 - Smuggled Assumption ≠ Leading Question：前者把未经支持的命题当作已成立前提；后者通过措辞或价值暗示把回答推向特定方向。一个问题可以同时具有两者。
 - Ambiguity ≠ Operationalization：Ambiguity 是“一个词到底指什么还不清楚”；Operationalization 是“选定含义后，如何让它变得可观察或可测量”。
+- Scope Drift ≠ 合理外推：前者是在缺少充分依据时改变证据适用边界；后者需要额外证据或明确论证支持从原范围推广到新范围。
