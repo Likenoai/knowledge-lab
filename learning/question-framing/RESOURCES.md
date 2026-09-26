@@ -74,6 +74,26 @@
 - URL: https://dictionary.apa.org/validity
 - Use: validity as the degree to which empirical evidence and theoretical rationales support interpretations drawn from an assessment.
 
+## Reliability / precision
+
+### APA Dictionary — retest reliability
+- Type: authoritative terminology reference
+- Source: American Psychological Association
+- URL: https://dictionary.apa.org/retest-reliability
+- Use: reliability as consistency/stability of assessment results across repeated administrations.
+
+### APA TOPSS — What You Need to Know About Reliability and Validity
+- Type: educational assessment guidance
+- Source: American Psychological Association
+- URL: https://www.apa.org/ed/precollege/topss/assessment-guide.pdf
+- Use: practical distinction between reliability (consistency) and validity (whether the assessment supports the intended interpretation).
+
+### Standards for Educational and Psychological Testing (2014)
+- Type: authoritative testing standard
+- Source: AERA / APA / NCME
+- URL: https://www.testingstandards.net/open-access-files.html
+- Use: reliability/precision evidence should match the intended score interpretation and use; reliability and validity are related but distinct requirements.
+
 ## Testability / falsifiability
 
 ### Stanford Encyclopedia of Philosophy — Scientific Method
