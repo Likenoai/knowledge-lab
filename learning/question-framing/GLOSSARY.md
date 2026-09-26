@@ -26,6 +26,15 @@
 ## Frame（问题框定）
 从多个可能解释与边界中，选择当前优先从哪个角度理解和研究 Problem。
 
+## Working Frame（工作框定）
+在多个合理 Frame 中，基于当前证据暂时选择的优先研究入口；它可以被后续证据修正或替换。
+
+## Frame Priority（Frame 优先级）
+优先研究的 Frame，应当尽量满足：
+- Fit：与当前 Observation 匹配；
+- Discriminability：能与竞争 Frame 导出不同的证据预期；
+- Decision Leverage：一旦被证实或削弱，会改变后续决策。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
