@@ -132,3 +132,18 @@
 - Source: PubMed Central
 - URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC3366634/
 - Use: defines moderators as variables that change the strength or form of the X–Y relation; distinguishes moderators from mediators, which sit on an intermediate causal pathway.
+
+
+## Decision questions / decision analysis
+
+### NASA — Decision Analysis
+- Type: official systems engineering guidance
+- Source: NASA
+- URL: https://www.nasa.gov/reference/6-8-decision-analysis/
+- Use: decision analysis as a framework for comparing alternatives under objectives, priorities, technical/cost/schedule constraints, and uncertainty.
+
+### Decision Analysis and Cost-effectiveness Analysis
+- Type: methodological review
+- Source: PubMed Central
+- URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC3746772/
+- Use: decision problems require defining the objective, alternatives, outcomes, uncertainty, and value/trade-offs before selecting among actions.
