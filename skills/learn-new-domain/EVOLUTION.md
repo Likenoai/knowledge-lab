@@ -59,3 +59,20 @@ Guardrails:
 - active generation and self-explanation are tools with boundary conditions, not universal requirements.
 
 Research basis to verify before promotion: curiosity/information-gap theory, generation effect, self-explanation, conceptual change/cognitive conflict, adaptive instruction/expertise reversal, and argumentation evidence.
+
+
+### Candidate: Scaling / recursive organization for complex teaching
+
+User observation: complex subjects should not be reduced to a small set of flat modules. For some domains, the more faithful organization is recursive and scale-sensitive: the same generative relation can reappear across levels, while its effects change with scale.
+
+Working distinction:
+- **Flat modular decomposition** asks: what parts does the topic contain?
+- **Scaling view** asks: what relation changes systematically as scale changes, what remains invariant, and where does the regime change?
+- **Recursive / self-iterative view** asks: what transformation, feedback, or self-model update is repeatedly applied to generate the next state or level?
+
+Important guardrail:
+- A literal power law (Y = aX^b) is a mathematical claim requiring evidence.
+- “Scaling thinking” may be used more broadly as a structural lens, but must not falsely imply that every complex system follows a power law.
+
+Teaching implication:
+For complex material, prefer identifying generative relations, feedback loops, invariants, scale changes, and recursive transformations before forcing the content into a fixed list of modules.
