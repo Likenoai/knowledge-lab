@@ -65,6 +65,12 @@
 ## Validity（效度）
 经验与理论证据对“根据测量结果所作解释和用途”的支持程度。
 
+## Random Error（随机误差）
+误差方向与大小不稳定，使重复测量结果产生不可预测波动，主要损害测量的一致性与精度。
+
+## Systematic Error（系统误差）
+误差具有稳定方向或结构，使测量持续偏离目标构念或真实值，主要损害测量解释的有效性。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
@@ -76,3 +82,4 @@
 - Construct Underrepresentation ≠ Construct-Irrelevant Variance：前者是“测少了”，后者是“测杂了”。
 - Convergent Evidence ≠ Discriminant Evidence：前者看“该聚在一起的是否聚在一起”，后者看“该分开的是否能够分开”。
 - Reliability ≠ Validity：前者问“稳不稳”，后者问“这个结果是否支持我们对目标构念的解释”。高信度不保证高效度。
+- Random Error ≠ Systematic Error：前者主要造成无稳定方向的波动，后者造成稳定方向或结构性的偏差。
