@@ -77,6 +77,9 @@
 ## Prediction Question（预测问题）
 利用已知信息去估计尚未观测或未来的结果；核心是“谁 / 什么会发生”，不要求解释为什么发生。
 
+## Comparative Question（比较问题）
+询问两个或多个对象、群体或条件在某个明确指标上是否存在差异。比较描述的是答案结构，不自动规定该差异属于描述、关联还是因果。
+
 ## Association Question（关联问题）
 询问两个变量或现象是否共同变化、相关或存在统计关系，但不主张改变其中一个会导致另一个发生变化。
 
@@ -98,3 +101,4 @@
 - Association ≠ Causation：观察到 X 与 Y 一起变化，不足以推出改变 X 会导致 Y 改变；需要排除 Confounder 与其他 competing explanations，并获得支持因果识别的证据。
 - Description ≠ Prediction：前者刻画已经观测到的现实，后者利用已知信息估计尚未知或未来的结果。
 - Prediction Question ≠ Prediction Result：一个问题可以明确要求预测，但在获得数据或模型输出之前，并不会自动包含具体的预测结果。
+- Comparative 不等于独立的推断类型：一个问题可以同时是 Comparative + Descriptive，也可以是 Comparative + Causal。比较回答“组间是否不同”，而因果回答“这种差异是否由某个改变造成”。
