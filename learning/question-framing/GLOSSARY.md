@@ -41,6 +41,12 @@
 ## Control（控制）
 通过设计或分析，让竞争解释尽量失去解释力，从而更清楚地观察当前目标关系。
 
+## Construct（构念）
+研究中真正想理解、但不能直接观察的抽象属性或能力，例如“理解”“焦虑”“注意力”。
+
+## Operationalization（操作化）
+把抽象构念转换成可观察、可测量或可操纵的具体规则。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
@@ -48,3 +54,4 @@
 - Observation ≠ Interpretation：前者说“发生了什么”，后者说“为什么可能发生”。
 - Interpretation ≠ Frame：解释提供可能原因，Frame 决定当前优先沿哪个解释方向继续研究。
 - Confounder ≠ Control：前者是需要被隔离的竞争因果来源，后者是减少这种混杂影响的设计或分析动作。
+- Construct ≠ Operationalization：前者是想研究的抽象东西，后者是让它变得可观察的规则。
