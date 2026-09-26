@@ -104,6 +104,9 @@
 ## Constraint（约束）
 可选方案必须满足的边界条件；它规定哪些方案即使在其他方面更优，也不能被接受。
 
+## Means（手段）
+为实现某个 Objective（目标）而采取的行动、策略或路径。Means 不是“什么结果更好”的定义，而是达成该结果的方法。
+
 ## Decision-Relevant Information（决策相关信息）
 一旦其取值发生变化，就可能改变可选行动的排序或最终选择的信息。
 
@@ -126,3 +129,4 @@
 - Causation ≠ Mechanism：前者问“X 是否改变 Y”，后者问“X 通过什么中间过程产生 Y”。
 - Mediator ≠ Moderator：Mediator 在因果路径内部承接作用；Moderator 改变这条路径的强弱或方向。
 - Objective ≠ Constraint：Objective 规定要优化什么；Constraint 规定哪些边界不能突破。
+- Objective ≠ Means：Objective 规定要达到或优化什么结果；Means 是实现该结果的行动或策略。
