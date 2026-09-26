@@ -44,6 +44,9 @@
 ## Construct（构念）
 研究中真正想理解、但不能直接观察的抽象属性或能力，例如“理解”“焦虑”“注意力”。
 
+## Scope（范围）
+规定研究问题适用于谁、在什么时间、什么情境或边界条件下成立。Scope 的作用是限定结论的适用范围，而不是无意义地堆砌细节。
+
 ## Operationalization（操作化）
 把抽象构念转换成可观察、可测量或可操纵的具体规则。
 
@@ -124,6 +127,7 @@
 - Interpretation ≠ Frame：解释提供可能原因，Frame 决定当前优先沿哪个解释方向继续研究。
 - Confounder ≠ Control：前者是需要被隔离的竞争因果来源，后者是减少这种混杂影响的设计或分析动作。
 - Construct ≠ Operationalization：前者是想研究的抽象东西，后者是让它变得可观察的规则。
+- Scope 不是“越细越好”：只应加入会改变解释、测量、证据选择或结论适用性的边界条件。
 - Construct Underrepresentation ≠ Construct-Irrelevant Variance：前者是“测少了”，后者是“测杂了”。
 - Convergent Evidence ≠ Discriminant Evidence：前者看“该聚在一起的是否聚在一起”，后者看“该分开的是否能够分开”。
 - Reliability ≠ Validity：前者问“稳不稳”，后者问“这个结果是否支持我们对目标构念的解释”。高信度不保证高效度。
