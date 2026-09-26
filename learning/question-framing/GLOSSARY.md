@@ -71,6 +71,12 @@
 ## Systematic Error（系统误差）
 误差具有稳定方向或结构，使测量持续偏离目标构念或真实值，主要损害测量解释的有效性。
 
+## Association Question（关联问题）
+询问两个变量或现象是否共同变化、相关或存在统计关系，但不主张改变其中一个会导致另一个发生变化。
+
+## Causal Question（因果问题）
+询问在其他条件得到适当控制或识别时，主动改变 X 是否会导致 Y 发生变化。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
@@ -83,3 +89,4 @@
 - Convergent Evidence ≠ Discriminant Evidence：前者看“该聚在一起的是否聚在一起”，后者看“该分开的是否能够分开”。
 - Reliability ≠ Validity：前者问“稳不稳”，后者问“这个结果是否支持我们对目标构念的解释”。高信度不保证高效度。
 - Random Error ≠ Systematic Error：前者主要造成无稳定方向的波动，后者造成稳定方向或结构性的偏差。
+- Association ≠ Causation：观察到 X 与 Y 一起变化，不足以推出改变 X 会导致 Y 改变；需要排除 Confounder 与其他 competing explanations，并获得支持因果识别的证据。
