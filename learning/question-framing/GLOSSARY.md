@@ -98,6 +98,12 @@
 ## Decision Question（决策问题）
 在明确目标与约束下，比较可行动方案在不同可能状态中的预期后果，并据此选择行动。决策问题通常依赖对各行动后果的因果性预测，并需要处理不确定性、风险与价值权衡。
 
+## Objective（目标）
+规定决策系统要优化什么结果，例如最大化得分、最小化成本或提高成功概率。目标描述的是“什么结果更好”，而不是实现该结果的具体手段。
+
+## Constraint（约束）
+可选方案必须满足的边界条件；它规定哪些方案即使在其他方面更优，也不能被接受。
+
 ## Decision-Relevant Information（决策相关信息）
 一旦其取值发生变化，就可能改变可选行动的排序或最终选择的信息。
 
@@ -119,3 +125,4 @@
 - Comparative 不等于独立的推断类型：一个问题可以同时是 Comparative + Descriptive，也可以是 Comparative + Causal。比较回答“组间是否不同”，而因果回答“这种差异是否由某个改变造成”。
 - Causation ≠ Mechanism：前者问“X 是否改变 Y”，后者问“X 通过什么中间过程产生 Y”。
 - Mediator ≠ Moderator：Mediator 在因果路径内部承接作用；Moderator 改变这条路径的强弱或方向。
+- Objective ≠ Constraint：Objective 规定要优化什么；Constraint 规定哪些边界不能突破。
