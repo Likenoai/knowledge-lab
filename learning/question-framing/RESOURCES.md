@@ -101,3 +101,18 @@
 - Source: Stanford Encyclopedia of Philosophy
 - URL: https://plato.stanford.edu/entries/scientific-method/
 - Use: hypothesis testing, falsification, corroboration, and limits of simplistic falsificationism.
+
+
+## Question type / research design
+
+### Dyer et al. (2025) — Distinguishing Description, Prediction, and Causal Inference
+- Type: methodological primer
+- Source: PubMed
+- PMID: 39899793
+- Use: distinguishes descriptive, predictive, and causal questions and emphasizes matching methods and language to the question type.
+
+### Hernán & Robins (2006) — Estimating causal effects from epidemiological data
+- Type: causal inference methodological review
+- Source: PubMed Central
+- URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC2652882/
+- Use: explains why observational association is not generally equivalent to causation and why causal interpretation requires stronger assumptions/design.
