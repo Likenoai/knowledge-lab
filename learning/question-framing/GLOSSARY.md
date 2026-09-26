@@ -50,6 +50,15 @@
 ## Convergent Evidence（聚合证据）
 如果多个不同测量都声称在测同一构念，它们应当在理论预期下表现出一定程度的一致性，从而共同支持对该构念的解释。
 
+## Construct Underrepresentation（构念覆盖不足）
+测量只覆盖目标构念的一小部分，却把结果解释为整个构念。
+
+## Construct-Irrelevant Variance（构念无关变异）
+测量结果受到目标构念之外因素的系统影响，使分数混入不属于目标构念的能力或条件。
+
+## Discriminant Evidence（区分证据）
+证明目标构念的测量能够与理论上不同但相近的其他构念区分开的证据。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
@@ -58,3 +67,5 @@
 - Interpretation ≠ Frame：解释提供可能原因，Frame 决定当前优先沿哪个解释方向继续研究。
 - Confounder ≠ Control：前者是需要被隔离的竞争因果来源，后者是减少这种混杂影响的设计或分析动作。
 - Construct ≠ Operationalization：前者是想研究的抽象东西，后者是让它变得可观察的规则。
+- Construct Underrepresentation ≠ Construct-Irrelevant Variance：前者是“测少了”，后者是“测杂了”。
+- Convergent Evidence ≠ Discriminant Evidence：前者看“该聚在一起的是否聚在一起”，后者看“该分开的是否能够分开”。
