@@ -116,3 +116,12 @@
 - Source: PubMed Central
 - URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC2652882/
 - Use: explains why observational association is not generally equivalent to causation and why causal interpretation requires stronger assumptions/design.
+
+
+## Mechanism / mediation
+
+### Causal mediation analysis: what is it and how can it be used to inform practice and policy?
+- Type: methodological review
+- Source: PubMed Central
+- URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC12206152/
+- Use: mediator as an intermediate variable on a causal pathway; distinguishes direct and indirect effects and supports mechanism-oriented questions.
