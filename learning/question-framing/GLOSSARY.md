@@ -86,6 +86,9 @@
 ## Causal Question（因果问题）
 询问在其他条件得到适当控制或识别时，主动改变 X 是否会导致 Y 发生变化。
 
+## Mechanism Question（机制问题）
+在已有或假设的因果关系基础上，追问 X 通过什么中间过程、结构或活动产生 Y。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
@@ -102,3 +105,4 @@
 - Description ≠ Prediction：前者刻画已经观测到的现实，后者利用已知信息估计尚未知或未来的结果。
 - Prediction Question ≠ Prediction Result：一个问题可以明确要求预测，但在获得数据或模型输出之前，并不会自动包含具体的预测结果。
 - Comparative 不等于独立的推断类型：一个问题可以同时是 Comparative + Descriptive，也可以是 Comparative + Causal。比较回答“组间是否不同”，而因果回答“这种差异是否由某个改变造成”。
+- Causation ≠ Mechanism：前者问“X 是否改变 Y”，后者问“X 通过什么中间过程产生 Y”。
