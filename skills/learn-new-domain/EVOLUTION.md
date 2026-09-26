@@ -23,7 +23,7 @@ Candidate integration:
 - Extend `explain` with a delivery pass after the explanation path is secured.
 - Extend `learn-new-domain` so each tight teaching unit has a live audience-state check and, when useful, one genuine objection/contrast rather than only exposition.
 
-Status: candidate only. Do not promote until the user approves the model and it proves useful across several lessons.
+Status: **approved for trial by the user**. The next step is not to imitate a presenter/teacher persona, but to identify the underlying cognitive mechanisms and test a mechanism-based teaching loop across several lessons before promotion.
 
 ## Promotion rule
 
@@ -34,3 +34,28 @@ Classify each candidate before promotion:
 - **User preference** → topic workspace `NOTES.md`
 - **General learning principle** → `learn-new-domain` or learning-science research
 - **Domain-specific teaching rule** → domain workspace / domain Skill
+
+
+### Research direction: mechanism-based teaching loop
+
+Working hypothesis for trial:
+
+```text
+Elicit current model
+→ Create a meaningful knowledge gap / conflict
+→ Require prediction or generation
+→ Supply the minimum resolving model
+→ Stress-test with counterexample / competing explanation
+→ Learner explains or transfers
+→ Update the audience model
+→ Choose the next cognitive move
+```
+
+Guardrails:
+- curiosity/attention is an entry mechanism, not evidence of learning;
+- cognitive conflict should be meaningful and resolvable, not merely confusing;
+- argumentation is used as an epistemic stress test, not as persuasion;
+- instructional support should adapt to prior knowledge rather than remain fixed;
+- active generation and self-explanation are tools with boundary conditions, not universal requirements.
+
+Research basis to verify before promotion: curiosity/information-gap theory, generation effect, self-explanation, conceptual change/cognitive conflict, adaptive instruction/expertise reversal, and argumentation evidence.
