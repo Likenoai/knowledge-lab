@@ -35,9 +35,16 @@
 - Discriminability：能与竞争 Frame 导出不同的证据预期；
 - Decision Leverage：一旦被证实或削弱，会改变后续决策。
 
+## Confounder（混杂因素）
+一个第三因素使目标因素与结果之间的关系掺入其他因果来源，从而难以判断观察到的差异究竟由谁造成。
+
+## Control（控制）
+通过设计或分析，让竞争解释尽量失去解释力，从而更清楚地观察当前目标关系。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
 - Hypothesis ≠ Claim：前者是待验证候选答案，后者是当前证据支持下愿意承担的结论。
 - Observation ≠ Interpretation：前者说“发生了什么”，后者说“为什么可能发生”。
 - Interpretation ≠ Frame：解释提供可能原因，Frame 决定当前优先沿哪个解释方向继续研究。
+- Confounder ≠ Control：前者是需要被隔离的竞争因果来源，后者是减少这种混杂影响的设计或分析动作。
