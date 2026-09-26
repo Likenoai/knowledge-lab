@@ -17,7 +17,18 @@
 ## Claim（主张）
 基于当前证据，研究者愿意明确承担的陈述。
 
+## Observation（观察）
+对当前可观察事实或数据的描述，尽量不混入原因解释。
+
+## Interpretation（解释）
+对 Observation 为什么发生提出的可能说明；它可以正确，也可以错误。
+
+## Frame（问题框定）
+从多个可能解释与边界中，选择当前优先从哪个角度理解和研究 Problem。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
 - Hypothesis ≠ Claim：前者是待验证候选答案，后者是当前证据支持下愿意承担的结论。
+- Observation ≠ Interpretation：前者说“发生了什么”，后者说“为什么可能发生”。
+- Interpretation ≠ Frame：解释提供可能原因，Frame 决定当前优先沿哪个解释方向继续研究。
