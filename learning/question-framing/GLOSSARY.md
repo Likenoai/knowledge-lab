@@ -47,6 +47,9 @@
 ## Operationalization（操作化）
 把抽象构念转换成可观察、可测量或可操纵的具体规则。
 
+## Convergent Evidence（聚合证据）
+如果多个不同测量都声称在测同一构念，它们应当在理论预期下表现出一定程度的一致性，从而共同支持对该构念的解释。
+
 ## 当前已稳定的区分
 - Topic ≠ Question：主题只是研究区域，未必有明确未知。
 - Problem ≠ Question：Problem 描述现实中的麻烦；Question 是针对这个麻烦提出的询问。
