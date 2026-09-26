@@ -149,3 +149,13 @@
 - Smuggled Assumption ≠ Leading Question：前者把未经支持的命题当作已成立前提；后者通过措辞或价值暗示把回答推向特定方向。一个问题可以同时具有两者。
 - Ambiguity ≠ Operationalization：Ambiguity 是“一个词到底指什么还不清楚”；Operationalization 是“选定含义后，如何让它变得可观察或可测量”。
 - Scope Drift ≠ 合理外推：前者是在缺少充分依据时改变证据适用边界；后者需要额外证据或明确论证支持从原范围推广到新范围。
+
+
+## Untestability（不可检验性）
+一个问题或命题缺少能够让现实结果明显支持、削弱或反驳它的证据条件，因此不同观察结果都难以真正改变判断。
+
+## Self-Sealing Definition（自我封闭定义）
+当出现不符合原命题的案例时，通过临时改变关键概念的定义，把该案例排除在外，从而保护原命题不受反例影响。
+
+## 当前新增区分
+- Self-Sealing 往往会制造或维持 Untestability，但 Untestability 不一定都来自 Self-Sealing。
