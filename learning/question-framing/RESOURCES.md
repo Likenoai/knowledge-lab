@@ -54,6 +54,26 @@
 - URL: https://www.nature.com/articles/s44271-024-00084-7
 - Use: demonstrates how alternative operationalizations of the same research question can materially change results.
 
+## Construct validity / measurement
+
+### Cronbach & Meehl (1955) — Construct Validity in Psychological Tests
+- Type: foundational methodological paper
+- Source: Psychological Bulletin; accessible historical reprint via York University
+- URL: https://psychclassics.yorku.ca/Cronbach/construct.htm
+- Use: construct validity, indirect measurement of latent constructs, nomological network, and the idea that no single indicator exhausts a construct.
+
+### Standards for Educational and Psychological Testing (2014)
+- Type: authoritative testing standard
+- Source: AERA / APA / NCME
+- URL: https://www.testingstandards.net/open-access-files.html
+- Use: validity as evidence supporting score interpretations and uses; construct underrepresentation and construct-irrelevant variance as major threats to interpretation.
+
+### APA Dictionary — validity
+- Type: authoritative terminology reference
+- Source: American Psychological Association
+- URL: https://dictionary.apa.org/validity
+- Use: validity as the degree to which empirical evidence and theoretical rationales support interpretations drawn from an assessment.
+
 ## Testability / falsifiability
 
 ### Stanford Encyclopedia of Philosophy — Scientific Method
