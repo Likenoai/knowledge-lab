@@ -116,6 +116,9 @@
 ## Leading Question（诱导性问题）
 通过措辞、价值暗示、身份标签或答案结构，使某一类回答显得更正确、更体面或更符合预期，从而把回答者推向特定方向。
 
+## Ambiguity（歧义）
+问题中的关键词允许多个实质不同的解释，而这些解释会导向不同的测量、证据或答案。
+
 ## Decision-Relevant Information（决策相关信息）
 一旦其取值发生变化，就可能改变可选行动的排序或最终选择的信息。
 
@@ -141,3 +144,4 @@
 - Objective ≠ Constraint：Objective 规定要优化什么；Constraint 规定哪些边界不能突破。
 - Objective ≠ Means：Objective 规定要达到或优化什么结果；Means 是实现该结果的行动或策略。
 - Smuggled Assumption ≠ Leading Question：前者把未经支持的命题当作已成立前提；后者通过措辞或价值暗示把回答推向特定方向。一个问题可以同时具有两者。
+- Ambiguity ≠ Operationalization：Ambiguity 是“一个词到底指什么还不清楚”；Operationalization 是“选定含义后，如何让它变得可观察或可测量”。
