@@ -71,6 +71,12 @@
 ## Systematic Error（系统误差）
 误差具有稳定方向或结构，使测量持续偏离目标构念或真实值，主要损害测量解释的有效性。
 
+## Descriptive Question（描述问题）
+询问某个现象、群体或变量当前或过去“是什么样”，目标是刻画分布、水平、频率、比例或特征，而不要求预测未知结果或识别因果。
+
+## Prediction Question（预测问题）
+利用已知信息去估计尚未观测或未来的结果；核心是“谁 / 什么会发生”，不要求解释为什么发生。
+
 ## Association Question（关联问题）
 询问两个变量或现象是否共同变化、相关或存在统计关系，但不主张改变其中一个会导致另一个发生变化。
 
@@ -90,3 +96,5 @@
 - Reliability ≠ Validity：前者问“稳不稳”，后者问“这个结果是否支持我们对目标构念的解释”。高信度不保证高效度。
 - Random Error ≠ Systematic Error：前者主要造成无稳定方向的波动，后者造成稳定方向或结构性的偏差。
 - Association ≠ Causation：观察到 X 与 Y 一起变化，不足以推出改变 X 会导致 Y 改变；需要排除 Confounder 与其他 competing explanations，并获得支持因果识别的证据。
+- Description ≠ Prediction：前者刻画已经观测到的现实，后者利用已知信息估计尚未知或未来的结果。
+- Prediction Question ≠ Prediction Result：一个问题可以明确要求预测，但在获得数据或模型输出之前，并不会自动包含具体的预测结果。
