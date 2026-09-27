@@ -53,6 +53,9 @@ GitHub：`skills/`
 ◇ [structured-memory](./structured-memory/SKILL.md)  
 把已经基本理解的小型知识集整理成可提取的记忆结构：语义组块、稳定视觉提示、答案版 / 提取版，以及必要时的 HTML + SVG 记忆资产；长期间隔复习交给 `evidence-based-review`。
 
+◇ [decision-integration](./decision-integration/SKILL.md)  
+把已经稳定的知识挂接到具体 Decision Node（决策节点），定义 Trigger / Decision / Relations / Effect，使知识真正进入可执行系统。
+
 ◇ [knowledge-structure-mapping](./knowledge-structure-mapping/SKILL.md)  
 构建或审查知识结构：先判 Node Type 与 Relation Type，再检查同级、分面、划分、偏序与多父节点，最后选择 Tree / DAG / Faceted Model / Labeled Graph；操作语义以 `research/structure-mapping/03_层级构建核心参考.md` 为唯一来源。
 
