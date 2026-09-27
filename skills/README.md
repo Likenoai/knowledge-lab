@@ -56,6 +56,9 @@ GitHub：`skills/`
 ◇ [decision-integration](./decision-integration/SKILL.md)  
 把已经稳定的知识挂接到具体 Decision Node（决策节点），定义 Trigger / Decision / Relations / Effect，使知识真正进入可执行系统。
 
+◇ [knowledge-canvas](./knowledge-canvas/SKILL.md)  
+将稳定知识结构渲染为可拖动、缩放、搜索、查看详情的交互式 HTML 画布；默认复用 `components/knowledge-canvas/` 引擎，只生成节点 / 关系数据，并可打包成 standalone HTML。
+
 ◇ [knowledge-structure-mapping](./knowledge-structure-mapping/SKILL.md)  
 构建或审查知识结构：先判 Node Type 与 Relation Type，再检查同级、分面、划分、偏序与多父节点，最后选择 Tree / DAG / Faceted Model / Labeled Graph；操作语义以 `research/structure-mapping/03_层级构建核心参考.md` 为唯一来源。
 
