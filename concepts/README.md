@@ -26,3 +26,5 @@
 当前条目：
 - [Knowledge Structure & Explanation Path](./knowledge-structure-and-explanation-path.md)
 - [Five-Lens Truth Seeking](./five-lens-truth-seeking.md)
+
+- [Decision Integration Principle](./decision-integration-principle.md)
