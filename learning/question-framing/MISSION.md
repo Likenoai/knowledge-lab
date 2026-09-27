@@ -25,3 +25,9 @@ Question Framing（问题定界 / 研究问题构造）
 - Transfer：能把真实业务 / 学习问题重构成更好的问题，并说明什么证据会改变答案。
 
 最终目标不是背框架，而是形成稳定的 Question Framing 判断能力。
+
+
+## Current status
+- 2026-09-27：当前需求层面的 Question Framing 学习路线已完成。
+- 学习者已具备 Understand / Identify / Diagnose，并能在真实问题中进行初步 Transfer。
+- 后续不再以刻意练习为主，优先在真实研究、学习、产品与故事问题中按需调用。
