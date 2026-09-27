@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Question Framing Canvas · Dev</title>
+<link rel="stylesheet" href="../src/knowledge-canvas.css" />
+</head>
+<body>
+<div id="kc-app">
+  <div id="kc-canvas"><div id="kc-world"><svg id="kc-edge-layer"></svg><div id="kc-node-layer"></div></div></div>
+  <div id="kc-toolbar" class="kc-toolbar">
+    <button data-action="fit">适配全图</button><button data-action="reset">重置布局</button><button data-action="save">保存布局</button><button data-action="export">导出布局</button>
+    <button data-action="zoom-out">−</button><span id="kc-zoom-label">100%</span><button data-action="zoom-in">＋</button><input id="kc-search" placeholder="搜索概念…" />
+  </div>
+  <div id="kc-title-card" class="kc-title-card"><div id="kc-title"></div><div id="kc-subtitle"></div></div>
+  <div id="kc-legend" class="kc-legend"></div>
+  <div id="kc-help" class="kc-help">拖动画布平移 · 滚轮缩放 · 拖动卡片调整布局 · 点击卡片查看详情</div>
+  <div id="kc-mini" class="kc-mini"><canvas id="kc-mini-canvas" width="220" height="145"></canvas><div id="kc-mini-viewport"></div></div>
+  <aside id="kc-detail" class="kc-detail"><button id="kc-detail-close">×</button><div id="kc-detail-cat" class="kc-detail-eyebrow"></div><h2 id="kc-detail-title"></h2><div id="kc-detail-summary" class="kc-detail-summary"></div><div id="kc-detail-body"></div></aside>
+</div>
+<script src="./question-framing.data.js"></script>
+<script src="../src/knowledge-canvas.js"></script>
+</body>
+</html>
