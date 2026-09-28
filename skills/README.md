@@ -30,6 +30,7 @@ GitHub：`skills/`
 - 层级 / 节点 / 关系审查 → `knowledge-structure-mapping`
 - 前提结构 → `premise-architecture`
 - 优势结构 → `advantage-architecture`
+- 长期框架迭代 / 防止认知闭合 → `anti-closure`
 
 ◆ **Progressive Disclosure（按需加载）**  
 “浏览目录”用于发现 Skill，不等于每次加载全部 Skill 正文。只读取当前任务真正命中的 Skill 与必要 Reference，避免上下文污染。
@@ -61,6 +62,9 @@ GitHub：`skills/`
 
 ◇ [knowledge-structure-mapping](./knowledge-structure-mapping/SKILL.md)  
 构建或审查知识结构：先判 Node Type 与 Relation Type，再检查同级、分面、划分、偏序与多父节点，最后选择 Tree / DAG / Faceted Model / Labeled Graph；操作语义以 `research/structure-mapping/03_层级构建核心参考.md` 为唯一来源。
+
+◇ [anti-closure](./anti-closure/SKILL.md)  
+在长期研究、知识体系或框架迭代中主动引入非同构的外部成熟思想，先独立提取其问题结构，再做新颖性 / 冲突映射与证据验证，防止上下文锚定、路径依赖和内部一致性让体系逐渐闭合。
 
 ◇ [lenses](./lenses/SKILL.md)  
 固定五视角 + 动态领域专家的独立多视角调查；负责扩大问题空间，不负责最终裁决。
@@ -102,6 +106,14 @@ genre-mechanism-research
                     │
                     └─ 命中 Advantage Architecture（优势架构）
                        → advantage-architecture
+
+framework / learning-system iteration
+当前框架是否正在局部自洽但搜索空间收缩？
+        │
+        └─ Yes → anti-closure
+                  │
+                  ├─ 外部非同构视角 → 新问题 / 新变量 / 冲突
+                  └─ 重要主张 → truth / challenge / judge
 
 learn-new-domain
 用户主动启动长期学习
