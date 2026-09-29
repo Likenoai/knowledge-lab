@@ -16,6 +16,9 @@ SKILL.md 只保留触发条件、稳定步骤、关键边界和完成条件；�
 ◆ **Invocation follows agency（调用方式服从任务性质）**  
 模型应自主发现的基础能力使用 Model-invoked（模型可调用）；只有用户明确启动才合理的完整任务编排使用 User-invoked（用户调用）。
 
+◆ **Description defines applicability boundaries（Description 定义适用边界）**  
+Skill 的 `description` 不只说明“什么时候应该调用”，还应在必要时写清**什么时候不应相信或继续套用该 Skill**。对于存在稳定失配信号的 Skill，description 应包含关键的 negative applicability / fallback 条件，例如：输入明显超出训练分布、关键前提不成立、出现异常证据、低置信度、高风险或需要更广泛推理时，应回退到更通用的 reasoning、验证流程或其他 Skill。description 只放稳定且影响路由的边界，不塞入动态细节与长例外列表。
+
 ## 项目运行约定
 
 ◆ **Skill Library Root（Skill 库根路径）**  
