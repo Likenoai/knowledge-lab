@@ -16,8 +16,8 @@ updated: "2026-10-05"
 
 对于具有实质推理内容的回答，正文后默认附加：
 
-1. Reasoning Summary（仅在当前系统实际提供官方摘要时展示）。
-2. Reasoning Reconstruction（推理重构）。如果没有官方 Reasoning Summary，则不生成同名替代物。
+1. Reasoning Summary：始终保留展示槽位；若当前系统实际提供官方摘要，则展示原文；若未提供，则明确显示“状态：当前接口未提供可展示的官方 Reasoning Summary。”，不生成同名替代内容。
+2. Reasoning Reconstruction（推理重构）。
 
 默认以独立代码块、Markdown 区块或独立 Markdown 文档展示，不与正文平铺混排。
 
