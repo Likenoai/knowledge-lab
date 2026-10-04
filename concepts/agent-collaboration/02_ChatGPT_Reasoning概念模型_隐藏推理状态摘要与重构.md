@@ -341,3 +341,28 @@ Generated Reasoning Summary
   https://developers.openai.com/cookbook/examples/responses_api/reasoning_items
 
 > 本文件中的产品 / API 行为属于当前版本快照，未来如 OpenAI 官方术语或行为变化，应以官方文档为准并更新本文件。
+
+
+## 12. ChatGPT 产品界面与 Responses API 的可用性边界
+
+Reasoning Summary 不是像 raw chain of thought 那样“原则上隐藏”的对象。OpenAI Responses API 明确支持通过 `reasoning.summary` 显式请求摘要，摘要会出现在 reasoning output item 的 `summary` 数组中。
+
+但这不意味着每个 OpenAI 产品表面都会把这个对象暴露给当前助手运行时。
+
+需要区分：
+
+```text
+Responses API
+→ 开发者可显式设置 reasoning.summary
+→ 支持时可读取返回的 summary
+
+ChatGPT 产品界面
+→ 可能向用户展示某种 thinking / reasoning overview
+→ 但当前聊天中的助手不一定获得一个可读取、可再次输出的 Reasoning Summary 对象
+```
+
+因此，在本协作环境中：
+
+- 不能因为模型进行了 reasoning，就推断助手一定能读取官方 Reasoning Summary；
+- 不能把 ChatGPT UI 中可能出现的 thinking 展示，自动等同于当前助手可访问的 API `reasoning.summary` 字段；
+- 当当前运行接口没有向助手提供 Reasoning Summary 时，Reasoning Appendix Mode 不再显示无意义占位符，只输出 Reasoning Reconstruction。
