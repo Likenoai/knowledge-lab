@@ -1,6 +1,6 @@
 # 推理输出协议：Reasoning Summary 与 Reasoning Reconstruction
 
-> 状态：Working Protocol（工作协议）v0.2
+> 状态：Working Protocol（工作协议）v0.3
 >
 > 术语治理：遵循 `03_OpenAI_Reasoning术语治理_官方术语优先.md`。
 
@@ -56,9 +56,9 @@ Reasoning Summary 是 OpenAI 官方术语。
 
 当 Reasoning Appendix Mode（推理附录模式）开启：
 
-- 如果当前接口实际提供 Reasoning Summary：正文后先展示 Reasoning Summary；
-- 无论是否提供官方 Summary，只要存在实质推理，可展示 Reasoning Reconstruction；
-- 如果当前接口没有官方 Reasoning Summary，不伪造同名内容。
+- Reasoning Reconstruction 是稳定的默认附录内容；
+- 只有当前运行接口**实际向助手提供** Reasoning Summary 时，才额外展示 Reasoning Summary；
+- 如果当前接口没有向助手提供 Reasoning Summary：不显示占位符，不伪造同名内容，也不反复提示 unavailable。
 
 ## 5. 隐藏边界
 
