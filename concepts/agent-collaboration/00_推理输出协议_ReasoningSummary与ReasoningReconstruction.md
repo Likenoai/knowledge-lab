@@ -74,3 +74,12 @@ Answer
 - Raw Internal Deliberation；
 - Reasoning State；
 - 对隐藏推理进行猜测性还原的文本。
+
+
+## 5. 概念模型来源
+
+关于 Raw Internal Deliberation、Reasoning State、Reasoning Item、Reasoning Summary、Reasoning Reconstruction、Conversation State 与 Stateful Reasoning 的完整概念边界，见：
+
+`concepts/agent-collaboration/02_ChatGPT_Reasoning概念模型_隐藏推理状态摘要与重构.md`
+
+该文件区分 OpenAI 官方术语与 Knowledge Lab 工作术语，并记录 2026-10-05 的官方 API 行为快照。
