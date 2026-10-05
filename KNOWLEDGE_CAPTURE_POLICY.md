@@ -99,3 +99,32 @@ Paradigm / Problem
 在持续讨论中，一旦某部分已经达到长期知识价值，应主动进行 Knowledge Capture（知识沉淀），而不是等整段对话结束后再重新整理。
 
 Git commit message 使用中文。
+
+## 9. Deep Research（深度研究）使用原则
+
+对于会进入 `research/`、会改变长期 Working Model / Principle，或需要系统文献检索与证据更新的研究任务，默认优先使用 ChatGPT Deep Research（深度研究）作为主要检索与综合工作流。
+
+Knowledge Lab 自己设计的研究框架继续保留，但它的角色是：
+
+> **定义研究问题、约束证据纪律、组织论证、对抗性检验、术语治理与更新长期模型，而不是替代 Deep Research 的系统检索能力。**
+
+因此采用以下协作关系：
+
+```text
+Knowledge Lab research frame
+定义问题 / 假设 / 边界 / 证据标准
+        ↓
+ChatGPT Deep Research
+系统检索 / 来源比较 / 证据综合
+        ↓
+Knowledge Lab evaluation
+区分 Supported / Plausible / Speculative
+识别反证、边界与概念混淆
+        ↓
+Update Source of Truth
+修正既有文件并记录为什么修改
+```
+
+对于已经沉淀但仍处于 Working Model、证据基础较薄、对后续体系影响较大，或主要由普通聊天检索形成的结论，应在合适时机用 Deep Research 重新研究。重新研究的目标不是为旧结论寻找支持，而是允许旧结论被加强、缩小、重命名、拆分或推翻。
+
+已经有高质量证据且没有新的实质问题时，不机械重复研究；Deep Research 应优先投入高杠杆、高不确定性和会影响后续推理结构的问题。
