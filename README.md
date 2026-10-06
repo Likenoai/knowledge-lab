@@ -7,6 +7,8 @@
 ## Structure
 
 - `concepts/`：核心概念与认知模型
+- `principles/`：原则注册表与可直接调用的原则记录
+- `frameworks/`：研究、表达与使用框架
 - `research/`：研究资料、证据地图、Canonical Reference（规范参考）
 - `skills/`：可执行技能与训练协议
 - `learning/`：学习过程与能力训练
