@@ -1,0 +1,25 @@
+name: Decode cognitive diagram
+on:
+  push:
+    paths:
+      - 'tmp/cognitive-diagram/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  decode:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode image
+        shell: bash
+        run: |
+          mkdir -p research/cognitive-augmentation/assets
+          cat tmp/cognitive-diagram/part_* | base64 -d > "research/cognitive-augmentation/assets/人机认知系统三层结构图.png"
+          rm -rf tmp/cognitive-diagram
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "添加人机认知系统三层结构图 PNG"
+          git push
