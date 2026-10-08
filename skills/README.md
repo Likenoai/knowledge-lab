@@ -80,6 +80,9 @@ GitHub：`skills/`
 
 ### 高频入口（User-invoked）
 
+◇ [tracks](./tracks/SKILL.md)  
+研究路线总览的高频入口。短口令“看路线”，从现有研究记录恢复各线状态、停点与下一步；与 `map` 的知识结构梳理分工，不维护易过期的静态线路清单。
+
 ◇ [map](./map/SKILL.md)  
 高频结构梳理入口。输出 Map View；实际结构判定复用 `knowledge-structure-mapping`，避免重复维护。
 
