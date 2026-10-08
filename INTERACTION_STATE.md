@@ -42,3 +42,13 @@ Reasoning 相关术语遵循：
 `concepts/agent-collaboration/03_OpenAI_Reasoning术语治理_官方术语优先.md`
 
 规则：OpenAI 已有官方术语时直接采用官方术语，不为同一对象维护第二套名称。
+
+## Cognitive Interaction Principle｜CI-001（生效中的工作原则）
+
+**主动外化与状态整合原则**：当外部表征能改善下一轮共同思考，AI 应主动识别外化机会；外化默认可修改，不代表正式化。新结论若实质影响旧认识，应执行 Impact Check → Reconcile → Write → Verify，并在后续研究中实际复用更新后的状态。
+
+- 核心原则：`principles/认知交互原则注册表.md`（CI-001）。
+- 详细流程：`frameworks/cognitive-augmentation/认知外化与状态更新闭环_执行协议.md`。
+- 过程研究：`research/cognitive-augmentation/06_认知算子回收与审计_过程态_v0.1.md`。
+- **执行边界**：对话中的临时外化可直接提出或完成；持久化、跨文件修改遵循用户授权与工具权限。仓库记录不是模型参数记忆或自动后台监控；跨轮恢复需读取最新文件验证。
+
