@@ -70,14 +70,14 @@
         <aside class="detailCard" aria-label="选中原则详情">
           <div class="detailTop"><div class="detailHead"><b>PRINCIPLE DETAILS</b><span class="badge" id="detailBadge">候选</span></div><div class="detailIndex" id="detailId">P-014</div><h3 id="detailTitle">生命展开原则</h3><p class="detailEn" id="detailSubtitle">Life Actualization Principle</p></div>
           <div class="detailBody">
-            <div class="label">核心表达 · DEFINITION</div><div class="quote" id="detailQuote">生命主体的价值体现于对自身可能性的认识、展开与创造。</div>
+            <div class="label">原则要旨 · SUMMARY</div><div class="quote" id="detailQuote">生命主体的价值体现于对自身可能性的认识、展开与创造。</div>
             <div class="label">定位与边界 · CONTEXT</div><p class="detailText" id="detailContext">第一性原则候选。属于待辩护的规范性主张，不等同于生物学定律。</p>
             <div class="metaItem"><span>成熟度</span><b id="detailState">Candidate</b></div>
             <div class="metaItem"><span>结构定位</span><b id="detailLevel">基础候选</b></div>
             <div class="metaItem"><span>正式推导关系</span><b>尚无登记</b></div>
             <div class="label" style="margin-top:22px">关联知识 · RELATED</div><div class="detailLinks" id="detailLinks"></div>
           </div>
-          <div class="detailBottom"><a class="primaryBtn" id="detailSource" target="_blank" rel="noopener" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/人生原则注册表.md">在 GitHub 查看来源 ↗</a><div class="hint">此页仅展示知识快照，不直接修改 Markdown。</div></div>
+          <div class="detailBottom"><a class="primaryBtn" id="detailSource" target="_blank" rel="noopener" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/人生原则注册表.md">在 GitHub 查看来源 ↗</a><div class="hint">此页仅展示公开摘要，不直接读取或修改私有 Markdown。</div></div>
         </aside>
       </div>
       <section class="secondary" id="knowledge-entries"><div><h2>继续探索知识库</h2><p>从结构跳转到论证、概念与解释材料。</p></div><a class="topLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/README.md" target="_blank" rel="noopener">知识库说明 ↗</a></section>
@@ -87,7 +87,7 @@
         <a class="smallLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/metaphors/种子与森林.md" target="_blank" rel="noopener">✧ 种子与森林 · 隐喻 ↗</a>
         <a class="smallLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/人生原则注册表.md" target="_blank" rel="noopener">▤ 人生原则注册表 ↗</a>
       </div>
-      <p class="disclaimer">Knowledge Lab · Principle Atlas Prototype 01 / 数据根据 Registry v0.6 手工整理。为避免意外公开私有知识，网页不直接加载仓库完整 Markdown，关联文档在 GitHub 中按原有访问权限查看。探索连线属于界面演示数据。</p>
+      <p class="disclaimer">Knowledge Lab · Principle Atlas Prototype 01 / 数据根据 Registry v0.6 手工整理。为避免意外公开私有知识，网页不打包完整原则正文，也不直接加载仓库 Markdown，关联文档在 GitHub 中按原有访问权限查看。探索连线属于界面演示数据。</p>
     </main>
   </div>
 </div>
@@ -98,20 +98,20 @@ const BASE='https://github.com/Likenoai/knowledge-lab/blob/main/';
 const REG='principles/人生原则注册表.md';
 const common='research/life-principles/';
 const principles=[
-{id:'P-001',name:'不可逆配置命题',eng:'Irreversible Allocation',status:'working',level:'基础命题',x:178,y:118,short:'时间流向塑造人生路径',definition:'人生时间不可恢复；持续把时间交给什么，就在持续放弃其他可能，并形成实际人生路径。',source:common+'00_人生有限性与不可逆选择原则.md',context:'基础命题 · 后台基础。它描述不可恢复的时间配置与机会放弃之间的联系。'},
+{id:'P-001',name:'不可逆配置命题',eng:'Irreversible Allocation',status:'working',level:'基础命题',x:178,y:118,short:'时间流向塑造人生路径',definition:'时间流向塑造人生路径',source:common+'00_人生有限性与不可逆选择原则.md',context:'基础命题 · 后台基础。它描述不可恢复的时间配置与机会放弃之间的联系。'},
 {id:'P-014',name:'生命展开原则',eng:'Life Actualization',status:'candidate',level:'第一性候选',x:780,y:118,short:'认识、展开与创造可能性',definition:'生命主体的价值体现于对自身可能性的认识、展开与创造。',source:REG,context:'第一性原则候选。属于待辩护的规范性主张，不能将自然生长直接视为伦理证明。',related:[['概念定义 · C-LA-001','concepts/life-actualization.md'],['论证依据 · A-LA-001',common+'生命展开原则_规范性依据与反驳.md'],['种子与森林 · M-LA-001','metaphors/种子与森林.md']]},
-{id:'P-002',name:'重复后果原则',eng:'Repeated Consequences',status:'candidate',level:'决策原则',x:38,y:328,short:'关注长期重复后的结构',definition:'不只问一次选择的结果；问这种选择如果重复多年，会形成什么结构。',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
-{id:'P-003',name:'显性机会成本原则',eng:'Explicit Opportunity Cost',status:'candidate',level:'决策原则',x:328,y:328,short:'看见承诺排除的选项',definition:'对重大承诺，不只看它带来什么，也明确它会持续排除什么。',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
-{id:'P-004',name:'不可替代优先原则',eng:'Irreplaceability Priority',status:'candidate',level:'决策原则',x:618,y:328,short:'优先保护难以恢复的资产',definition:'资源冲突时，优先保护更难恢复、替代或补偿的资产。',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
-{id:'P-005',name:'长期身份一致原则',eng:'Long-Term Identity',status:'candidate',level:'决策原则',x:908,y:328,short:'重复行为塑造长期身份',definition:'高频重复行为应尽量与希望长期形成的能力、关系与人格方向一致。',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
-{id:'P-006',name:'先改善位置',eng:'Position Before Decision',status:'candidate',level:'判断原则',x:38,y:530,short:'改善选择时所处的条件',definition:'重大决策前，先改善身体状态、信息质量、时间余量、资源与可选集合；能先改变位置，就不要急着在坏位置上优化选择。',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
-{id:'P-007',name:'先独立判断',eng:'Independent Judgment',status:'candidate',level:'判断原则',x:328,y:530,short:'先形成初步判断再更新',definition:'先形成自己的初步判断，再利用群体信息更新，而不是把从众或反共识本身当作正确。',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
-{id:'P-008',name:'求真优先',eng:'Truth-Seeking',status:'candidate',level:'判断原则',x:618,y:530,short:'修正认识优先于自我防御',definition:'判断目标优先是逼近事实与改进过程，而不是维护“我原来是对的”。',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
-{id:'P-009',name:'承担可控制的部分',eng:'Controllable Contribution',status:'candidate',level:'判断原则',x:908,y:530,short:'对可控行为负责',definition:'对自己的判断、准备、行为与可控失误负责，但不把整个系统结果都归因于自己。',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
-{id:'P-010',name:'递归构建原则',eng:'Recursive Construction',status:'working',level:'工作原则',x:38,y:738,short:'行动、反馈、递归更新',definition:'面对可获得反馈且允许阶段性修正的复杂系统，不假设能一次设计终局；用当前版本行动，把反馈和新状态作为下一轮输入，递归更新。',source:REG},
-{id:'P-011',name:'边际配置原则',eng:'Marginal Allocation',status:'working',level:'工作原则',x:328,y:738,short:'优化下一单位资源投入',definition:'时间、注意与认知能力有限；不要追求无条件完备。把下一单位资源投入预期边际价值更高的问题，并在继续投入的边际收益低于机会成本时停止。',source:common+'00_人生有限性与不可逆选择原则.md'},
-{id:'P-012',name:'不确定下保护选择权',eng:'Preserve Option Value',status:'working',level:'工作原则',x:618,y:738,short:'保存可逆性与退出空间',definition:'当未来仍会产生有价值的新信息，而当前承诺又难以撤销时，把可逆性、分阶段和退出空间本身视为有价值的资产；除非等待成本或抢先 / 承诺价值更高，否则不要过早消耗未来选择权。',source:common+'10_不确定下保护选择权_小规模验证.md'},
-{id:'P-013',name:'设计行为条件',eng:'Behavioral Conditions',status:'working',level:'工作原则',x:908,y:738,short:'设计触发、摩擦与反馈',definition:'当目标行为已经明确、需要长期重复，而执行持续失败时，不要只要求自己更有意志；优先设计触发、默认、摩擦、反馈、承诺与激励结构，让目标行为更容易稳定发生。',source:common+'11_设计行为条件而非只依赖意愿_小规模验证.md'}
+{id:'P-002',name:'重复后果原则',eng:'Repeated Consequences',status:'candidate',level:'决策原则',x:38,y:328,short:'关注长期重复后的结构',definition:'关注长期重复后的结构',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
+{id:'P-003',name:'显性机会成本原则',eng:'Explicit Opportunity Cost',status:'candidate',level:'决策原则',x:328,y:328,short:'看见承诺排除的选项',definition:'看见承诺排除的选项',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
+{id:'P-004',name:'不可替代优先原则',eng:'Irreplaceability Priority',status:'candidate',level:'决策原则',x:618,y:328,short:'优先保护难以恢复的资产',definition:'优先保护难以恢复的资产',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
+{id:'P-005',name:'长期身份一致原则',eng:'Long-Term Identity',status:'candidate',level:'决策原则',x:908,y:328,short:'重复行为塑造长期身份',definition:'重复行为塑造长期身份',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
+{id:'P-006',name:'先改善位置',eng:'Position Before Decision',status:'candidate',level:'判断原则',x:38,y:530,short:'改善选择时所处的条件',definition:'改善选择时所处的条件',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
+{id:'P-007',name:'先独立判断',eng:'Independent Judgment',status:'candidate',level:'判断原则',x:328,y:530,short:'先形成初步判断再更新',definition:'先形成初步判断再更新',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
+{id:'P-008',name:'求真优先',eng:'Truth-Seeking',status:'candidate',level:'判断原则',x:618,y:530,short:'修正认识优先于自我防御',definition:'修正认识优先于自我防御',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
+{id:'P-009',name:'承担可控制的部分',eng:'Controllable Contribution',status:'candidate',level:'判断原则',x:908,y:530,short:'对可控行为负责',definition:'对可控行为负责',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
+{id:'P-010',name:'递归构建原则',eng:'Recursive Construction',status:'working',level:'工作原则',x:38,y:738,short:'行动、反馈、递归更新',definition:'行动、反馈、递归更新',source:REG},
+{id:'P-011',name:'边际配置原则',eng:'Marginal Allocation',status:'working',level:'工作原则',x:328,y:738,short:'优化下一单位资源投入',definition:'优化下一单位资源投入',source:common+'00_人生有限性与不可逆选择原则.md'},
+{id:'P-012',name:'不确定下保护选择权',eng:'Preserve Option Value',status:'working',level:'工作原则',x:618,y:738,short:'保存可逆性与退出空间',definition:'保存可逆性与退出空间',source:common+'10_不确定下保护选择权_小规模验证.md'},
+{id:'P-013',name:'设计行为条件',eng:'Behavioral Conditions',status:'working',level:'工作原则',x:908,y:738,short:'设计触发、摩擦与反馈',definition:'设计触发、摩擦与反馈',source:common+'11_设计行为条件而非只依赖意愿_小规模验证.md'}
 ];
 const ideas=[['P-001','P-002'],['P-001','P-003'],['P-001','P-011'],['P-014','P-005'],['P-003','P-011'],['P-004','P-012'],['P-006','P-012']];
 const lookup=Object.fromEntries(principles.map(p=>[p.id,p]));
