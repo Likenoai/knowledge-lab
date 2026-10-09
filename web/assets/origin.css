@@ -41,6 +41,9 @@ button,input,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-v
 .icon-btn:hover{background:#eaeaff;color:#5557b6;border-color:#cecff4}
 .doc-main{flex:1;min-height:0;overflow:auto;padding:15px 19px 20px;background:#fff;scrollbar-width:thin;scrollbar-color:#dce0eb transparent;-webkit-user-select:text;user-select:text}
 .doc-main *{-webkit-user-select:text;user-select:text}
+/* 文档正文允许选择、复制；画布其他区域仍禁止误选。 */
+#viewport .doc-main,#viewport .doc-main *{-webkit-user-select:text;user-select:text}
+#viewport .doc-main{overscroll-behavior:contain;touch-action:pan-y}
 .doc-main .placeholder{min-height:90px;display:flex;flex-direction:column;justify-content:center;gap:7px;color:#9aa3b3;font-size:11px;line-height:1.8}
 .doc-main .placeholder strong{color:#4e5870;font-size:12px}
 .doc-main .placeholder button{width:max-content;margin-top:5px}
