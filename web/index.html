@@ -12,6 +12,8 @@ html,body{height:100%;width:100%;margin:0;overflow:hidden;background:var(--backg
 button,a{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible{outline:3px solid #b0b0eb;outline-offset:3px}
 #viewport{height:100dvh;width:100%;position:relative;overflow:hidden;touch-action:none;cursor:grab;background:radial-gradient(#dce1ed 0.8px,transparent .8px) 0 0/25px 25px}
 #viewport.dragging{cursor:grabbing}
+/* 图谱是一块可拖动的工作画布：禁止系统文本选区和拖拽幽灵图。 */
+#viewport,#viewport *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .mast{position:absolute;top:27px;left:31px;z-index:5;pointer-events:none;display:flex;align-items:center;gap:11px}
 .logo{background:#29334e;color:white;border-radius:10px;width:33px;height:33px;display:grid;place-items:center;font-weight:800;font-size:17px}
 .mast b{font-size:12px;letter-spacing:.04em}.mast small{color:#9ca5b7;font-size:10px;display:block;letter-spacing:.1em;margin-top:3px}
@@ -116,39 +118,79 @@ function newNode(data,kind,x,y){
 }
 function render(recenter){
  nodes.replaceChildren();edges.replaceChildren();
- const x=[80,530,990],top=70,gap=44,space=15;
- let curY=top;const grouped=[];
- threads.forEach(function(b){
-   const expanded=b.id===active, childH=b.children.length*sizes.leaf[1]+(b.children.length-1)*space;
-   const height=expanded?Math.max(childH,sizes.branch[1]):sizes.branch[1];
-   grouped.push({b:b,start:curY,height:height,expanded:expanded});curY+=height+gap;
+ /* 固定、紧凑的原生像素布局。展开分支时其他分支不再上下跳动。 */
+ const x=[80,480,888],top=84,gap=20,space=10;
+ const grouped=[];
+ threads.forEach(function(b,i){
+   const expanded=b.id===active;
+   const branchY=top+i*(sizes.branch[1]+gap);
+   const leafHeight=b.children.length*sizes.leaf[1]+(b.children.length-1)*space;
+   const leafY=branchY+(sizes.branch[1]-leafHeight)/2;
+   grouped.push({b:b,branchY:branchY,leafY:leafY,expanded:expanded});
  });
- bounds.width=active?x[2]+sizes.leaf[0]+80:x[1]+sizes.branch[0]+110;
- bounds.height=Math.max(660,curY-gap+top);
+ // 用固定画布尺寸保持节点在切换分支时位置稳定。默认 1:1 显示字体。
+ bounds.width=x[2]+sizes.leaf[0]+80;
+ bounds.height=835;
  stage.style.width=bounds.width+'px';stage.style.height=bounds.height+'px';edges.setAttribute('width',bounds.width);edges.setAttribute('height',bounds.height);edges.setAttribute('viewBox','0 0 '+bounds.width+' '+bounds.height);
  const root=newNode(origin,'root',x[0],(bounds.height-sizes.root[1])/2);
  grouped.forEach(function(g){
-   const parent=newNode(g.b,'branch',x[1],g.start+(g.height-sizes.branch[1])/2);addEdge(root,parent,true);
-   if(g.expanded){g.b.children.forEach(function(child,i){const leaf=newNode(child,'leaf',x[2],g.start+i*(sizes.leaf[1]+space));addEdge(parent,leaf,false);});}
+   const parent=newNode(g.b,'branch',x[1],g.branchY);addEdge(root,parent,true);
+   if(g.expanded){g.b.children.forEach(function(child,i){const leaf=newNode(child,'leaf',x[2],g.leafY+i*(sizes.leaf[1]+space));addEdge(parent,leaf,false);});}
  });
  if(recenter)fit();else apply();
 }
 function apply(){stage.style.transform='translate('+tx+'px,'+ty+'px) scale('+zoomLevel+')';}
 function fit(){
  const w=viewport.clientWidth,h=viewport.clientHeight;
- const marginX=w<620?25:90,marginY=h<600?95:130;
- zoomLevel=Math.max(.32,Math.min(1.16,Math.min((w-marginX)/bounds.width,(h-marginY)/bounds.height)));
- tx=(w-bounds.width*zoomLevel)/2;ty=(h-bounds.height*zoomLevel)/2;apply();
+ // 首屏保持设备 CSS 像素 1:1：不再自动整体缩放 DOM 字体。
+ // 窄屏首先保证根节点可见，其余节点可拖拽浏览。
+ zoomLevel=1;
+ tx=w>=bounds.width?(w-bounds.width)/2:20-80;
+ ty=(h-bounds.height)/2;
+ apply();
 }
 function zoom(f,cx,cy){const old=zoomLevel;zoomLevel=Math.max(.3,Math.min(1.9,zoomLevel*f));tx=cx-(cx-tx)*zoomLevel/old;ty=cy-(cy-ty)*zoomLevel/old;apply();}
 document.getElementById('fit').addEventListener('click',()=>{active=null;render(true);});
 document.getElementById('in').addEventListener('click',()=>zoom(1.18,viewport.clientWidth/2,viewport.clientHeight/2));
 document.getElementById('out').addEventListener('click',()=>zoom(1/1.18,viewport.clientWidth/2,viewport.clientHeight/2));
 viewport.addEventListener('wheel',function(e){e.preventDefault();const r=viewport.getBoundingClientRect();zoom(e.deltaY<0?1.09:1/1.09,e.clientX-r.left,e.clientY-r.top);},{passive:false});
-viewport.addEventListener('pointerdown',function(e){if(e.target.closest('button,a'))return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,ox:tx,oy:ty};viewport.setPointerCapture(e.pointerId);viewport.classList.add('dragging');});
-viewport.addEventListener('pointermove',function(e){if(!drag||e.pointerId!==drag.id)return;tx=drag.ox+e.clientX-drag.x;ty=drag.oy+e.clientY-drag.y;apply();});
-function stopDrag(e){if(drag&&e.pointerId!==drag.id)return;drag=null;viewport.classList.remove('dragging');}
-viewport.addEventListener('pointerup',stopDrag);viewport.addEventListener('pointercancel',stopDrag);
+// 允许从节点本身开始平移；用位移阈值保留正常的点击展开行为。
+let suppressClick=false;
+const moveThreshold=6;
+viewport.addEventListener('pointerdown',function(e){
+ if((e.pointerType==='mouse'&&e.button!==0)||e.target.closest('a,.controls'))return;
+ drag={id:e.pointerId,x:e.clientX,y:e.clientY,ox:tx,oy:ty,moved:false};
+});
+viewport.addEventListener('pointermove',function(e){
+ if(!drag||e.pointerId!==drag.id)return;
+ const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
+ if(!drag.moved&&Math.hypot(dx,dy)<moveThreshold)return;
+ if(!drag.moved){
+   drag.moved=true;
+   viewport.setPointerCapture(e.pointerId);
+   viewport.classList.add('dragging');
+ }
+ if(e.cancelable)e.preventDefault();
+ tx=drag.ox+dx;ty=drag.oy+dy;apply();
+});
+function stopDrag(e){
+ if(!drag||e.pointerId!==drag.id)return;
+ if(drag.moved){
+   suppressClick=true;
+   // pointerup 后紧跟的 click 不能误触发节点展开。
+   setTimeout(function(){suppressClick=false;},0);
+   if(viewport.hasPointerCapture(e.pointerId))viewport.releasePointerCapture(e.pointerId);
+ }
+ drag=null;viewport.classList.remove('dragging');
+}
+viewport.addEventListener('pointerup',stopDrag);
+viewport.addEventListener('pointercancel',stopDrag);
+viewport.addEventListener('click',function(e){
+ if(!suppressClick)return;
+ e.preventDefault();e.stopImmediatePropagation();suppressClick=false;
+},true);
+viewport.addEventListener('selectstart',function(e){e.preventDefault();});
+viewport.addEventListener('dragstart',function(e){e.preventDefault();});
 viewport.addEventListener('keydown',function(e){if(e.key==='+'||e.key==='='){e.preventDefault();zoom(1.15,viewport.clientWidth/2,viewport.clientHeight/2);}if(e.key==='-'){e.preventDefault();zoom(1/1.15,viewport.clientWidth/2,viewport.clientHeight/2);}if(e.key==='0'){e.preventDefault();fit();}});
 render(true);
 window.addEventListener('resize',fit);
