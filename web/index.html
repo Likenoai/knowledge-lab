@@ -1,55 +1,184 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light">
-<meta name="description" content="Knowledge Lab 知识结构导航">
-<title>Knowledge Lab · 知识地图</title>
+<meta name="description" content="Knowledge Lab — 以原则推导图为核心的认知工作台原型">
+<title>Principle Atlas · Knowledge Lab</title>
 <style>
-:root{--bg:#f6f7fb;--paper:#fff;--ink:#19233a;--muted:#69768b;--line:#e5e9f1;--accent:#4455c9;--soft:#edf0ff;--radius:16px;--shadow:0 10px 30px rgba(38,49,91,.045)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font:15px/1.65 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink)}a{color:inherit;text-decoration:none}button,input{font:inherit}
-.shell{max-width:1320px;margin:auto;padding:28px 28px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:38px}.brand{font-size:16px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:12px}.mark{width:34px;height:34px;border-radius:11px;background:#283c91;color:#fff;display:grid;place-items:center;font-weight:800}.toplinks{display:flex;gap:18px;font-size:13px;color:var(--muted)}.toplinks a:hover,.link:hover{color:var(--accent)}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:stretch;margin-bottom:24px}.heroText{padding:20px 0 12px}.eyebrow{text-transform:uppercase;letter-spacing:.16em;color:var(--accent);font-size:11px;font-weight:800}.hero h1{font-size:clamp(32px,4.2vw,52px);letter-spacing:-.055em;line-height:1.15;margin:12px 0 16px}.hero p{color:var(--muted);max-width:690px;margin:0;font-size:15px}.status{background:linear-gradient(135deg,#293d8b,#5667ce);border-radius:var(--radius);color:white;padding:24px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}.status small{color:#d8defe}.status strong{font-size:24px;letter-spacing:-.03em}.pill{display:inline-block;border:1px solid #cad2ff69;border-radius:50px;padding:4px 10px;font-size:11px;width:max-content;margin-top:16px}
-.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:30px 0 18px}.toolbar h2{margin:0;font-size:21px;letter-spacing:-.025em}.search{min-width:260px;width:330px;border:1px solid var(--line);padding:11px 14px;background:white;border-radius:11px;outline:0}.search:focus{border-color:var(--accent);box-shadow:0 0 0 3px #4455c916}.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:22px;align-items:start}.side{position:sticky;top:20px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:15px;box-shadow:var(--shadow)}.side a{display:block;padding:11px 13px;border-radius:9px;color:var(--muted);font-size:13px}.side a:hover,.side a.active{background:var(--soft);color:var(--accent)}.side .section{font-weight:700;color:var(--ink);font-size:11px;letter-spacing:.09em;padding:12px 13px 4px;text-transform:uppercase}.main{min-width:0}.overview{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:25px 25px 22px;margin-bottom:22px;box-shadow:var(--shadow)}.sectionHeading{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:16px}.sectionHeading h3{margin:0;font-size:17px;letter-spacing:-.02em}.sectionHeading span{color:var(--muted);font-size:12px}.map{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.node{border-radius:12px;border:1px solid var(--line);padding:16px;min-height:95px;background:#fff;transition:.2s;display:flex;flex-direction:column;justify-content:center}.node:hover,.doc:hover{border-color:#a9b4f6;transform:translateY(-2px);box-shadow:0 10px 25px #2b3f8e11}.node b{font-size:14px}.node small{font-size:12px;color:var(--muted);margin-top:3px}.node.foundation{background:var(--soft);border-color:#cdd4ff}.arrow{font-size:12px;color:#66759f}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.group{padding:21px;background:white;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);scroll-margin-top:20px}.groupHead{display:flex;gap:11px;align-items:center;margin-bottom:7px}.groupIcon{background:var(--soft);color:var(--accent);border-radius:10px;width:37px;height:37px;display:grid;place-items:center;font-size:19px}.group h3{margin:0;font-size:17px}.group .desc{color:var(--muted);font-size:12px;margin:0 0 14px}.doc{border:1px solid var(--line);border-radius:10px;padding:12px 13px;margin-top:9px;display:flex;justify-content:space-between;align-items:center;gap:8px;transition:.2s}.doc div{min-width:0}.doc b{font-size:13px;display:block;line-height:1.4}.doc small{font-size:11px;color:var(--muted);display:block;margin-top:3px}.doc .out{color:#8b95ab;font-size:16px}.footer{font-size:12px;color:var(--muted);margin-top:27px;line-height:1.8}.note{border-left:3px solid #a6b0f7;padding:10px 16px;color:#586780;background:#f0f2ff;border-radius:0 10px 10px 0;margin-top:22px}.empty{display:none;text-align:center;padding:34px;color:var(--muted)}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.status{min-height:160px}.layout{grid-template-columns:1fr}.side{position:static;display:flex;overflow:auto;gap:3px}.side .section{display:none}.side a{white-space:nowrap}}@media(max-width:650px){.shell{padding:16px 14px 45px}.top{align-items:start}.toplinks{gap:9px;flex-wrap:wrap;justify-content:end}.hero h1{font-size:34px}.toolbar{align-items:stretch;flex-direction:column}.search{width:100%;min-width:0}.grid,.map{grid-template-columns:1fr}.overview{padding:18px}.group{padding:16px}}
+:root{--bg:#f6f7fa;--paper:#fff;--text:#1e293b;--sub:#667287;--faint:#96a1b1;--line:#e7eaf0;--primary:#5456d5;--primary-lite:#f0f0ff;--gold:#bd8640;--gold-lite:#fff6e9;--green:#207b64;--green-lite:#eaf7f1;--shadow:0 12px 45px rgba(27,39,67,.045)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft Yahei",sans-serif;color:var(--text);background:var(--bg);font-size:14px}button,input{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #b9baff;outline-offset:2px}button,select{transition:background .15s,border-color .15s,color .15s}button:disabled{opacity:.5;cursor:not-allowed}
+.app{display:grid;grid-template-columns:222px minmax(0,1fr);min-height:100vh}.sidebar{background:#fff;border-right:1px solid var(--line);padding:27px 16px 24px;display:flex;flex-direction:column;gap:25px;min-width:0}.brand{display:flex;align-items:center;gap:10px;padding:0 10px}.logo{width:36px;height:36px;border-radius:11px;background:#242c48;color:#fff;display:grid;place-items:center;font-size:18px;font-weight:800;letter-spacing:-.08em}.brand b{display:block;font-size:14px;letter-spacing:-.03em}.brand small{display:block;color:var(--faint);font-size:10px;letter-spacing:.06em;margin-top:2px}.navCaption{font-size:10px;color:#97a1b1;font-weight:800;letter-spacing:.12em;margin:0 10px 10px}.navGroup{display:flex;flex-direction:column;gap:3px}.navItem{display:flex;gap:11px;align-items:center;padding:11px 12px;border-radius:10px;color:#6b7586;font-size:13px;font-weight:550;min-height:40px}.navItem:hover{background:#f6f7fa}.navItem.active{background:#ededff;color:#4949c8;font-weight:750}.navItem .glyph{font-size:16px;width:18px;text-align:center;font-weight:400}.navItem .count{margin-left:auto;color:#a5adbb;font-size:11px;font-variant-numeric:tabular-nums}.sidebarBottom{margin-top:auto;border-radius:13px;background:#f6f7fc;padding:15px}.sidebarBottom b{font-size:12px}.sidebarBottom p{font-size:11px;color:#788297;line-height:1.65}.sidebarBottom a{font-size:11px;color:var(--primary);font-weight:650}.workspace{min-width:0;display:flex;flex-direction:column}.topbar{height:68px;flex:0 0 auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid var(--line);gap:16px}.crumb{display:flex;align-items:center;gap:9px;color:#929bad;font-size:12px}.crumb b{color:#2c374f;font-weight:650}.topRight{display:flex;align-items:center;gap:13px;color:#7e889b;font-size:12px}.topRight .dot{width:7px;height:7px;border-radius:50%;background:#2ca77d;box-shadow:0 0 0 4px #e5f7f0}.topLink{border:1px solid #e6e8ef;border-radius:8px;padding:8px 12px;background:#fff;font-weight:650;color:#4e5870}.topLink:hover{background:#f5f5ff;border-color:#d7d8ff}.body{padding:28px 30px 34px;max-width:1700px;width:100%;margin:0 auto}.intro{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:22px}.eyebrow{font-size:10px;color:#585bd0;letter-spacing:.17em;font-weight:800;text-transform:uppercase;margin-bottom:8px}.intro h1{font-size:clamp(27px,2.65vw,38px);line-height:1.14;margin:0 0 9px;letter-spacing:-.055em;font-weight:750}.intro p{color:#7a8497;margin:0;line-height:1.7;max-width:670px;font-size:12.5px}.introHint{display:flex;align-items:center;gap:8px;color:#a4acb8;font-size:11px;white-space:nowrap;padding-bottom:5px}.introHint span{width:6px;height:6px;background:#c6cbd5;border-radius:50%}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}.metric{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:15px 17px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow)}.metricIcon{width:39px;height:39px;display:grid;place-items:center;border-radius:10px;background:#f0efff;color:#6260cd;font-size:17px}.metric:nth-child(2) .metricIcon{background:#eff8f5;color:#398b75}.metric:nth-child(3) .metricIcon{background:#fff7ea;color:#b28b49}.metric:nth-child(4) .metricIcon{background:#edf4fd;color:#6b91c5}.metric strong{font-size:21px;line-height:1;display:block;letter-spacing:-.05em;font-variant-numeric:tabular-nums}.metric small{display:block;color:#8b95a5;font-size:11px;margin-top:6px}
+.mainGrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:stretch}.graphCard,.detailCard,.browseCard{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);overflow:hidden}.graphCard{min-width:0}.graphHeader{padding:20px 21px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.graphHeader h2{font-size:16px;margin:0 0 5px;letter-spacing:-.025em}.graphHeader p{font-size:11px;color:#97a1ae;margin:0}.viewSwitch{display:flex;gap:3px;padding:3px;background:#f4f5f8;border-radius:9px}.viewSwitch button{background:transparent;border:0;border-radius:7px;padding:7px 11px;font-size:11px;color:#7c8797}.viewSwitch button.selected{color:#4549be;background:white;box-shadow:0 2px 6px #30396d13;font-weight:750}.toolBar{display:flex;gap:7px;align-items:center;padding:0 21px 14px;flex-wrap:wrap}.searchWrap{height:34px;background:#f8f9fc;border:1px solid #ebedf3;border-radius:8px;display:flex;align-items:center;gap:8px;padding:0 10px;flex:1;min-width:150px}.searchWrap span{font-size:14px;color:#a9b0bd}.searchWrap input{border:0;background:transparent;outline:0;width:100%;min-width:40px;color:#25314b;font-size:11px}.searchWrap input::placeholder{color:#a8afbc}.chip{background:#fff;border:1px solid #e9ecf2;border-radius:8px;font-size:11px;padding:8px 11px;color:#7e899b;white-space:nowrap}.chip.on{background:#efefff;color:#4f51c0;border-color:#deddfb;font-weight:700}.chip:hover{border-color:#b9bcf0}.graphWrap{position:relative;background:#fafbff;border-top:1px solid #edf0f7;height:570px;overflow:hidden;touch-action:none;cursor:grab}.graphWrap.grabbing{cursor:grabbing}.graphWrap:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#dfe3ef 1px,transparent 1px);background-size:20px 20px;pointer-events:none}.stage{width:1180px;height:910px;position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}.edgeLayer{width:1180px;height:910px;position:absolute;inset:0;overflow:visible;pointer-events:none}.edgeLayer path{stroke:#aba4db;stroke-width:2.1;stroke-dasharray:7 7;fill:none;opacity:.65}.edgeLayer path.dimmed{opacity:.12}.layerLabel{position:absolute;left:15px;font-weight:800;letter-spacing:.12em;font-size:11px;color:#a0a6b7;text-transform:uppercase;display:flex;align-items:center;gap:14px;width:1120px}.layerLabel:after{content:"";height:1px;flex:1;background:#dfe4ed}.node{position:absolute;width:216px;min-height:102px;background:white;border:1px solid #dfe4ef;border-radius:12px;text-align:left;padding:12px 13px;box-shadow:0 6px 19px rgba(35,49,90,.045);transition:border-color .15s,box-shadow .15s,background .15s,opacity .15s;cursor:pointer;color:#22304b}.node:hover{border-color:#989aeb;box-shadow:0 10px 28px #535bd01e}.node.selected{background:#fdfdff;border:2px solid #6060d8;padding:11px 12px;box-shadow:0 7px 29px #5456d526}.node.dimmed{opacity:.21}.nodeTop{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:9px}.nodeId{font-size:10px;font-weight:800;color:#6466cf;letter-spacing:.03em}.nodeStatus{font-size:9px;padding:3px 7px;background:#edf8f4;color:#488f76;border-radius:5px}.nodeStatus.candidate{background:#fff5e8;color:#ae844a}.nodeStatus.foundation{background:#edeaff;color:#6b63c2}.nodeTitle{font-size:13px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px}.nodeShort{font-size:10px;line-height:1.35;color:#8a94a7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.graphFoot{padding:11px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid var(--line);color:#8993a5;font-size:10.5px;flex-wrap:wrap}.legend{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.legend i{width:11px;height:11px;border-radius:4px;display:inline-block;background:#e9e7ff;border:1px solid #c3beff;vertical-align:-1px;margin-right:5px}.legend i.working{background:#eaf7f1;border-color:#a7dfc8}.legend i.cand{background:#fff5e8;border-color:#e8d1a6}.graphTools{position:absolute;right:15px;bottom:15px;display:flex;flex-direction:column;gap:6px;z-index:3}.graphTools button{height:33px;min-width:33px;border:1px solid #e1e5ed;border-radius:8px;background:#fff;color:#65718b;box-shadow:0 2px 9px #3e50691a;font-size:16px}.graphTools button:hover{color:#5556c9;background:#f7f7ff}.graphTools .fit{font-size:10px;font-weight:700;padding:0 8px}.canvasNotice{position:absolute;left:18px;top:15px;z-index:2;font-size:10px;color:#9299ab;background:#ffffffdb;border:1px solid #e8ebf2;padding:7px 10px;border-radius:6px;pointer-events:none}
+.detailCard{display:flex;flex-direction:column;min-height:683px}.detailTop{padding:23px 22px 17px;border-bottom:1px solid var(--line)}.detailHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}.detailHead b{font-size:11px;letter-spacing:.11em;color:#7e89a1}.detailHead .badge{font-size:9px;color:#bf8742;background:#fff4e7;padding:6px 8px;border-radius:6px;font-weight:700}.detailIndex{font-size:11px;color:#6e6bd2;font-weight:800;letter-spacing:.09em}.detailTop h3{font-size:21px;letter-spacing:-.045em;line-height:1.4;margin:8px 0 8px}.detailEn{font-size:11px;color:#97a0af;margin:0}.detailBody{padding:20px 22px;flex:1}.label{font-size:10px;color:#9ba4b4;letter-spacing:.095em;font-weight:850;margin-bottom:10px}.quote{border-left:3px solid #7777d5;padding:3px 0 3px 12px;color:#3f4b65;font-size:12px;line-height:1.9;margin-bottom:24px}.detailText{font-size:12px;color:#697589;line-height:1.85;margin-bottom:20px}.metaItem{display:flex;align-items:center;justify-content:space-between;font-size:11px;padding:10px 0;border-bottom:1px solid #f0f2f7}.metaItem span{color:#97a1b0}.metaItem b{color:#566077;font-weight:650}.detailLinks{display:flex;flex-direction:column;gap:8px;margin-top:13px}.detailLinks a{border:1px solid #e8ebf4;border-radius:8px;padding:11px 12px;color:#4a5673;font-size:11px;display:flex;align-items:center;justify-content:space-between;gap:8px}.detailLinks a:hover{background:#f7f7ff;border-color:#c9cbfa;color:#4e4bcb}.detailLinks a span{color:#a2a9b7}.detailBottom{padding:15px 20px;border-top:1px solid var(--line)}.primaryBtn{background:#5a5bd4;border:1px solid #5a5bd4;border-radius:9px;color:#fff;font-weight:700;width:100%;padding:12px 14px;font-size:12px;display:block;text-align:center}.primaryBtn:hover{background:#484bc2}.hint{margin-top:10px;font-size:10px;line-height:1.65;color:#a0a8b8;text-align:center}
+.listArea{border-top:1px solid #eef0f5;background:#fafbff;min-height:570px;padding:18px;display:none}.listArea.show{display:block}.listGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.listItem{background:#fff;border:1px solid #e6e9f1;padding:13px 14px;border-radius:10px;text-align:left;display:flex;gap:10px;align-items:center}.listItem:hover{border-color:#acb0ee}.listItem.active{border-color:#8889e0;background:#f8f8ff}.listItem b{font-size:11px}.listItem small{color:#939dad;font-size:10px;display:block;margin-top:3px}.listNum{color:#6e70cb;font-weight:750;font-size:11px}.listEmpty{color:#919aaa;font-size:13px;text-align:center;padding:30px}
+.secondary{margin-top:17px;display:flex;justify-content:space-between;align-items:center;gap:12px}.secondary h2{font-size:14px;margin:0 0 4px}.secondary p{font-size:11px;color:#969fad;margin:0}.linkRow{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.smallLink{display:flex;align-items:center;gap:8px;background:white;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:11px;color:#5c6982}.smallLink:hover{border-color:#c5c6fa;color:#4f51bf}.disclaimer{color:#97a0b0;font-size:10px;line-height:1.8;margin-top:19px}.hide{display:none!important}
+@media(min-width:1450px){.mainGrid{grid-template-columns:minmax(0,1fr) 322px}.graphWrap{height:640px}.detailCard{min-height:752px}}
+@media(max-width:1180px){.app{grid-template-columns:192px minmax(0,1fr)}.sidebar{padding:23px 10px}.mainGrid{grid-template-columns:minmax(0,1fr)}.detailCard{min-height:auto;display:grid;grid-template-columns:1fr 1fr}.detailTop{border-bottom:0;border-right:1px solid var(--line)}.detailBody{grid-column:2;grid-row:1/3}.detailBottom{grid-column:1;border-top:1px solid var(--line)}.graphWrap{height:540px}.body{padding:24px}}
+@media(max-width:740px){.app{display:block}.sidebar{padding:12px;border-right:0;border-bottom:1px solid var(--line);gap:0}.brand{padding:0 5px}.sidebar .navGroup,.sidebar .navCaption,.sidebar .sidebarBottom{display:none}.topbar{height:49px;padding:0 15px}.topRight span:first-child{display:none}.body{padding:20px 13px 30px}.intro{display:block}.introHint{display:none}.intro h1{font-size:30px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.metric{padding:12px}.metricIcon{width:32px;height:32px}.metric strong{font-size:18px}.graphHeader{padding:17px 15px 13px}.toolBar{padding:0 14px 14px}.graphWrap{height:480px}.graphFoot{padding:10px 12px}.detailCard{display:flex}.detailTop{border-right:0;border-bottom:1px solid var(--line)}.detailBody{display:block}.detailBottom{border-top:1px solid var(--line)}.listGrid{grid-template-columns:1fr}.secondary{align-items:start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div class="shell">
-<header class="top"><div class="brand"><span class="mark">K</span> Knowledge Lab</div><nav class="toplinks"><a href="#structure">知识结构</a><a href="#library">文档导航</a><a href="https://github.com/Likenoai/knowledge-lab" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></header>
-<section class="hero"><div class="heroText"><div class="eyebrow">Personal Knowledge Infrastructure</div><h1>知识地图<span style="color:var(--accent)">.</span></h1><p>把分散的 Markdown 组织为可探索的认知结构。原则负责调用，概念负责释义，研究负责检验，隐喻负责理解，技能负责实践。</p></div><div class="status"><small>KNOWLEDGE SYSTEM / OVERVIEW</small><strong>从记录到结构<br>从结构到行动</strong><span class="pill">静态导航 · v0.1</span></div></section>
-<div class="toolbar" id="library"><h2>探索知识库</h2><input class="search" id="search" type="search" placeholder="搜索主题、文件、分类…" aria-label="搜索知识文档"></div>
-<div class="layout"><aside class="side"><div class="section">NAVIGATION</div><a class="active" href="#structure">◈ 整体结构</a><a href="#principles">◇ 原则</a><a href="#concepts">◻ 概念</a><a href="#research">⌕ 研究</a><a href="#metaphors">✦ 隐喻</a><a href="#frameworks">▤ 框架</a><a href="#other">▦ 其他领域</a></aside>
-<main class="main">
-<section class="overview" id="structure"><div class="sectionHeading"><h3>知识对象关系</h3><span>按职责划分 · 通过引用关联</span></div><div class="map">
-<a class="node foundation" href="#principles"><b>Principles · 原则</b><small>决策判断和行动调用</small></a><a class="node" href="#concepts"><b>Concepts · 概念</b><small>定义 / 语义 / 边界</small></a><a class="node" href="#research"><b>Research · 研究</b><small>依据 / 反驳 / 证据</small></a>
-<a class="node" href="#metaphors"><b>Metaphors · 隐喻</b><small>类比 / 映射 / 局限</small></a><a class="node" href="#frameworks"><b>Frameworks · 框架</b><small>研究和表达方法</small></a><a class="node" href="#other"><b>Skills & More · 实践</b><small>技能 / 学习 / 创作</small></a></div><div class="note">本页是手工维护的知识导航，不是仓库文件的实时自动索引。点击条目会打开 GitHub 原始文档页面，若仓库是私有的，需要登录并具有权限。</div></section>
-<div class="grid" id="cards">
-<section class="group" id="principles" data-search="原则 principle 人生 决策 认知 交互"><div class="groupHead"><span class="groupIcon">◇</span><h3>原则库 <small>Principles</small></h3></div><p class="desc">以精简表达记录当前可调用的原则和成熟度</p>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/人生原则注册表.md" target="_blank" rel="noopener"><div><b>人生原则注册表</b><small>P-001–P-014 · 生命展开原则候选</small></div><span class="out">↗</span></a>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/认知交互原则注册表.md" target="_blank" rel="noopener"><div><b>认知交互原则注册表</b><small>CI 系列 · 人机认知协作</small></div><span class="out">↗</span></a></section>
-<section class="group" id="concepts" data-search="概念 concept 生命展开 potentiality agency"><div class="groupHead"><span class="groupIcon">◻</span><h3>概念库 <small>Concepts</small></h3></div><p class="desc">区分定义、外延、相关概念与适用边界</p>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/blob/main/concepts/life-actualization.md" target="_blank" rel="noopener"><div><b>生命展开 · Life Actualization</b><small>C-LA-001 · 工作定义</small></div><span class="out">↗</span></a>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/tree/main/concepts" target="_blank" rel="noopener"><div><b>浏览全部概念</b><small>concepts/ 目录</small></div><span class="out">↗</span></a></section>
-<section class="group" id="research" data-search="研究 research 生命展开 反驳 依据 证据 学习 关系 决策"><div class="groupHead"><span class="groupIcon">⌕</span><h3>研究 <small>Research</small></h3></div><p class="desc">允许问题未解决，明确论证与证据等级</p>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/blob/main/research/life-principles/生命展开原则_规范性依据与反驳.md" target="_blank" rel="noopener"><div><b>生命展开：规范性依据与反驳</b><small>A-LA-001 · 开放问题</small></div><span class="out">↗</span></a>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/tree/main/research" target="_blank" rel="noopener"><div><b>浏览研究目录</b><small>research/ · 多研究分支</small></div><span class="out">↗</span></a></section>
-<section class="group" id="metaphors" data-search="隐喻 metaphor 种子 森林"><div class="groupHead"><span class="groupIcon">✦</span><h3>隐喻库 <small>Metaphors</small></h3></div><p class="desc">以熟悉结构理解抽象问题，但不替代证明</p>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/blob/main/metaphors/种子与森林.md" target="_blank" rel="noopener"><div><b>种子与森林</b><small>M-LA-001 · 生命展开母隐喻</small></div><span class="out">↗</span></a>
-</section>
-<section class="group" id="frameworks" data-search="框架 framework 方法 协议 引用 知识沉淀"><div class="groupHead"><span class="groupIcon">▤</span><h3>框架与规范 <small>Frameworks</small></h3></div><p class="desc">定义知识如何组织、研究、表达和更新</p>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/blob/main/frameworks/life-principles/原则知识对象与引用约定.md" target="_blank" rel="noopener"><div><b>知识对象与引用约定</b><small>四种对象 · ID 和状态约定</small></div><span class="out">↗</span></a>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/blob/main/KNOWLEDGE_CAPTURE_POLICY.md" target="_blank" rel="noopener"><div><b>Knowledge Capture Policy</b><small>长期知识沉淀协议</small></div><span class="out">↗</span></a></section>
-<section class="group" id="other" data-search="学习 技能 创作 组件 skills learning creative components"><div class="groupHead"><span class="groupIcon">▦</span><h3>其他知识资产 <small>More</small></h3></div><p class="desc">已有目录入口，未来可扩展专题结构</p>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/tree/main/skills" target="_blank" rel="noopener"><div><b>Skills / Learning</b><small>可执行技能和学习训练</small></div><span class="out">↗</span></a>
-<a class="doc" href="https://github.com/Likenoai/knowledge-lab/tree/main/creative" target="_blank" rel="noopener"><div><b>Creative / Components</b><small>创作与可复用组件</small></div><span class="out">↗</span></a></section>
-</div><div class="empty" id="empty">没有找到匹配的分类。请尝试更宽泛的关键词。</div>
-<p class="footer">Knowledge Lab · Source of Truth: GitHub repository · 首页只包含导航元数据，不会自动读取或公开私有 Markdown 正文。<br>本版本是人工策展的静态索引，后续可增量接入生成式目录、文档详情和知识关系图。</p>
-</main></div></div>
+<div class="app">
+  <aside class="sidebar">
+    <a class="brand" href="./" aria-label="Knowledge Lab 首页"><span class="logo">K</span><span><b>Knowledge Lab</b><small>COGNITIVE WORKSPACE</small></span></a>
+    <div><div class="navCaption">WORKSPACE</div><nav class="navGroup" aria-label="工作区">
+      <a class="navItem active" href="#principle-atlas"><span class="glyph">◇</span>原则图谱 <span class="count">14</span></a>
+      <a class="navItem" href="#knowledge-entries"><span class="glyph">▦</span>知识库入口</a>
+      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/人生原则注册表.md" target="_blank" rel="noopener"><span class="glyph">▤</span>原则注册表 <span class="count">↗</span></a>
+    </nav></div>
+    <div><div class="navCaption">KNOWLEDGE SPACE</div><nav class="navGroup" aria-label="知识目录">
+      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/tree/main/concepts" target="_blank" rel="noopener"><span class="glyph">◻</span>概念 Concepts <span class="count">↗</span></a>
+      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/tree/main/research" target="_blank" rel="noopener"><span class="glyph">⌕</span>研究 Research <span class="count">↗</span></a>
+      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/tree/main/metaphors" target="_blank" rel="noopener"><span class="glyph">✧</span>隐喻 Metaphors <span class="count">↗</span></a>
+      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/tree/main/frameworks" target="_blank" rel="noopener"><span class="glyph">▣</span>框架 Frameworks <span class="count">↗</span></a>
+      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/tree/main/skills" target="_blank" rel="noopener"><span class="glyph">↗</span>技能 Skills <span class="count">↗</span></a>
+    </nav></div>
+    <div class="sidebarBottom"><b>✦ 让思想形成结构</b><p>通过原则、论证、概念和隐喻之间的连接，形成可以持续修正的认知地图。</p><a href="archive/home-v0.html">查看旧版首页 ↗</a></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="crumb"><span>Knowledge Lab</span><span>/</span><b>Principle Atlas</b></div><div class="topRight"><span><i class="dot" style="display:inline-block;vertical-align:middle;margin-right:7px"></i>Registry v0.6 · 静态快照</span><a class="topLink" href="https://github.com/Likenoai/knowledge-lab" target="_blank" rel="noopener">GitHub ↗</a></div></header>
+    <main class="body" id="principle-atlas">
+      <section class="intro"><div><div class="eyebrow">YOUR THINKING, MADE VISIBLE</div><h1>原则的结构，比数量更重要。</h1><p>从根本命题到行动准则，探索原则间可能存在的推导与依赖。尚未论证的关系被明确标注，不因图形美观而被视为事实。</p></div><div class="introHint"><span></span> PERSONAL KNOWLEDGE SYSTEM / PROTOTYPE 01</div></section>
+      <section class="metrics" aria-label="原则概况">
+        <div class="metric"><div class="metricIcon">◇</div><div><strong>14</strong><small>已登记原则</small></div></div>
+        <div class="metric"><div class="metricIcon">✓</div><div><strong>5</strong><small>Working（含 P-001）</small></div></div>
+        <div class="metric"><div class="metricIcon">○</div><div><strong>9</strong><small>Candidate（候选）</small></div></div>
+        <div class="metric"><div class="metricIcon">⇢</div><div><strong>0</strong><small>已确立的推导边</small></div></div>
+      </section>
+      <div class="mainGrid">
+        <section class="graphCard" aria-label="原则图谱">
+          <div class="graphHeader"><div><h2>原则结构图 <span style="color:#a3adba;font-size:11px;font-weight:500;margin-left:8px">PRINCIPLE MAP</span></h2><p>当前按层级探索性排布 · 箭头代表待验证的关联假设</p></div>
+            <div class="viewSwitch" role="group" aria-label="选择展示形式"><button id="graphMode" class="selected" aria-pressed="true">图谱</button><button id="listMode" aria-pressed="false">列表</button></div>
+          </div>
+          <div class="toolBar">
+            <label class="searchWrap"><span>⌕</span><input id="search" type="search" placeholder="查找原则名称、编号或内容…（/）" aria-label="搜索原则"></label>
+            <button class="chip on" data-filter="all" aria-pressed="true">全部</button><button class="chip" data-filter="working" aria-pressed="false">工作原则</button><button class="chip" data-filter="candidate" aria-pressed="false">候选</button>
+            <button class="chip on" id="edgeToggle" aria-pressed="true" title="显示或隐藏尚未验证的关系">◇ 探索连线</button>
+          </div>
+          <div class="graphWrap" id="graphWrap" tabindex="0" role="region" aria-label="可拖动和缩放的原则图谱">
+            <div class="canvasNotice">拖动平移 · 滚轮缩放 · 点击节点查看详情</div>
+            <div class="stage" id="stage"><svg id="edgeLayer" class="edgeLayer" viewBox="0 0 1180 910" aria-hidden="true"></svg><div id="nodesLayer"></div></div>
+            <div class="graphTools"><button id="zoomIn" aria-label="放大">+</button><button id="zoomOut" aria-label="缩小">−</button><button id="fit" class="fit" aria-label="适配画布">适配</button></div>
+          </div>
+          <div class="listArea" id="listArea"><div class="listGrid" id="listGrid"></div></div>
+          <div class="graphFoot"><div class="legend"><span><i></i>背景基础</span><span><i class="working"></i>Working</span><span><i class="cand"></i>Candidate</span></div><span>虚线仅为探索性假设，不是已确认推导</span></div>
+        </section>
+        <aside class="detailCard" aria-label="选中原则详情">
+          <div class="detailTop"><div class="detailHead"><b>PRINCIPLE DETAILS</b><span class="badge" id="detailBadge">候选</span></div><div class="detailIndex" id="detailId">P-014</div><h3 id="detailTitle">生命展开原则</h3><p class="detailEn" id="detailSubtitle">Life Actualization Principle</p></div>
+          <div class="detailBody">
+            <div class="label">核心表达 · DEFINITION</div><div class="quote" id="detailQuote">生命主体的价值体现于对自身可能性的认识、展开与创造。</div>
+            <div class="label">定位与边界 · CONTEXT</div><p class="detailText" id="detailContext">第一性原则候选。属于待辩护的规范性主张，不等同于生物学定律。</p>
+            <div class="metaItem"><span>成熟度</span><b id="detailState">Candidate</b></div>
+            <div class="metaItem"><span>结构定位</span><b id="detailLevel">基础候选</b></div>
+            <div class="metaItem"><span>正式推导关系</span><b>尚无登记</b></div>
+            <div class="label" style="margin-top:22px">关联知识 · RELATED</div><div class="detailLinks" id="detailLinks"></div>
+          </div>
+          <div class="detailBottom"><a class="primaryBtn" id="detailSource" target="_blank" rel="noopener" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/人生原则注册表.md">在 GitHub 查看来源 ↗</a><div class="hint">此页仅展示知识快照，不直接修改 Markdown。</div></div>
+        </aside>
+      </div>
+      <section class="secondary" id="knowledge-entries"><div><h2>继续探索知识库</h2><p>从结构跳转到论证、概念与解释材料。</p></div><a class="topLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/README.md" target="_blank" rel="noopener">知识库说明 ↗</a></section>
+      <div class="linkRow">
+        <a class="smallLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/concepts/life-actualization.md" target="_blank" rel="noopener">◻ 生命展开 · 概念定义 ↗</a>
+        <a class="smallLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/research/life-principles/生命展开原则_规范性依据与反驳.md" target="_blank" rel="noopener">⌕ 规范性依据与反驳 ↗</a>
+        <a class="smallLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/metaphors/种子与森林.md" target="_blank" rel="noopener">✧ 种子与森林 · 隐喻 ↗</a>
+        <a class="smallLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/人生原则注册表.md" target="_blank" rel="noopener">▤ 人生原则注册表 ↗</a>
+      </div>
+      <p class="disclaimer">Knowledge Lab · Principle Atlas Prototype 01 / 数据根据 Registry v0.6 手工整理。为避免意外公开私有知识，网页不直接加载仓库完整 Markdown，关联文档在 GitHub 中按原有访问权限查看。探索连线属于界面演示数据。</p>
+    </main>
+  </div>
+</div>
 <script>
-const input=document.getElementById('search'),cards=[...document.querySelectorAll('.group')],empty=document.getElementById('empty');
-input.addEventListener('input',()=>{const q=input.value.trim().toLowerCase();let count=0;cards.forEach(c=>{const ok=!q||(c.innerText+' '+c.dataset.search).toLowerCase().includes(q);c.hidden=!ok;if(ok)count++});empty.style.display=count?'none':'block'});
-const items=[...document.querySelectorAll('.side a')];items.forEach(a=>a.addEventListener('click',()=>{items.forEach(v=>v.classList.remove('active'));a.classList.add('active')}));
+(function(){
+'use strict';
+const BASE='https://github.com/Likenoai/knowledge-lab/blob/main/';
+const REG='principles/人生原则注册表.md';
+const common='research/life-principles/';
+const principles=[
+{id:'P-001',name:'不可逆配置命题',eng:'Irreversible Allocation',status:'working',level:'基础命题',x:178,y:118,short:'时间流向塑造人生路径',definition:'人生时间不可恢复；持续把时间交给什么，就在持续放弃其他可能，并形成实际人生路径。',source:common+'00_人生有限性与不可逆选择原则.md',context:'基础命题 · 后台基础。它描述不可恢复的时间配置与机会放弃之间的联系。'},
+{id:'P-014',name:'生命展开原则',eng:'Life Actualization',status:'candidate',level:'第一性候选',x:780,y:118,short:'认识、展开与创造可能性',definition:'生命主体的价值体现于对自身可能性的认识、展开与创造。',source:REG,context:'第一性原则候选。属于待辩护的规范性主张，不能将自然生长直接视为伦理证明。',related:[['概念定义 · C-LA-001','concepts/life-actualization.md'],['论证依据 · A-LA-001',common+'生命展开原则_规范性依据与反驳.md'],['种子与森林 · M-LA-001','metaphors/种子与森林.md']]},
+{id:'P-002',name:'重复后果原则',eng:'Repeated Consequences',status:'candidate',level:'决策原则',x:38,y:328,short:'关注长期重复后的结构',definition:'不只问一次选择的结果；问这种选择如果重复多年，会形成什么结构。',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
+{id:'P-003',name:'显性机会成本原则',eng:'Explicit Opportunity Cost',status:'candidate',level:'决策原则',x:328,y:328,short:'看见承诺排除的选项',definition:'对重大承诺，不只看它带来什么，也明确它会持续排除什么。',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
+{id:'P-004',name:'不可替代优先原则',eng:'Irreplaceability Priority',status:'candidate',level:'决策原则',x:618,y:328,short:'优先保护难以恢复的资产',definition:'资源冲突时，优先保护更难恢复、替代或补偿的资产。',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
+{id:'P-005',name:'长期身份一致原则',eng:'Long-Term Identity',status:'candidate',level:'决策原则',x:908,y:328,short:'重复行为塑造长期身份',definition:'高频重复行为应尽量与希望长期形成的能力、关系与人格方向一致。',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
+{id:'P-006',name:'先改善位置',eng:'Position Before Decision',status:'candidate',level:'判断原则',x:38,y:530,short:'改善选择时所处的条件',definition:'重大决策前，先改善身体状态、信息质量、时间余量、资源与可选集合；能先改变位置，就不要急着在坏位置上优化选择。',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
+{id:'P-007',name:'先独立判断',eng:'Independent Judgment',status:'candidate',level:'判断原则',x:328,y:530,short:'先形成初步判断再更新',definition:'先形成自己的初步判断，再利用群体信息更新，而不是把从众或反共识本身当作正确。',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
+{id:'P-008',name:'求真优先',eng:'Truth-Seeking',status:'candidate',level:'判断原则',x:618,y:530,short:'修正认识优先于自我防御',definition:'判断目标优先是逼近事实与改进过程，而不是维护“我原来是对的”。',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
+{id:'P-009',name:'承担可控制的部分',eng:'Controllable Contribution',status:'candidate',level:'判断原则',x:908,y:530,short:'对可控行为负责',definition:'对自己的判断、准备、行为与可控失误负责，但不把整个系统结果都归因于自己。',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
+{id:'P-010',name:'递归构建原则',eng:'Recursive Construction',status:'working',level:'工作原则',x:38,y:738,short:'行动、反馈、递归更新',definition:'面对可获得反馈且允许阶段性修正的复杂系统，不假设能一次设计终局；用当前版本行动，把反馈和新状态作为下一轮输入，递归更新。',source:REG},
+{id:'P-011',name:'边际配置原则',eng:'Marginal Allocation',status:'working',level:'工作原则',x:328,y:738,short:'优化下一单位资源投入',definition:'时间、注意与认知能力有限；不要追求无条件完备。把下一单位资源投入预期边际价值更高的问题，并在继续投入的边际收益低于机会成本时停止。',source:common+'00_人生有限性与不可逆选择原则.md'},
+{id:'P-012',name:'不确定下保护选择权',eng:'Preserve Option Value',status:'working',level:'工作原则',x:618,y:738,short:'保存可逆性与退出空间',definition:'当未来仍会产生有价值的新信息，而当前承诺又难以撤销时，把可逆性、分阶段和退出空间本身视为有价值的资产；除非等待成本或抢先 / 承诺价值更高，否则不要过早消耗未来选择权。',source:common+'10_不确定下保护选择权_小规模验证.md'},
+{id:'P-013',name:'设计行为条件',eng:'Behavioral Conditions',status:'working',level:'工作原则',x:908,y:738,short:'设计触发、摩擦与反馈',definition:'当目标行为已经明确、需要长期重复，而执行持续失败时，不要只要求自己更有意志；优先设计触发、默认、摩擦、反馈、承诺与激励结构，让目标行为更容易稳定发生。',source:common+'11_设计行为条件而非只依赖意愿_小规模验证.md'}
+];
+const ideas=[['P-001','P-002'],['P-001','P-003'],['P-001','P-011'],['P-014','P-005'],['P-003','P-011'],['P-004','P-012'],['P-006','P-012']];
+const lookup=Object.fromEntries(principles.map(p=>[p.id,p]));
+const $=id=>document.getElementById(id);
+let chosen='P-014',filter='all',query='',mode='graph',ideasOn=true,scale=1,offX=0,offY=0,drag=null;
+const safeText=v=>String(v??'');
+function nodeMatch(p){const target=[p.id,p.name,p.eng,p.short,p.definition].join(' ').toLowerCase();return (filter==='all'||p.status===filter)&&(!query||target.includes(query));}
+function addLabel(text,y){const label=document.createElement('div');label.className='layerLabel';label.style.top=y+'px';label.textContent=text;$('nodesLayer').appendChild(label);}
+function drawGraph(){
+ const nodes=$('nodesLayer');nodes.replaceChildren();
+ addLabel('01  /  基础命题与价值候选',70);addLabel('02  /  选择与长期后果',277);addLabel('03  /  判断与认知',478);addLabel('04  /  行动与方法',684);
+ for(const p of principles){
+ const b=document.createElement('button');b.type='button';b.className='node'+(p.id===chosen?' selected':'')+(nodeMatch(p)?'':' dimmed');
+ b.style.left=p.x+'px';b.style.top=p.y+'px';b.title=p.id+' · '+p.name;b.setAttribute('aria-label',p.id+' '+p.name);b.setAttribute('aria-pressed',String(p.id===chosen));b.dataset.id=p.id;
+ const top=document.createElement('div');top.className='nodeTop';
+ const id=document.createElement('span');id.className='nodeId';id.textContent=p.id;
+ const state=document.createElement('span');state.className='nodeStatus '+(p.status==='candidate'?'candidate':p.level==='基础命题'?'foundation':'');state.textContent=p.level==='基础命题'?'基础':p.status==='working'?'Working':'Candidate';
+ top.append(id,state);
+ const title=document.createElement('div');title.className='nodeTitle';title.textContent=p.name;
+ const short=document.createElement('div');short.className='nodeShort';short.textContent=p.short;
+ b.append(top,title,short);b.addEventListener('click',()=>selectNode(p.id));nodes.appendChild(b);
+ }
+ drawEdges();
+}
+function drawEdges(){
+ const svg=$('edgeLayer');svg.replaceChildren();if(!ideasOn)return;
+ const NS='http://www.w3.org/2000/svg';
+ for(const pair of ideas){const a=lookup[pair[0]],b=lookup[pair[1]];const x1=a.x+108,y1=a.y+102,x2=b.x+108,y2=b.y;const dy=Math.max(45,(y2-y1)*.52);
+ const el=document.createElementNS(NS,'path');el.setAttribute('d','M '+x1+' '+y1+' C '+x1+' '+(y1+dy)+', '+x2+' '+(y2-dy)+', '+x2+' '+y2);el.setAttribute('stroke-linecap','round');el.setAttribute('class',nodeMatch(a)&&nodeMatch(b)?'':'dimmed');svg.appendChild(el);
+ }
+}
+function detailLink(label,path){const a=document.createElement('a');a.href=BASE+path;a.target='_blank';a.rel='noopener noreferrer';a.append(document.createTextNode(label));const s=document.createElement('span');s.textContent='↗';a.appendChild(s);return a;}
+function renderDetail(){
+ const p=lookup[chosen];$('detailId').textContent=p.id;$('detailTitle').textContent=p.name;$('detailSubtitle').textContent=p.eng;
+ $('detailQuote').textContent=p.definition;$('detailContext').textContent=p.context||'该原则已收录于人生原则注册表。其适用边界、研究依据及成熟度以仓库最新内容为准。';
+ $('detailBadge').textContent=p.status==='working'?'工作原则':'候选原则';$('detailBadge').style.background=p.status==='working'?'#eaf7f1':'#fff4e7';$('detailBadge').style.color=p.status==='working'?'#2b8a6c':'#bf8742';
+ $('detailState').textContent=p.status==='working'?'Working Principle':'Candidate';$('detailLevel').textContent=p.level;
+ $('detailLinks').replaceChildren(...(p.related||[['原则注册表 · '+p.id,REG],...(p.source!==REG?[['关联研究资料',p.source]]:[])]).map(v=>detailLink(v[0],v[1])));
+ $('detailSource').href=BASE+p.source;
+}
+function renderList(){
+ const grid=$('listGrid');grid.replaceChildren();let num=0;
+ for(const p of principles){if(!nodeMatch(p))continue;num++;const b=document.createElement('button');b.className='listItem'+(p.id===chosen?' active':'');b.type='button';
+ const id=document.createElement('span');id.className='listNum';id.textContent=p.id;
+ const info=document.createElement('div'),title=document.createElement('b'),sub=document.createElement('small');title.textContent=p.name;sub.textContent=p.short;info.append(title,sub);b.append(id,info);b.addEventListener('click',()=>selectNode(p.id));grid.appendChild(b);}
+ if(!num){const msg=document.createElement('p');msg.className='listEmpty';msg.textContent='没有匹配的原则，请调整筛选。';grid.appendChild(msg);}
+}
+function selectNode(id){chosen=id;renderDetail();drawGraph();renderList();}
+function applyTransform(){$('stage').style.transform='translate('+offX+'px,'+offY+'px) scale('+scale+')';}
+function fit(){const r=$('graphWrap');if(!r.clientWidth)return;scale=Math.max(.39,Math.min(1.12,Math.min((r.clientWidth-36)/1180,(r.clientHeight-20)/910)));offX=(r.clientWidth-1180*scale)/2;offY=(r.clientHeight-910*scale)/2;applyTransform();}
+function zoom(factor,cx,cy){const old=scale;scale=Math.min(1.8,Math.max(.32,scale*factor));offX=cx-(cx-offX)*scale/old;offY=cy-(cy-offY)*scale/old;applyTransform();}
+function switchMode(next){mode=next;$('graphMode').classList.toggle('selected',next==='graph');$('listMode').classList.toggle('selected',next==='list');$('graphMode').setAttribute('aria-pressed',String(next==='graph'));$('listMode').setAttribute('aria-pressed',String(next==='list'));$('graphWrap').classList.toggle('hide',next!=='graph');$('listArea').classList.toggle('show',next==='list');}
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>{const active=x.dataset.filter===filter;x.classList.toggle('on',active);x.setAttribute('aria-pressed',String(active))});drawGraph();renderList()}));
+$('edgeToggle').addEventListener('click',()=>{ideasOn=!ideasOn;$('edgeToggle').classList.toggle('on',ideasOn);$('edgeToggle').setAttribute('aria-pressed',String(ideasOn));drawEdges()});
+$('search').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();drawGraph();renderList()});
+$('graphMode').addEventListener('click',()=>switchMode('graph'));$('listMode').addEventListener('click',()=>switchMode('list'));
+$('zoomIn').addEventListener('click',()=>zoom(1.2,$('graphWrap').clientWidth/2,$('graphWrap').clientHeight/2));
+$('zoomOut').addEventListener('click',()=>zoom(1/1.2,$('graphWrap').clientWidth/2,$('graphWrap').clientHeight/2));
+$('fit').addEventListener('click',fit);
+$('graphWrap').addEventListener('wheel',e=>{e.preventDefault();const r=$('graphWrap').getBoundingClientRect();zoom(e.deltaY>0?.91:1.09,e.clientX-r.left,e.clientY-r.top)},{passive:false});
+$('graphWrap').addEventListener('pointerdown',e=>{if(e.target.closest('button')||e.target.closest('a'))return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,ox:offX,oy:offY};$('graphWrap').setPointerCapture(e.pointerId);$('graphWrap').classList.add('grabbing')});
+$('graphWrap').addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;offX=drag.ox+e.clientX-drag.x;offY=drag.oy+e.clientY-drag.y;applyTransform()});
+function endDrag(){drag=null;$('graphWrap').classList.remove('grabbing')}
+$('graphWrap').addEventListener('pointerup',endDrag);$('graphWrap').addEventListener('pointercancel',endDrag);
+document.addEventListener('keydown',e=>{if((e.key==='/'||e.key.toLowerCase()==='k'&&(e.ctrlKey||e.metaKey))&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();$('search').focus()}if(e.key==='Escape'&&document.activeElement===$('search')){$('search').blur();$('search').value='';query='';drawGraph();renderList()}});
+drawGraph();renderDetail();renderList();requestAnimationFrame(fit);window.addEventListener('resize',()=>{if(mode==='graph')fit()});
+})();
 </script>
-</body></html>
+</body>
+</html>
