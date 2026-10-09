@@ -1,183 +1,157 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light">
-<meta name="description" content="Knowledge Lab — 以原则推导图为核心的认知工作台原型">
-<title>Principle Atlas · Knowledge Lab</title>
+<meta name="description" content="从生命展开原则开始回溯人生思考过程">
+<title>逻辑原点 · Anchor</title>
 <style>
-:root{--bg:#f6f7fa;--paper:#fff;--text:#1e293b;--sub:#667287;--faint:#96a1b1;--line:#e7eaf0;--primary:#5456d5;--primary-lite:#f0f0ff;--gold:#bd8640;--gold-lite:#fff6e9;--green:#207b64;--green-lite:#eaf7f1;--shadow:0 12px 45px rgba(27,39,67,.045)}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft Yahei",sans-serif;color:var(--text);background:var(--bg);font-size:14px}button,input{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #b9baff;outline-offset:2px}button,select{transition:background .15s,border-color .15s,color .15s}button:disabled{opacity:.5;cursor:not-allowed}
-.app{display:grid;grid-template-columns:222px minmax(0,1fr);min-height:100vh}.sidebar{background:#fff;border-right:1px solid var(--line);padding:27px 16px 24px;display:flex;flex-direction:column;gap:25px;min-width:0}.brand{display:flex;align-items:center;gap:10px;padding:0 10px}.logo{width:36px;height:36px;border-radius:11px;background:#242c48;color:#fff;display:grid;place-items:center;font-size:18px;font-weight:800;letter-spacing:-.08em}.brand b{display:block;font-size:14px;letter-spacing:-.03em}.brand small{display:block;color:var(--faint);font-size:10px;letter-spacing:.06em;margin-top:2px}.navCaption{font-size:10px;color:#97a1b1;font-weight:800;letter-spacing:.12em;margin:0 10px 10px}.navGroup{display:flex;flex-direction:column;gap:3px}.navItem{display:flex;gap:11px;align-items:center;padding:11px 12px;border-radius:10px;color:#6b7586;font-size:13px;font-weight:550;min-height:40px}.navItem:hover{background:#f6f7fa}.navItem.active{background:#ededff;color:#4949c8;font-weight:750}.navItem .glyph{font-size:16px;width:18px;text-align:center;font-weight:400}.navItem .count{margin-left:auto;color:#a5adbb;font-size:11px;font-variant-numeric:tabular-nums}.sidebarBottom{margin-top:auto;border-radius:13px;background:#f6f7fc;padding:15px}.sidebarBottom b{font-size:12px}.sidebarBottom p{font-size:11px;color:#788297;line-height:1.65}.sidebarBottom a{font-size:11px;color:var(--primary);font-weight:650}.workspace{min-width:0;display:flex;flex-direction:column}.topbar{height:68px;flex:0 0 auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid var(--line);gap:16px}.crumb{display:flex;align-items:center;gap:9px;color:#929bad;font-size:12px}.crumb b{color:#2c374f;font-weight:650}.topRight{display:flex;align-items:center;gap:13px;color:#7e889b;font-size:12px}.topRight .dot{width:7px;height:7px;border-radius:50%;background:#2ca77d;box-shadow:0 0 0 4px #e5f7f0}.topLink{border:1px solid #e6e8ef;border-radius:8px;padding:8px 12px;background:#fff;font-weight:650;color:#4e5870}.topLink:hover{background:#f5f5ff;border-color:#d7d8ff}.body{padding:28px 30px 34px;max-width:1700px;width:100%;margin:0 auto}.intro{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:22px}.eyebrow{font-size:10px;color:#585bd0;letter-spacing:.17em;font-weight:800;text-transform:uppercase;margin-bottom:8px}.intro h1{font-size:clamp(27px,2.65vw,38px);line-height:1.14;margin:0 0 9px;letter-spacing:-.055em;font-weight:750}.intro p{color:#7a8497;margin:0;line-height:1.7;max-width:670px;font-size:12.5px}.introHint{display:flex;align-items:center;gap:8px;color:#a4acb8;font-size:11px;white-space:nowrap;padding-bottom:5px}.introHint span{width:6px;height:6px;background:#c6cbd5;border-radius:50%}
-.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}.metric{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:15px 17px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow)}.metricIcon{width:39px;height:39px;display:grid;place-items:center;border-radius:10px;background:#f0efff;color:#6260cd;font-size:17px}.metric:nth-child(2) .metricIcon{background:#eff8f5;color:#398b75}.metric:nth-child(3) .metricIcon{background:#fff7ea;color:#b28b49}.metric:nth-child(4) .metricIcon{background:#edf4fd;color:#6b91c5}.metric strong{font-size:21px;line-height:1;display:block;letter-spacing:-.05em;font-variant-numeric:tabular-nums}.metric small{display:block;color:#8b95a5;font-size:11px;margin-top:6px}
-.mainGrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:stretch}.graphCard,.detailCard,.browseCard{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);overflow:hidden}.graphCard{min-width:0}.graphHeader{padding:20px 21px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.graphHeader h2{font-size:16px;margin:0 0 5px;letter-spacing:-.025em}.graphHeader p{font-size:11px;color:#97a1ae;margin:0}.viewSwitch{display:flex;gap:3px;padding:3px;background:#f4f5f8;border-radius:9px}.viewSwitch button{background:transparent;border:0;border-radius:7px;padding:7px 11px;font-size:11px;color:#7c8797}.viewSwitch button.selected{color:#4549be;background:white;box-shadow:0 2px 6px #30396d13;font-weight:750}.toolBar{display:flex;gap:7px;align-items:center;padding:0 21px 14px;flex-wrap:wrap}.searchWrap{height:34px;background:#f8f9fc;border:1px solid #ebedf3;border-radius:8px;display:flex;align-items:center;gap:8px;padding:0 10px;flex:1;min-width:150px}.searchWrap span{font-size:14px;color:#a9b0bd}.searchWrap input{border:0;background:transparent;outline:0;width:100%;min-width:40px;color:#25314b;font-size:11px}.searchWrap input::placeholder{color:#a8afbc}.chip{background:#fff;border:1px solid #e9ecf2;border-radius:8px;font-size:11px;padding:8px 11px;color:#7e899b;white-space:nowrap}.chip.on{background:#efefff;color:#4f51c0;border-color:#deddfb;font-weight:700}.chip:hover{border-color:#b9bcf0}.graphWrap{position:relative;background:#fafbff;border-top:1px solid #edf0f7;height:570px;overflow:hidden;touch-action:none;cursor:grab}.graphWrap.grabbing{cursor:grabbing}.graphWrap:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#dfe3ef 1px,transparent 1px);background-size:20px 20px;pointer-events:none}.stage{width:1180px;height:910px;position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}.edgeLayer{width:1180px;height:910px;position:absolute;inset:0;overflow:visible;pointer-events:none}.edgeLayer path{stroke:#aba4db;stroke-width:2.1;stroke-dasharray:7 7;fill:none;opacity:.65}.edgeLayer path.dimmed{opacity:.12}.layerLabel{position:absolute;left:15px;font-weight:800;letter-spacing:.12em;font-size:11px;color:#a0a6b7;text-transform:uppercase;display:flex;align-items:center;gap:14px;width:1120px}.layerLabel:after{content:"";height:1px;flex:1;background:#dfe4ed}.node{position:absolute;width:216px;min-height:102px;background:white;border:1px solid #dfe4ef;border-radius:12px;text-align:left;padding:12px 13px;box-shadow:0 6px 19px rgba(35,49,90,.045);transition:border-color .15s,box-shadow .15s,background .15s,opacity .15s;cursor:pointer;color:#22304b}.node:hover{border-color:#989aeb;box-shadow:0 10px 28px #535bd01e}.node.selected{background:#fdfdff;border:2px solid #6060d8;padding:11px 12px;box-shadow:0 7px 29px #5456d526}.node.dimmed{opacity:.21}.nodeTop{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:9px}.nodeId{font-size:10px;font-weight:800;color:#6466cf;letter-spacing:.03em}.nodeStatus{font-size:9px;padding:3px 7px;background:#edf8f4;color:#488f76;border-radius:5px}.nodeStatus.candidate{background:#fff5e8;color:#ae844a}.nodeStatus.foundation{background:#edeaff;color:#6b63c2}.nodeTitle{font-size:13px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px}.nodeShort{font-size:10px;line-height:1.35;color:#8a94a7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.graphFoot{padding:11px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid var(--line);color:#8993a5;font-size:10.5px;flex-wrap:wrap}.legend{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.legend i{width:11px;height:11px;border-radius:4px;display:inline-block;background:#e9e7ff;border:1px solid #c3beff;vertical-align:-1px;margin-right:5px}.legend i.working{background:#eaf7f1;border-color:#a7dfc8}.legend i.cand{background:#fff5e8;border-color:#e8d1a6}.graphTools{position:absolute;right:15px;bottom:15px;display:flex;flex-direction:column;gap:6px;z-index:3}.graphTools button{height:33px;min-width:33px;border:1px solid #e1e5ed;border-radius:8px;background:#fff;color:#65718b;box-shadow:0 2px 9px #3e50691a;font-size:16px}.graphTools button:hover{color:#5556c9;background:#f7f7ff}.graphTools .fit{font-size:10px;font-weight:700;padding:0 8px}.canvasNotice{position:absolute;left:18px;top:15px;z-index:2;font-size:10px;color:#9299ab;background:#ffffffdb;border:1px solid #e8ebf2;padding:7px 10px;border-radius:6px;pointer-events:none}
-.detailCard{display:flex;flex-direction:column;min-height:683px}.detailTop{padding:23px 22px 17px;border-bottom:1px solid var(--line)}.detailHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}.detailHead b{font-size:11px;letter-spacing:.11em;color:#7e89a1}.detailHead .badge{font-size:9px;color:#bf8742;background:#fff4e7;padding:6px 8px;border-radius:6px;font-weight:700}.detailIndex{font-size:11px;color:#6e6bd2;font-weight:800;letter-spacing:.09em}.detailTop h3{font-size:21px;letter-spacing:-.045em;line-height:1.4;margin:8px 0 8px}.detailEn{font-size:11px;color:#97a0af;margin:0}.detailBody{padding:20px 22px;flex:1}.label{font-size:10px;color:#9ba4b4;letter-spacing:.095em;font-weight:850;margin-bottom:10px}.quote{border-left:3px solid #7777d5;padding:3px 0 3px 12px;color:#3f4b65;font-size:12px;line-height:1.9;margin-bottom:24px}.detailText{font-size:12px;color:#697589;line-height:1.85;margin-bottom:20px}.metaItem{display:flex;align-items:center;justify-content:space-between;font-size:11px;padding:10px 0;border-bottom:1px solid #f0f2f7}.metaItem span{color:#97a1b0}.metaItem b{color:#566077;font-weight:650}.detailLinks{display:flex;flex-direction:column;gap:8px;margin-top:13px}.detailLinks a{border:1px solid #e8ebf4;border-radius:8px;padding:11px 12px;color:#4a5673;font-size:11px;display:flex;align-items:center;justify-content:space-between;gap:8px}.detailLinks a:hover{background:#f7f7ff;border-color:#c9cbfa;color:#4e4bcb}.detailLinks a span{color:#a2a9b7}.detailBottom{padding:15px 20px;border-top:1px solid var(--line)}.primaryBtn{background:#5a5bd4;border:1px solid #5a5bd4;border-radius:9px;color:#fff;font-weight:700;width:100%;padding:12px 14px;font-size:12px;display:block;text-align:center}.primaryBtn:hover{background:#484bc2}.hint{margin-top:10px;font-size:10px;line-height:1.65;color:#a0a8b8;text-align:center}
-.listArea{border-top:1px solid #eef0f5;background:#fafbff;min-height:570px;padding:18px;display:none}.listArea.show{display:block}.listGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.listItem{background:#fff;border:1px solid #e6e9f1;padding:13px 14px;border-radius:10px;text-align:left;display:flex;gap:10px;align-items:center}.listItem:hover{border-color:#acb0ee}.listItem.active{border-color:#8889e0;background:#f8f8ff}.listItem b{font-size:11px}.listItem small{color:#939dad;font-size:10px;display:block;margin-top:3px}.listNum{color:#6e70cb;font-weight:750;font-size:11px}.listEmpty{color:#919aaa;font-size:13px;text-align:center;padding:30px}
-.secondary{margin-top:17px;display:flex;justify-content:space-between;align-items:center;gap:12px}.secondary h2{font-size:14px;margin:0 0 4px}.secondary p{font-size:11px;color:#969fad;margin:0}.linkRow{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.smallLink{display:flex;align-items:center;gap:8px;background:white;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:11px;color:#5c6982}.smallLink:hover{border-color:#c5c6fa;color:#4f51bf}.disclaimer{color:#97a0b0;font-size:10px;line-height:1.8;margin-top:19px}.hide{display:none!important}
-@media(min-width:1450px){.mainGrid{grid-template-columns:minmax(0,1fr) 322px}.graphWrap{height:640px}.detailCard{min-height:752px}}
-@media(max-width:1180px){.app{grid-template-columns:192px minmax(0,1fr)}.sidebar{padding:23px 10px}.mainGrid{grid-template-columns:minmax(0,1fr)}.detailCard{min-height:auto;display:grid;grid-template-columns:1fr 1fr}.detailTop{border-bottom:0;border-right:1px solid var(--line)}.detailBody{grid-column:2;grid-row:1/3}.detailBottom{grid-column:1;border-top:1px solid var(--line)}.graphWrap{height:540px}.body{padding:24px}}
-@media(max-width:740px){.app{display:block}.sidebar{padding:12px;border-right:0;border-bottom:1px solid var(--line);gap:0}.brand{padding:0 5px}.sidebar .navGroup,.sidebar .navCaption,.sidebar .sidebarBottom{display:none}.topbar{height:49px;padding:0 15px}.topRight span:first-child{display:none}.body{padding:20px 13px 30px}.intro{display:block}.introHint{display:none}.intro h1{font-size:30px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.metric{padding:12px}.metricIcon{width:32px;height:32px}.metric strong{font-size:18px}.graphHeader{padding:17px 15px 13px}.toolBar{padding:0 14px 14px}.graphWrap{height:480px}.graphFoot{padding:10px 12px}.detailCard{display:flex}.detailTop{border-right:0;border-bottom:1px solid var(--line)}.detailBody{display:block}.detailBottom{border-top:1px solid var(--line)}.listGrid{grid-template-columns:1fr}.secondary{align-items:start;flex-direction:column}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+:root{--ink:#26334d;--light:#8490a5;--background:#f8f9fc;--edge:#a9b2cd;--accent:#5d5fbd}
+*{box-sizing:border-box}
+html,body{height:100%;width:100%;margin:0;overflow:hidden;background:var(--background);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+button,a{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible{outline:3px solid #b0b0eb;outline-offset:3px}
+#viewport{height:100dvh;width:100%;position:relative;overflow:hidden;touch-action:none;cursor:grab;background:radial-gradient(#dce1ed 0.8px,transparent .8px) 0 0/25px 25px}
+#viewport.dragging{cursor:grabbing}
+.mast{position:absolute;top:27px;left:31px;z-index:5;pointer-events:none;display:flex;align-items:center;gap:11px}
+.logo{background:#29334e;color:white;border-radius:10px;width:33px;height:33px;display:grid;place-items:center;font-weight:800;font-size:17px}
+.mast b{font-size:12px;letter-spacing:.04em}.mast small{color:#9ca5b7;font-size:10px;display:block;letter-spacing:.1em;margin-top:3px}
+.notice{position:absolute;right:32px;top:36px;color:#9ca5b5;font-size:11px;z-index:5;pointer-events:none}
+.stage{position:absolute;top:0;left:0;transform-origin:0 0;will-change:transform}
+svg{position:absolute;inset:0;overflow:visible;pointer-events:none}
+svg path{fill:none;stroke:var(--edge);stroke-width:1.8;stroke-linecap:round}
+svg .mainEdge{stroke:#898dc6;stroke-width:2.1}
+svg .subEdge{stroke:#b6bfd2;stroke-width:1.65}
+svg circle{fill:#9ea7c4}
+.node{position:absolute;background:white;border:1px solid #dfe5f0;border-radius:15px;box-shadow:0 12px 35px #2b3e690b;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+.node:hover{border-color:#acb0e6;box-shadow:0 14px 33px #40499a20}
+.node.root{background:#29334f;color:white;border:1px solid #29334f;border-radius:19px;box-shadow:0 22px 55px #242e4d33}
+.inner{height:100%;width:100%;display:block;text-align:left;background:transparent;color:inherit;border:0;border-radius:inherit;padding:18px 20px}
+.root .inner{padding:23px 25px}.leaf .inner{padding:13px 18px}
+.type{font-size:10px;font-weight:750;letter-spacing:.08em;color:#919bad;padding-right:24px}
+.root .type{color:#bcc4de}
+.node h1,.node h2,.node h3{font-weight:710;line-height:1.4;letter-spacing:-.035em}
+.root h1{font-size:25px;margin:16px 0 10px}.branch h2{font-size:17px;margin:10px 0 5px}.leaf h3{font-size:13px;margin:5px 0 3px}
+.node p{margin:0;line-height:1.55;color:#909bb0;font-size:11px}
+.root p{font-size:12px;line-height:1.8;color:#d7ddec}
+.leaf p{font-size:10px}.leaf .type{font-size:9px}
+.status{display:inline-block;border:1px solid #65718e;color:#d0d7e7;border-radius:20px;padding:5px 10px;margin-top:17px;font-size:10px}
+.branch.selected{border-color:#a4a3e6;box-shadow:0 0 0 3px #dfdfff,0 15px 35px #555abb1a}
+.foot{font-size:10px;font-weight:700;color:#7373bd;margin-top:11px}
+.foot:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#a19edf;margin-right:7px;vertical-align:2px}
+.nodeLink{position:absolute;right:12px;top:11px;border:1px solid #e7e9f4;background:#f5f6ff;color:#777db6;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;z-index:2}
+.nodeLink:hover{background:#e7e8ff;color:#4c4da8}
+.root .nodeLink{border-color:#57617f;background:#475372;color:#fff}
+.canvasHint{position:absolute;left:29px;bottom:27px;font-size:10.5px;color:#99a4b5;line-height:1.8;pointer-events:none;background:#f8f9fce3;padding-right:9px;z-index:5}
+.controls{position:absolute;right:28px;bottom:25px;display:flex;gap:6px;z-index:5}
+.controls button{min-width:35px;height:35px;border:1px solid #e0e4ee;color:#727d92;background:#fff;border-radius:9px;box-shadow:0 3px 12px #24375812}
+.controls button:hover{background:#f0f0ff;color:#4b4fb1;border-color:#bcbfed}.controls .size{font-size:19px}.controls .fit{padding:0 13px;font-size:11px;font-weight:700}
+@media(max-width:650px){.mast{left:17px;top:17px}.notice{left:18px;right:auto;top:69px;font-size:10px}.controls{bottom:17px;right:17px}.canvasHint{left:17px;bottom:77px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="app">
-  <aside class="sidebar">
-    <a class="brand" href="./" aria-label="Knowledge Lab 首页"><span class="logo">K</span><span><b>Knowledge Lab</b><small>COGNITIVE WORKSPACE</small></span></a>
-    <div><div class="navCaption">WORKSPACE</div><nav class="navGroup" aria-label="工作区">
-      <a class="navItem active" href="#principle-atlas"><span class="glyph">◇</span>原则图谱 <span class="count">14</span></a>
-      <a class="navItem" href="#knowledge-entries"><span class="glyph">▦</span>知识库入口</a>
-      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/人生原则注册表.md" target="_blank" rel="noopener"><span class="glyph">▤</span>原则注册表 <span class="count">↗</span></a>
-    </nav></div>
-    <div><div class="navCaption">KNOWLEDGE SPACE</div><nav class="navGroup" aria-label="知识目录">
-      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/tree/main/concepts" target="_blank" rel="noopener"><span class="glyph">◻</span>概念 Concepts <span class="count">↗</span></a>
-      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/tree/main/research" target="_blank" rel="noopener"><span class="glyph">⌕</span>研究 Research <span class="count">↗</span></a>
-      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/tree/main/metaphors" target="_blank" rel="noopener"><span class="glyph">✧</span>隐喻 Metaphors <span class="count">↗</span></a>
-      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/tree/main/frameworks" target="_blank" rel="noopener"><span class="glyph">▣</span>框架 Frameworks <span class="count">↗</span></a>
-      <a class="navItem" href="https://github.com/Likenoai/knowledge-lab/tree/main/skills" target="_blank" rel="noopener"><span class="glyph">↗</span>技能 Skills <span class="count">↗</span></a>
-    </nav></div>
-    <div class="sidebarBottom"><b>✦ 让思想形成结构</b><p>通过原则、论证、概念和隐喻之间的连接，形成可以持续修正的认知地图。</p><a href="archive/home-v0.html">查看旧版首页 ↗</a></div>
-  </aside>
-  <div class="workspace">
-    <header class="topbar"><div class="crumb"><span>Knowledge Lab</span><span>/</span><b>Principle Atlas</b></div><div class="topRight"><span><i class="dot" style="display:inline-block;vertical-align:middle;margin-right:7px"></i>Registry v0.6 · 静态快照</span><a class="topLink" href="https://github.com/Likenoai/knowledge-lab" target="_blank" rel="noopener">GitHub ↗</a></div></header>
-    <main class="body" id="principle-atlas">
-      <section class="intro"><div><div class="eyebrow">YOUR THINKING, MADE VISIBLE</div><h1>原则的结构，比数量更重要。</h1><p>从根本命题到行动准则，探索原则间可能存在的推导与依赖。尚未论证的关系被明确标注，不因图形美观而被视为事实。</p></div><div class="introHint"><span></span> PERSONAL KNOWLEDGE SYSTEM / PROTOTYPE 01</div></section>
-      <section class="metrics" aria-label="原则概况">
-        <div class="metric"><div class="metricIcon">◇</div><div><strong>14</strong><small>已登记原则</small></div></div>
-        <div class="metric"><div class="metricIcon">✓</div><div><strong>5</strong><small>Working（含 P-001）</small></div></div>
-        <div class="metric"><div class="metricIcon">○</div><div><strong>9</strong><small>Candidate（候选）</small></div></div>
-        <div class="metric"><div class="metricIcon">⇢</div><div><strong>0</strong><small>已确立的推导边</small></div></div>
-      </section>
-      <div class="mainGrid">
-        <section class="graphCard" aria-label="原则图谱">
-          <div class="graphHeader"><div><h2>原则结构图 <span style="color:#a3adba;font-size:11px;font-weight:500;margin-left:8px">PRINCIPLE MAP</span></h2><p>当前按层级探索性排布 · 箭头代表待验证的关联假设</p></div>
-            <div class="viewSwitch" role="group" aria-label="选择展示形式"><button id="graphMode" class="selected" aria-pressed="true">图谱</button><button id="listMode" aria-pressed="false">列表</button></div>
-          </div>
-          <div class="toolBar">
-            <label class="searchWrap"><span>⌕</span><input id="search" type="search" placeholder="查找原则名称、编号或内容…（/）" aria-label="搜索原则"></label>
-            <button class="chip on" data-filter="all" aria-pressed="true">全部</button><button class="chip" data-filter="working" aria-pressed="false">工作原则</button><button class="chip" data-filter="candidate" aria-pressed="false">候选</button>
-            <button class="chip on" id="edgeToggle" aria-pressed="true" title="显示或隐藏尚未验证的关系">◇ 探索连线</button>
-          </div>
-          <div class="graphWrap" id="graphWrap" tabindex="0" role="region" aria-label="可拖动和缩放的原则图谱">
-            <div class="canvasNotice">拖动平移 · 滚轮缩放 · 点击节点查看详情</div>
-            <div class="stage" id="stage"><svg id="edgeLayer" class="edgeLayer" viewBox="0 0 1180 910" aria-hidden="true"></svg><div id="nodesLayer"></div></div>
-            <div class="graphTools"><button id="zoomIn" aria-label="放大">+</button><button id="zoomOut" aria-label="缩小">−</button><button id="fit" class="fit" aria-label="适配画布">适配</button></div>
-          </div>
-          <div class="listArea" id="listArea"><div class="listGrid" id="listGrid"></div></div>
-          <div class="graphFoot"><div class="legend"><span><i></i>背景基础</span><span><i class="working"></i>Working</span><span><i class="cand"></i>Candidate</span></div><span>虚线仅为探索性假设，不是已确认推导</span></div>
-        </section>
-        <aside class="detailCard" aria-label="选中原则详情">
-          <div class="detailTop"><div class="detailHead"><b>PRINCIPLE DETAILS</b><span class="badge" id="detailBadge">候选</span></div><div class="detailIndex" id="detailId">P-014</div><h3 id="detailTitle">生命展开原则</h3><p class="detailEn" id="detailSubtitle">Life Actualization Principle</p></div>
-          <div class="detailBody">
-            <div class="label">原则要旨 · SUMMARY</div><div class="quote" id="detailQuote">生命主体的价值体现于对自身可能性的认识、展开与创造。</div>
-            <div class="label">定位与边界 · CONTEXT</div><p class="detailText" id="detailContext">第一性原则候选。属于待辩护的规范性主张，不等同于生物学定律。</p>
-            <div class="metaItem"><span>成熟度</span><b id="detailState">Candidate</b></div>
-            <div class="metaItem"><span>结构定位</span><b id="detailLevel">基础候选</b></div>
-            <div class="metaItem"><span>正式推导关系</span><b>尚无登记</b></div>
-            <div class="label" style="margin-top:22px">关联知识 · RELATED</div><div class="detailLinks" id="detailLinks"></div>
-          </div>
-          <div class="detailBottom"><a class="primaryBtn" id="detailSource" target="_blank" rel="noopener" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/人生原则注册表.md">在 GitHub 查看来源 ↗</a><div class="hint">此页仅展示公开摘要，不直接读取或修改私有 Markdown。</div></div>
-        </aside>
-      </div>
-      <section class="secondary" id="knowledge-entries"><div><h2>继续探索知识库</h2><p>从结构跳转到论证、概念与解释材料。</p></div><a class="topLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/README.md" target="_blank" rel="noopener">知识库说明 ↗</a></section>
-      <div class="linkRow">
-        <a class="smallLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/concepts/life-actualization.md" target="_blank" rel="noopener">◻ 生命展开 · 概念定义 ↗</a>
-        <a class="smallLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/research/life-principles/生命展开原则_规范性依据与反驳.md" target="_blank" rel="noopener">⌕ 规范性依据与反驳 ↗</a>
-        <a class="smallLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/metaphors/种子与森林.md" target="_blank" rel="noopener">✧ 种子与森林 · 隐喻 ↗</a>
-        <a class="smallLink" href="https://github.com/Likenoai/knowledge-lab/blob/main/principles/人生原则注册表.md" target="_blank" rel="noopener">▤ 人生原则注册表 ↗</a>
-      </div>
-      <p class="disclaimer">Knowledge Lab · Principle Atlas Prototype 01 / 数据根据 Registry v0.6 手工整理。为避免意外公开私有知识，网页不打包完整原则正文，也不直接加载仓库 Markdown，关联文档在 GitHub 中按原有访问权限查看。探索连线属于界面演示数据。</p>
-    </main>
-  </div>
+<div id="viewport" tabindex="0" role="region" aria-label="人生逻辑原点思考路径图">
+  <div class="mast"><div class="logo">A</div><div><b>人生的逻辑原点</b><small>ANCHOR · ORIGIN</small></div></div>
+  <div class="notice">从候选原则回溯思想路径 · 连线不表示严格推导</div>
+  <div id="stage" class="stage"><svg id="edges" aria-hidden="true"></svg><div id="nodes"></div></div>
+  <div class="canvasHint">点击分支展开 / 收起 · 拖动空白平移 · 滚轮缩放<br>节点 ↗ 跳转到已有 Markdown 文件</div>
+  <div class="controls" aria-label="画布操作"><button id="out" class="size" aria-label="缩小">−</button><button id="in" class="size" aria-label="放大">+</button><button id="fit" class="fit">回到原点</button></div>
 </div>
 <script>
 (function(){
 'use strict';
-const BASE='https://github.com/Likenoai/knowledge-lab/blob/main/';
-const REG='principles/人生原则注册表.md';
-const common='research/life-principles/';
-const principles=[
-{id:'P-001',name:'不可逆配置命题',eng:'Irreversible Allocation',status:'working',level:'基础命题',x:178,y:118,short:'时间流向塑造人生路径',definition:'时间流向塑造人生路径',source:common+'00_人生有限性与不可逆选择原则.md',context:'基础命题 · 后台基础。它描述不可恢复的时间配置与机会放弃之间的联系。'},
-{id:'P-014',name:'生命展开原则',eng:'Life Actualization',status:'candidate',level:'第一性候选',x:780,y:118,short:'认识、展开与创造可能性',definition:'生命主体的价值体现于对自身可能性的认识、展开与创造。',source:REG,context:'第一性原则候选。属于待辩护的规范性主张，不能将自然生长直接视为伦理证明。',related:[['概念定义 · C-LA-001','concepts/life-actualization.md'],['论证依据 · A-LA-001',common+'生命展开原则_规范性依据与反驳.md'],['种子与森林 · M-LA-001','metaphors/种子与森林.md']]},
-{id:'P-002',name:'重复后果原则',eng:'Repeated Consequences',status:'candidate',level:'决策原则',x:38,y:328,short:'关注长期重复后的结构',definition:'关注长期重复后的结构',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
-{id:'P-003',name:'显性机会成本原则',eng:'Explicit Opportunity Cost',status:'candidate',level:'决策原则',x:328,y:328,short:'看见承诺排除的选项',definition:'看见承诺排除的选项',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
-{id:'P-004',name:'不可替代优先原则',eng:'Irreplaceability Priority',status:'candidate',level:'决策原则',x:618,y:328,short:'优先保护难以恢复的资产',definition:'优先保护难以恢复的资产',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
-{id:'P-005',name:'长期身份一致原则',eng:'Long-Term Identity',status:'candidate',level:'决策原则',x:908,y:328,short:'重复行为塑造长期身份',definition:'重复行为塑造长期身份',source:common+'02_人生原则层级模型_从基础命题到行动原则.md'},
-{id:'P-006',name:'先改善位置',eng:'Position Before Decision',status:'candidate',level:'判断原则',x:38,y:530,short:'改善选择时所处的条件',definition:'改善选择时所处的条件',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
-{id:'P-007',name:'先独立判断',eng:'Independent Judgment',status:'candidate',level:'判断原则',x:328,y:530,short:'先形成初步判断再更新',definition:'先形成初步判断再更新',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
-{id:'P-008',name:'求真优先',eng:'Truth-Seeking',status:'candidate',level:'判断原则',x:618,y:530,short:'修正认识优先于自我防御',definition:'修正认识优先于自我防御',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
-{id:'P-009',name:'承担可控制的部分',eng:'Controllable Contribution',status:'candidate',level:'判断原则',x:908,y:530,short:'对可控行为负责',definition:'对可控行为负责',source:common+'08_ClearThinking研究分析_从定位到默认行为.md'},
-{id:'P-010',name:'递归构建原则',eng:'Recursive Construction',status:'working',level:'工作原则',x:38,y:738,short:'行动、反馈、递归更新',definition:'行动、反馈、递归更新',source:REG},
-{id:'P-011',name:'边际配置原则',eng:'Marginal Allocation',status:'working',level:'工作原则',x:328,y:738,short:'优化下一单位资源投入',definition:'优化下一单位资源投入',source:common+'00_人生有限性与不可逆选择原则.md'},
-{id:'P-012',name:'不确定下保护选择权',eng:'Preserve Option Value',status:'working',level:'工作原则',x:618,y:738,short:'保存可逆性与退出空间',definition:'保存可逆性与退出空间',source:common+'10_不确定下保护选择权_小规模验证.md'},
-{id:'P-013',name:'设计行为条件',eng:'Behavioral Conditions',status:'working',level:'工作原则',x:908,y:738,short:'设计触发、摩擦与反馈',definition:'设计触发、摩擦与反馈',source:common+'11_设计行为条件而非只依赖意愿_小规模验证.md'}
+const urlBase='https://github.com/Likenoai/knowledge-lab/blob/main/';
+const source={
+  P:'principles/人生原则注册表.md',
+  C:'concepts/life-actualization.md',
+  A:'research/life-principles/生命展开原则_规范性依据与反驳.md',
+  M:'metaphors/种子与森林.md'
+};
+// 数据是可追溯的思考主题与关联材料；边是探索路径，不是证明关系。
+const origin={id:'P-014',kind:'第一性原则候选 · P-014',title:'生命展开原则',summary:'生命主体的价值体现于对自身可能性的认识、展开与创造。',status:'Candidate · 规范性依据仍开放',file:source.P};
+const threads=[
+  {id:'questions',kind:'01 / 起始问题',title:'为什么追求 Flourishing？',summary:'从积极心理学转向关于人生价值的追问',file:source.A,children:[
+    {kind:'起点',title:'什么是好的生活？',summary:'快乐、意义、关系和繁荣'},
+    {kind:'竞争性解释',title:'为什么不是享乐或虚无？',summary:'什么值得作为人生的最高目标'},
+    {kind:'仍待回答',title:'为什么发展本身有价值？',summary:'心理事实尚不能直接推出伦理义务',file:source.A}]},
+  {id:'concepts',kind:'02 / 概念精释',title:'生命展开是什么意思？',summary:'逐词澄清主体、可能性、展开与价值',file:source.C,children:[
+    {kind:'主体',title:'谁在展开？',summary:'能够反思、选择和采取行动'},
+    {kind:'可能性',title:'可能性从哪里来？',summary:'禀赋与环境共同产生机会'},
+    {kind:'价值',title:'价值如何被界定？',summary:'区分能力发展和正向价值'}]},
+  {id:'arguments',kind:'03 / 论证审查',title:'这个原则为何成立？',summary:'审查前提、竞争解释和伦理边界',file:source.A,children:[
+    {kind:'逻辑边界',title:'事实能推出「应该」吗？',summary:'生命会生长不能证明人生应成长'},
+    {kind:'反对意见',title:'还有哪些有力挑战？',summary:'享乐主义、虚无主义、主体选择'},
+    {kind:'伦理冲突',title:'如果发展伤害他人呢？',summary:'个体发展与他人发展可能冲突'}]},
+  {id:'metaphor',kind:'04 / 核心隐喻',title:'种子与森林',summary:'用生命与环境互动解释可能性如何生成',file:source.M,children:[
+    {kind:'隐喻映射',title:'种子、土壤与生长',summary:'初始禀赋、环境和持续互动'},
+    {kind:'修正极端',title:'反宿命，也反无限可能',summary:'初始条件不是命运，约束又真实存在'},
+    {kind:'隐喻边界',title:'理解不能替代论证',summary:'树木生长不能推出伦理上的义务'}]}
 ];
-const ideas=[['P-001','P-002'],['P-001','P-003'],['P-001','P-011'],['P-014','P-005'],['P-003','P-011'],['P-004','P-012'],['P-006','P-012']];
-const lookup=Object.fromEntries(principles.map(p=>[p.id,p]));
-const $=id=>document.getElementById(id);
-let chosen='P-014',filter='all',query='',mode='graph',ideasOn=true,scale=1,offX=0,offY=0,drag=null;
-const safeText=v=>String(v??'');
-function nodeMatch(p){const target=[p.id,p.name,p.eng,p.short,p.definition].join(' ').toLowerCase();return (filter==='all'||p.status===filter)&&(!query||target.includes(query));}
-function addLabel(text,y){const label=document.createElement('div');label.className='layerLabel';label.style.top=y+'px';label.textContent=text;$('nodesLayer').appendChild(label);}
-function drawGraph(){
- const nodes=$('nodesLayer');nodes.replaceChildren();
- addLabel('01  /  基础命题与价值候选',70);addLabel('02  /  选择与长期后果',277);addLabel('03  /  判断与认知',478);addLabel('04  /  行动与方法',684);
- for(const p of principles){
- const b=document.createElement('button');b.type='button';b.className='node'+(p.id===chosen?' selected':'')+(nodeMatch(p)?'':' dimmed');
- b.style.left=p.x+'px';b.style.top=p.y+'px';b.title=p.id+' · '+p.name;b.setAttribute('aria-label',p.id+' '+p.name);b.setAttribute('aria-pressed',String(p.id===chosen));b.dataset.id=p.id;
- const top=document.createElement('div');top.className='nodeTop';
- const id=document.createElement('span');id.className='nodeId';id.textContent=p.id;
- const state=document.createElement('span');state.className='nodeStatus '+(p.status==='candidate'?'candidate':p.level==='基础命题'?'foundation':'');state.textContent=p.level==='基础命题'?'基础':p.status==='working'?'Working':'Candidate';
- top.append(id,state);
- const title=document.createElement('div');title.className='nodeTitle';title.textContent=p.name;
- const short=document.createElement('div');short.className='nodeShort';short.textContent=p.short;
- b.append(top,title,short);b.addEventListener('click',()=>selectNode(p.id));nodes.appendChild(b);
- }
- drawEdges();
+const sizes={root:[330,215],branch:[314,146],leaf:[308,91]};
+const viewport=document.getElementById('viewport'),stage=document.getElementById('stage'),nodes=document.getElementById('nodes'),edges=document.getElementById('edges');
+const NS='http://www.w3.org/2000/svg';
+let active='questions',zoomLevel=1,tx=0,ty=0,bounds={width:1410,height:1000},drag=null;
+function addEdge(from,to,isMain){
+ const a=from.x+from.w,b=from.y+from.h/2,c=to.x,d=to.y+to.h/2,dx=Math.max(90,(c-a)*.43);
+ const path=document.createElementNS(NS,'path');
+ path.setAttribute('d','M '+a+' '+b+' C '+(a+dx)+' '+b+', '+(c-dx)+' '+d+', '+c+' '+d);
+ path.setAttribute('class',isMain?'mainEdge':'subEdge');edges.appendChild(path);
+ if(isMain){const dot=document.createElementNS(NS,'circle');dot.setAttribute('cx',c);dot.setAttribute('cy',d);dot.setAttribute('r','3');edges.appendChild(dot);}
 }
-function drawEdges(){
- const svg=$('edgeLayer');svg.replaceChildren();if(!ideasOn)return;
- const NS='http://www.w3.org/2000/svg';
- for(const pair of ideas){const a=lookup[pair[0]],b=lookup[pair[1]];const x1=a.x+108,y1=a.y+102,x2=b.x+108,y2=b.y;const dy=Math.max(45,(y2-y1)*.52);
- const el=document.createElementNS(NS,'path');el.setAttribute('d','M '+x1+' '+y1+' C '+x1+' '+(y1+dy)+', '+x2+' '+(y2-dy)+', '+x2+' '+y2);el.setAttribute('stroke-linecap','round');el.setAttribute('class',nodeMatch(a)&&nodeMatch(b)?'':'dimmed');svg.appendChild(el);
- }
+function newNode(data,kind,x,y){
+ const size=sizes[kind],box=document.createElement('div');box.className='node '+kind+(kind==='branch'&&active===data.id?' selected':'');
+ box.style.left=x+'px';box.style.top=y+'px';box.style.width=size[0]+'px';box.style.height=size[1]+'px';
+ const inner=document.createElement(kind==='leaf'?'div':'button');inner.className='inner';
+ if(kind!=='leaf'){inner.type='button';inner.setAttribute('aria-label',kind==='root'?'收起并回到逻辑原点':'展开或收起'+data.title);}
+ const type=document.createElement('div');type.className='type';type.textContent=data.kind;
+ const title=document.createElement(kind==='root'?'h1':kind==='branch'?'h2':'h3');title.textContent=data.title;
+ const summary=document.createElement('p');summary.textContent=data.summary;
+ inner.append(type,title,summary);
+ if(kind==='root'){const status=document.createElement('span');status.className='status';status.textContent=data.status;inner.appendChild(status);inner.addEventListener('click',()=>{active=null;render(true)});}
+ if(kind==='branch'){const foot=document.createElement('div');foot.className='foot';foot.textContent=active===data.id?'收起思考分支':'展开 '+data.children.length+' 个节点';inner.appendChild(foot);inner.setAttribute('aria-expanded',String(active===data.id));inner.addEventListener('click',()=>{active=active===data.id?null:data.id;render(true)});}
+ box.appendChild(inner);
+ if(data.file){const link=document.createElement('a');link.className='nodeLink';link.href=urlBase+data.file;link.target='_blank';link.rel='noopener noreferrer';link.textContent='↗';link.title='打开关联 Markdown';link.setAttribute('aria-label','打开'+data.title+'的关联 Markdown');box.appendChild(link);}
+ nodes.appendChild(box);
+ return {x:x,y:y,w:size[0],h:size[1]};
 }
-function detailLink(label,path){const a=document.createElement('a');a.href=BASE+path;a.target='_blank';a.rel='noopener noreferrer';a.append(document.createTextNode(label));const s=document.createElement('span');s.textContent='↗';a.appendChild(s);return a;}
-function renderDetail(){
- const p=lookup[chosen];$('detailId').textContent=p.id;$('detailTitle').textContent=p.name;$('detailSubtitle').textContent=p.eng;
- $('detailQuote').textContent=p.definition;$('detailContext').textContent=p.context||'该原则已收录于人生原则注册表。其适用边界、研究依据及成熟度以仓库最新内容为准。';
- $('detailBadge').textContent=p.status==='working'?'工作原则':'候选原则';$('detailBadge').style.background=p.status==='working'?'#eaf7f1':'#fff4e7';$('detailBadge').style.color=p.status==='working'?'#2b8a6c':'#bf8742';
- $('detailState').textContent=p.status==='working'?'Working Principle':'Candidate';$('detailLevel').textContent=p.level;
- $('detailLinks').replaceChildren(...(p.related||[['原则注册表 · '+p.id,REG],...(p.source!==REG?[['关联研究资料',p.source]]:[])]).map(v=>detailLink(v[0],v[1])));
- $('detailSource').href=BASE+p.source;
+function render(recenter){
+ nodes.replaceChildren();edges.replaceChildren();
+ const x=[80,530,990],top=70,gap=44,space=15;
+ let curY=top;const grouped=[];
+ threads.forEach(function(b){
+   const expanded=b.id===active, childH=b.children.length*sizes.leaf[1]+(b.children.length-1)*space;
+   const height=expanded?Math.max(childH,sizes.branch[1]):sizes.branch[1];
+   grouped.push({b:b,start:curY,height:height,expanded:expanded});curY+=height+gap;
+ });
+ bounds.width=active?x[2]+sizes.leaf[0]+80:x[1]+sizes.branch[0]+110;
+ bounds.height=Math.max(660,curY-gap+top);
+ stage.style.width=bounds.width+'px';stage.style.height=bounds.height+'px';edges.setAttribute('width',bounds.width);edges.setAttribute('height',bounds.height);edges.setAttribute('viewBox','0 0 '+bounds.width+' '+bounds.height);
+ const root=newNode(origin,'root',x[0],(bounds.height-sizes.root[1])/2);
+ grouped.forEach(function(g){
+   const parent=newNode(g.b,'branch',x[1],g.start+(g.height-sizes.branch[1])/2);addEdge(root,parent,true);
+   if(g.expanded){g.b.children.forEach(function(child,i){const leaf=newNode(child,'leaf',x[2],g.start+i*(sizes.leaf[1]+space));addEdge(parent,leaf,false);});}
+ });
+ if(recenter)fit();else apply();
 }
-function renderList(){
- const grid=$('listGrid');grid.replaceChildren();let num=0;
- for(const p of principles){if(!nodeMatch(p))continue;num++;const b=document.createElement('button');b.className='listItem'+(p.id===chosen?' active':'');b.type='button';
- const id=document.createElement('span');id.className='listNum';id.textContent=p.id;
- const info=document.createElement('div'),title=document.createElement('b'),sub=document.createElement('small');title.textContent=p.name;sub.textContent=p.short;info.append(title,sub);b.append(id,info);b.addEventListener('click',()=>selectNode(p.id));grid.appendChild(b);}
- if(!num){const msg=document.createElement('p');msg.className='listEmpty';msg.textContent='没有匹配的原则，请调整筛选。';grid.appendChild(msg);}
+function apply(){stage.style.transform='translate('+tx+'px,'+ty+'px) scale('+zoomLevel+')';}
+function fit(){
+ const w=viewport.clientWidth,h=viewport.clientHeight;
+ const marginX=w<620?25:90,marginY=h<600?95:130;
+ zoomLevel=Math.max(.32,Math.min(1.16,Math.min((w-marginX)/bounds.width,(h-marginY)/bounds.height)));
+ tx=(w-bounds.width*zoomLevel)/2;ty=(h-bounds.height*zoomLevel)/2;apply();
 }
-function selectNode(id){chosen=id;renderDetail();drawGraph();renderList();}
-function applyTransform(){$('stage').style.transform='translate('+offX+'px,'+offY+'px) scale('+scale+')';}
-function fit(){const r=$('graphWrap');if(!r.clientWidth)return;scale=Math.max(.39,Math.min(1.12,Math.min((r.clientWidth-36)/1180,(r.clientHeight-20)/910)));offX=(r.clientWidth-1180*scale)/2;offY=(r.clientHeight-910*scale)/2;applyTransform();}
-function zoom(factor,cx,cy){const old=scale;scale=Math.min(1.8,Math.max(.32,scale*factor));offX=cx-(cx-offX)*scale/old;offY=cy-(cy-offY)*scale/old;applyTransform();}
-function switchMode(next){mode=next;$('graphMode').classList.toggle('selected',next==='graph');$('listMode').classList.toggle('selected',next==='list');$('graphMode').setAttribute('aria-pressed',String(next==='graph'));$('listMode').setAttribute('aria-pressed',String(next==='list'));$('graphWrap').classList.toggle('hide',next!=='graph');$('listArea').classList.toggle('show',next==='list');}
-document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>{const active=x.dataset.filter===filter;x.classList.toggle('on',active);x.setAttribute('aria-pressed',String(active))});drawGraph();renderList()}));
-$('edgeToggle').addEventListener('click',()=>{ideasOn=!ideasOn;$('edgeToggle').classList.toggle('on',ideasOn);$('edgeToggle').setAttribute('aria-pressed',String(ideasOn));drawEdges()});
-$('search').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();drawGraph();renderList()});
-$('graphMode').addEventListener('click',()=>switchMode('graph'));$('listMode').addEventListener('click',()=>switchMode('list'));
-$('zoomIn').addEventListener('click',()=>zoom(1.2,$('graphWrap').clientWidth/2,$('graphWrap').clientHeight/2));
-$('zoomOut').addEventListener('click',()=>zoom(1/1.2,$('graphWrap').clientWidth/2,$('graphWrap').clientHeight/2));
-$('fit').addEventListener('click',fit);
-$('graphWrap').addEventListener('wheel',e=>{e.preventDefault();const r=$('graphWrap').getBoundingClientRect();zoom(e.deltaY>0?.91:1.09,e.clientX-r.left,e.clientY-r.top)},{passive:false});
-$('graphWrap').addEventListener('pointerdown',e=>{if(e.target.closest('button')||e.target.closest('a'))return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,ox:offX,oy:offY};$('graphWrap').setPointerCapture(e.pointerId);$('graphWrap').classList.add('grabbing')});
-$('graphWrap').addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;offX=drag.ox+e.clientX-drag.x;offY=drag.oy+e.clientY-drag.y;applyTransform()});
-function endDrag(){drag=null;$('graphWrap').classList.remove('grabbing')}
-$('graphWrap').addEventListener('pointerup',endDrag);$('graphWrap').addEventListener('pointercancel',endDrag);
-document.addEventListener('keydown',e=>{if((e.key==='/'||e.key.toLowerCase()==='k'&&(e.ctrlKey||e.metaKey))&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();$('search').focus()}if(e.key==='Escape'&&document.activeElement===$('search')){$('search').blur();$('search').value='';query='';drawGraph();renderList()}});
-drawGraph();renderDetail();renderList();requestAnimationFrame(fit);window.addEventListener('resize',()=>{if(mode==='graph')fit()});
+function zoom(f,cx,cy){const old=zoomLevel;zoomLevel=Math.max(.3,Math.min(1.9,zoomLevel*f));tx=cx-(cx-tx)*zoomLevel/old;ty=cy-(cy-ty)*zoomLevel/old;apply();}
+document.getElementById('fit').addEventListener('click',()=>{active=null;render(true);});
+document.getElementById('in').addEventListener('click',()=>zoom(1.18,viewport.clientWidth/2,viewport.clientHeight/2));
+document.getElementById('out').addEventListener('click',()=>zoom(1/1.18,viewport.clientWidth/2,viewport.clientHeight/2));
+viewport.addEventListener('wheel',function(e){e.preventDefault();const r=viewport.getBoundingClientRect();zoom(e.deltaY<0?1.09:1/1.09,e.clientX-r.left,e.clientY-r.top);},{passive:false});
+viewport.addEventListener('pointerdown',function(e){if(e.target.closest('button,a'))return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,ox:tx,oy:ty};viewport.setPointerCapture(e.pointerId);viewport.classList.add('dragging');});
+viewport.addEventListener('pointermove',function(e){if(!drag||e.pointerId!==drag.id)return;tx=drag.ox+e.clientX-drag.x;ty=drag.oy+e.clientY-drag.y;apply();});
+function stopDrag(e){if(drag&&e.pointerId!==drag.id)return;drag=null;viewport.classList.remove('dragging');}
+viewport.addEventListener('pointerup',stopDrag);viewport.addEventListener('pointercancel',stopDrag);
+viewport.addEventListener('keydown',function(e){if(e.key==='+'||e.key==='='){e.preventDefault();zoom(1.15,viewport.clientWidth/2,viewport.clientHeight/2);}if(e.key==='-'){e.preventDefault();zoom(1/1.15,viewport.clientWidth/2,viewport.clientHeight/2);}if(e.key==='0'){e.preventDefault();fit();}});
+render(true);
+window.addEventListener('resize',fit);
 })();
 </script>
 </body>
