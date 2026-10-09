@@ -1,200 +1,40 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light">
-<meta name="description" content="从生命展开原则开始回溯人生思考过程">
-<title>逻辑原点 · Anchor</title>
-<style>
-:root{--ink:#26334d;--light:#8490a5;--background:#f8f9fc;--edge:#a9b2cd;--accent:#5d5fbd}
-*{box-sizing:border-box}
-html,body{height:100%;width:100%;margin:0;overflow:hidden;background:var(--background);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
-button,a{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible{outline:3px solid #b0b0eb;outline-offset:3px}
-#viewport{height:100dvh;width:100%;position:relative;overflow:hidden;touch-action:none;cursor:grab;background:radial-gradient(#dce1ed 0.8px,transparent .8px) 0 0/25px 25px}
-#viewport.dragging{cursor:grabbing}
-/* 图谱是一块可拖动的工作画布：禁止系统文本选区和拖拽幽灵图。 */
-#viewport,#viewport *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
-.mast{position:absolute;top:27px;left:31px;z-index:5;pointer-events:none;display:flex;align-items:center;gap:11px}
-.logo{background:#29334e;color:white;border-radius:10px;width:33px;height:33px;display:grid;place-items:center;font-weight:800;font-size:17px}
-.mast b{font-size:12px;letter-spacing:.04em}.mast small{color:#9ca5b7;font-size:10px;display:block;letter-spacing:.1em;margin-top:3px}
-.notice{position:absolute;right:32px;top:36px;color:#9ca5b5;font-size:11px;z-index:5;pointer-events:none}
-.stage{position:absolute;top:0;left:0;transform-origin:0 0;will-change:transform}
-svg{position:absolute;inset:0;overflow:visible;pointer-events:none}
-svg path{fill:none;stroke:var(--edge);stroke-width:1.8;stroke-linecap:round}
-svg .mainEdge{stroke:#898dc6;stroke-width:2.1}
-svg .subEdge{stroke:#b6bfd2;stroke-width:1.65}
-svg circle{fill:#9ea7c4}
-.node{position:absolute;background:white;border:1px solid #dfe5f0;border-radius:15px;box-shadow:0 12px 35px #2b3e690b;color:var(--ink);transition:border-color .15s,box-shadow .15s}
-.node:hover{border-color:#acb0e6;box-shadow:0 14px 33px #40499a20}
-.node.root{background:#29334f;color:white;border:1px solid #29334f;border-radius:19px;box-shadow:0 22px 55px #242e4d33}
-.inner{height:100%;width:100%;display:block;text-align:left;background:transparent;color:inherit;border:0;border-radius:inherit;padding:18px 20px}
-.root .inner{padding:23px 25px}.leaf .inner{padding:13px 18px}
-.type{font-size:10px;font-weight:750;letter-spacing:.08em;color:#919bad;padding-right:24px}
-.root .type{color:#bcc4de}
-.node h1,.node h2,.node h3{font-weight:710;line-height:1.4;letter-spacing:-.035em}
-.root h1{font-size:25px;margin:16px 0 10px}.branch h2{font-size:17px;margin:10px 0 5px}.leaf h3{font-size:13px;margin:5px 0 3px}
-.node p{margin:0;line-height:1.55;color:#909bb0;font-size:11px}
-.root p{font-size:12px;line-height:1.8;color:#d7ddec}
-.leaf p{font-size:10px}.leaf .type{font-size:9px}
-.status{display:inline-block;border:1px solid #65718e;color:#d0d7e7;border-radius:20px;padding:5px 10px;margin-top:17px;font-size:10px}
-.branch.selected{border-color:#a4a3e6;box-shadow:0 0 0 3px #dfdfff,0 15px 35px #555abb1a}
-.foot{font-size:10px;font-weight:700;color:#7373bd;margin-top:11px}
-.foot:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#a19edf;margin-right:7px;vertical-align:2px}
-.nodeLink{position:absolute;right:12px;top:11px;border:1px solid #e7e9f4;background:#f5f6ff;color:#777db6;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:14px;z-index:2}
-.nodeLink:hover{background:#e7e8ff;color:#4c4da8}
-.root .nodeLink{border-color:#57617f;background:#475372;color:#fff}
-.canvasHint{position:absolute;left:29px;bottom:27px;font-size:10.5px;color:#99a4b5;line-height:1.8;pointer-events:none;background:#f8f9fce3;padding-right:9px;z-index:5}
-.controls{position:absolute;right:28px;bottom:25px;display:flex;gap:6px;z-index:5}
-.controls button{min-width:35px;height:35px;border:1px solid #e0e4ee;color:#727d92;background:#fff;border-radius:9px;box-shadow:0 3px 12px #24375812}
-.controls button:hover{background:#f0f0ff;color:#4b4fb1;border-color:#bcbfed}.controls .size{font-size:19px}.controls .fit{padding:0 13px;font-size:11px;font-weight:700}
-@media(max-width:650px){.mast{left:17px;top:17px}.notice{left:18px;right:auto;top:69px;font-size:10px}.controls{bottom:17px;right:17px}.canvasHint{left:17px;bottom:77px;font-size:10px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Anchor 逻辑原点 — 从生命展开原则展开三份 Markdown 文档">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://api.github.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <title>逻辑原点 · Anchor</title>
+  <link rel="stylesheet" href="./assets/origin.css">
+  <script src="./assets/origin.js" defer></script>
 </head>
 <body>
-<div id="viewport" tabindex="0" role="region" aria-label="人生逻辑原点思考路径图">
-  <div class="mast"><div class="logo">A</div><div><b>人生的逻辑原点</b><small>ANCHOR · ORIGIN</small></div></div>
-  <div class="notice">从候选原则回溯思想路径 · 连线不表示严格推导</div>
-  <div id="stage" class="stage"><svg id="edges" aria-hidden="true"></svg><div id="nodes"></div></div>
-  <div class="canvasHint">点击分支展开 / 收起 · 拖动空白平移 · 滚轮缩放<br>节点 ↗ 跳转到已有 Markdown 文件</div>
-  <div class="controls" aria-label="画布操作"><button id="out" class="size" aria-label="缩小">−</button><button id="in" class="size" aria-label="放大">+</button><button id="fit" class="fit">回到原点</button></div>
-</div>
-<script>
-(function(){
-'use strict';
-const urlBase='https://github.com/Likenoai/knowledge-lab/blob/main/';
-const source={
-  P:'principles/人生原则注册表.md',
-  C:'concepts/life-actualization.md',
-  A:'research/life-principles/生命展开原则_规范性依据与反驳.md',
-  M:'metaphors/种子与森林.md'
-};
-// 数据是可追溯的思考主题与关联材料；边是探索路径，不是证明关系。
-const origin={id:'P-014',kind:'第一性原则候选 · P-014',title:'生命展开原则',summary:'生命主体的价值体现于对自身可能性的认识、展开与创造。',status:'Candidate · 规范性依据仍开放',file:source.P};
-const threads=[
-  {id:'questions',kind:'01 / 起始问题',title:'为什么追求 Flourishing？',summary:'从积极心理学转向关于人生价值的追问',file:source.A,children:[
-    {kind:'起点',title:'什么是好的生活？',summary:'快乐、意义、关系和繁荣'},
-    {kind:'竞争性解释',title:'为什么不是享乐或虚无？',summary:'什么值得作为人生的最高目标'},
-    {kind:'仍待回答',title:'为什么发展本身有价值？',summary:'心理事实尚不能直接推出伦理义务',file:source.A}]},
-  {id:'concepts',kind:'02 / 概念精释',title:'生命展开是什么意思？',summary:'逐词澄清主体、可能性、展开与价值',file:source.C,children:[
-    {kind:'主体',title:'谁在展开？',summary:'能够反思、选择和采取行动'},
-    {kind:'可能性',title:'可能性从哪里来？',summary:'禀赋与环境共同产生机会'},
-    {kind:'价值',title:'价值如何被界定？',summary:'区分能力发展和正向价值'}]},
-  {id:'arguments',kind:'03 / 论证审查',title:'这个原则为何成立？',summary:'审查前提、竞争解释和伦理边界',file:source.A,children:[
-    {kind:'逻辑边界',title:'事实能推出「应该」吗？',summary:'生命会生长不能证明人生应成长'},
-    {kind:'反对意见',title:'还有哪些有力挑战？',summary:'享乐主义、虚无主义、主体选择'},
-    {kind:'伦理冲突',title:'如果发展伤害他人呢？',summary:'个体发展与他人发展可能冲突'}]},
-  {id:'metaphor',kind:'04 / 核心隐喻',title:'种子与森林',summary:'用生命与环境互动解释可能性如何生成',file:source.M,children:[
-    {kind:'隐喻映射',title:'种子、土壤与生长',summary:'初始禀赋、环境和持续互动'},
-    {kind:'修正极端',title:'反宿命，也反无限可能',summary:'初始条件不是命运，约束又真实存在'},
-    {kind:'隐喻边界',title:'理解不能替代论证',summary:'树木生长不能推出伦理上的义务'}]}
-];
-const sizes={root:[330,215],branch:[314,146],leaf:[308,91]};
-const viewport=document.getElementById('viewport'),stage=document.getElementById('stage'),nodes=document.getElementById('nodes'),edges=document.getElementById('edges');
-const NS='http://www.w3.org/2000/svg';
-let active='questions',zoomLevel=1,tx=0,ty=0,bounds={width:1410,height:1000},drag=null;
-function addEdge(from,to,isMain){
- const a=from.x+from.w,b=from.y+from.h/2,c=to.x,d=to.y+to.h/2,dx=Math.max(90,(c-a)*.43);
- const path=document.createElementNS(NS,'path');
- path.setAttribute('d','M '+a+' '+b+' C '+(a+dx)+' '+b+', '+(c-dx)+' '+d+', '+c+' '+d);
- path.setAttribute('class',isMain?'mainEdge':'subEdge');edges.appendChild(path);
- if(isMain){const dot=document.createElementNS(NS,'circle');dot.setAttribute('cx',c);dot.setAttribute('cy',d);dot.setAttribute('r','3');edges.appendChild(dot);}
-}
-function newNode(data,kind,x,y){
- const size=sizes[kind],box=document.createElement('div');box.className='node '+kind+(kind==='branch'&&active===data.id?' selected':'');
- box.style.left=x+'px';box.style.top=y+'px';box.style.width=size[0]+'px';box.style.height=size[1]+'px';
- const inner=document.createElement(kind==='leaf'?'div':'button');inner.className='inner';
- if(kind!=='leaf'){inner.type='button';inner.setAttribute('aria-label',kind==='root'?'收起并回到逻辑原点':'展开或收起'+data.title);}
- const type=document.createElement('div');type.className='type';type.textContent=data.kind;
- const title=document.createElement(kind==='root'?'h1':kind==='branch'?'h2':'h3');title.textContent=data.title;
- const summary=document.createElement('p');summary.textContent=data.summary;
- inner.append(type,title,summary);
- if(kind==='root'){const status=document.createElement('span');status.className='status';status.textContent=data.status;inner.appendChild(status);inner.addEventListener('click',()=>{active=null;render(true)});}
- if(kind==='branch'){const foot=document.createElement('div');foot.className='foot';foot.textContent=active===data.id?'收起思考分支':'展开 '+data.children.length+' 个节点';inner.appendChild(foot);inner.setAttribute('aria-expanded',String(active===data.id));inner.addEventListener('click',()=>{active=active===data.id?null:data.id;render(true)});}
- box.appendChild(inner);
- if(data.file){const link=document.createElement('a');link.className='nodeLink';link.href=urlBase+data.file;link.target='_blank';link.rel='noopener noreferrer';link.textContent='↗';link.title='打开关联 Markdown';link.setAttribute('aria-label','打开'+data.title+'的关联 Markdown');box.appendChild(link);}
- nodes.appendChild(box);
- return {x:x,y:y,w:size[0],h:size[1]};
-}
-function render(recenter){
- nodes.replaceChildren();edges.replaceChildren();
- /* 固定、紧凑的原生像素布局。展开分支时其他分支不再上下跳动。 */
- const x=[80,480,888],top=84,gap=20,space=10;
- const grouped=[];
- threads.forEach(function(b,i){
-   const expanded=b.id===active;
-   const branchY=top+i*(sizes.branch[1]+gap);
-   const leafHeight=b.children.length*sizes.leaf[1]+(b.children.length-1)*space;
-   const leafY=branchY+(sizes.branch[1]-leafHeight)/2;
-   grouped.push({b:b,branchY:branchY,leafY:leafY,expanded:expanded});
- });
- // 用固定画布尺寸保持节点在切换分支时位置稳定。默认 1:1 显示字体。
- bounds.width=x[2]+sizes.leaf[0]+80;
- bounds.height=835;
- stage.style.width=bounds.width+'px';stage.style.height=bounds.height+'px';edges.setAttribute('width',bounds.width);edges.setAttribute('height',bounds.height);edges.setAttribute('viewBox','0 0 '+bounds.width+' '+bounds.height);
- const root=newNode(origin,'root',x[0],(bounds.height-sizes.root[1])/2);
- grouped.forEach(function(g){
-   const parent=newNode(g.b,'branch',x[1],g.branchY);addEdge(root,parent,true);
-   if(g.expanded){g.b.children.forEach(function(child,i){const leaf=newNode(child,'leaf',x[2],g.leafY+i*(sizes.leaf[1]+space));addEdge(parent,leaf,false);});}
- });
- if(recenter)fit();else apply();
-}
-function apply(){stage.style.transform='translate('+tx+'px,'+ty+'px) scale('+zoomLevel+')';}
-function fit(){
- const w=viewport.clientWidth,h=viewport.clientHeight;
- // 首屏保持设备 CSS 像素 1:1：不再自动整体缩放 DOM 字体。
- // 窄屏首先保证根节点可见，其余节点可拖拽浏览。
- zoomLevel=1;
- tx=w>=bounds.width?(w-bounds.width)/2:20-80;
- ty=(h-bounds.height)/2;
- apply();
-}
-function zoom(f,cx,cy){const old=zoomLevel;zoomLevel=Math.max(.3,Math.min(1.9,zoomLevel*f));tx=cx-(cx-tx)*zoomLevel/old;ty=cy-(cy-ty)*zoomLevel/old;apply();}
-document.getElementById('fit').addEventListener('click',()=>{active=null;render(true);});
-document.getElementById('in').addEventListener('click',()=>zoom(1.18,viewport.clientWidth/2,viewport.clientHeight/2));
-document.getElementById('out').addEventListener('click',()=>zoom(1/1.18,viewport.clientWidth/2,viewport.clientHeight/2));
-viewport.addEventListener('wheel',function(e){e.preventDefault();const r=viewport.getBoundingClientRect();zoom(e.deltaY<0?1.09:1/1.09,e.clientX-r.left,e.clientY-r.top);},{passive:false});
-// 允许从节点本身开始平移；用位移阈值保留正常的点击展开行为。
-let suppressClick=false;
-const moveThreshold=6;
-viewport.addEventListener('pointerdown',function(e){
- if((e.pointerType==='mouse'&&e.button!==0)||e.target.closest('a,.controls'))return;
- drag={id:e.pointerId,x:e.clientX,y:e.clientY,ox:tx,oy:ty,moved:false};
-});
-viewport.addEventListener('pointermove',function(e){
- if(!drag||e.pointerId!==drag.id)return;
- const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
- if(!drag.moved&&Math.hypot(dx,dy)<moveThreshold)return;
- if(!drag.moved){
-   drag.moved=true;
-   viewport.setPointerCapture(e.pointerId);
-   viewport.classList.add('dragging');
- }
- if(e.cancelable)e.preventDefault();
- tx=drag.ox+dx;ty=drag.oy+dy;apply();
-});
-function stopDrag(e){
- if(!drag||e.pointerId!==drag.id)return;
- if(drag.moved){
-   suppressClick=true;
-   // pointerup 后紧跟的 click 不能误触发节点展开。
-   setTimeout(function(){suppressClick=false;},0);
-   if(viewport.hasPointerCapture(e.pointerId))viewport.releasePointerCapture(e.pointerId);
- }
- drag=null;viewport.classList.remove('dragging');
-}
-viewport.addEventListener('pointerup',stopDrag);
-viewport.addEventListener('pointercancel',stopDrag);
-viewport.addEventListener('click',function(e){
- if(!suppressClick)return;
- e.preventDefault();e.stopImmediatePropagation();suppressClick=false;
-},true);
-viewport.addEventListener('selectstart',function(e){e.preventDefault();});
-viewport.addEventListener('dragstart',function(e){e.preventDefault();});
-viewport.addEventListener('keydown',function(e){if(e.key==='+'||e.key==='='){e.preventDefault();zoom(1.15,viewport.clientWidth/2,viewport.clientHeight/2);}if(e.key==='-'){e.preventDefault();zoom(1/1.15,viewport.clientWidth/2,viewport.clientHeight/2);}if(e.key==='0'){e.preventDefault();fit();}});
-render(true);
-window.addEventListener('resize',fit);
-})();
-</script>
+  <div id="viewport" role="region" tabindex="0" aria-label="生命展开原则及其 Markdown 文档关系图">
+    <div class="mast"><span class="logo">A</span><div><b>人生的逻辑原点</b><small>ANCHOR · ORIGIN</small></div></div>
+    <div class="top-actions">
+      <span class="status" id="connectionStatus">Markdown：读取中</span>
+      <button class="action primary" id="connectionButton" type="button">连接 GitHub</button>
+    </div>
+    <div class="stage" id="stage"><svg id="edges" class="edges" aria-hidden="true"></svg><div id="nodes"></div></div>
+    <div class="canvas-hint">原则 → 文档子节点 → Markdown 内容<br>画布拖动、滚轮缩放；文档内部独立滚动和文本复制</div>
+    <div class="controls"><button class="zoom" id="zoomOut" aria-label="缩小画布">−</button><button class="zoom" id="zoomIn" aria-label="放大画布">+</button><button class="fit" id="fit" type="button">回到原点</button></div>
+    <div id="authPanel" class="auth-panel" hidden>
+      <h2>读取私有 Markdown</h2>
+      <p>当前网站由 GitHub Pages 静态托管。私有仓库的 Markdown 不能匿名读取。请使用仅对此仓库授予 <strong>Contents: Read-only</strong> 权限的 Fine-grained Personal Access Token。</p>
+      <form id="authForm" autocomplete="off">
+        <label for="tokenInput">GitHub 只读访问令牌</label>
+        <input id="tokenInput" type="password" required autocomplete="off" spellcheck="false" placeholder="github_pat_…">
+        <div class="auth-actions">
+          <button class="action" type="button" id="authClose">取消</button>
+          <button class="action primary" type="submit">读取三份文档</button>
+        </div>
+      </form>
+      <p class="auth-warn">令牌仅存在当前页面内存中，不会保存到 GitHub 文件、localStorage 或 Cookies；刷新即失效。请勿使用全权限令牌。</p>
+      <p><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer" style="color:#5a5dbc">前往 GitHub 创建细粒度令牌 ↗</a></p>
+      <div class="auth-actions"><button type="button" class="action" id="retryButton">匿名重试</button></div>
+    </div>
+  </div>
 </body>
 </html>
