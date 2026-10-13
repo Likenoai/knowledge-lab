@@ -271,3 +271,30 @@ E0–E5 是一套**用于管理修订权限的提案**，不是对客观证据�
 ---
 
 > 下一轮恢复入口：先问“反馈足够支持修改**哪一条**规则、覆盖**哪一类**任务、承担**多大**风险？”，然后从一个真实 Skill 的 A/B Trace 数据开始建实验；不要只凭一次对话完成证据晋升。
+
+
+## 11. 暂缓研究标记｜反馈中的因果证据与偶然相关（2026-10-13）
+
+> **状态：Deferred / 待恢复**。用户明确要求“这部分记录下来，以后研究”，本轮不继续展开，避免与当前主线“Prompt 如何调用已有能力”混淆。
+
+**暂缓的研究焦点**：Agent 怎样分辨“修改 Skill 后恰好成功”和“修改 Skill 确实导致成功”？何种反馈强度允许把一次经验晋升为未来行为规则？
+
+恢复时的入口问题：
+1. 怎样构造反事实：如果 Skill 没修改，同一任务会怎样？
+2. 如何使用成对 A/B、冻结留出集、多次试验、独立环境终态与盲审，排除模型随机性、数据分布与工具故障？
+3. 什么条件下单例反证足以立即暂停高风险 Skill；什么条件下必须使用多样本支持永久修改？
+4. 如何识别 Goodhart 式指标污染、确认偏误、迷信式学习（Superstitious Learning）和能力陷阱（Competency Trap）？
+5. 如何将证据门槛接入 Skill 的 applicability / assumptions / evidence_refs / version / rollback，形成发布治理？
+
+**不要提前定论**：E0–E5 只是待检验的工程工作模型；不应将其视为统一统计学证据标准。
+
+**当前会话转向**：Prompt 何以在不修改模型权重的情况下，改变已有能力的表达——考察 Task-Conditioned Computation、任务向量（Task Vectors）、Function Vectors、任务竞争与模型内部因果机制。
+
+### 转向研究的参考入口
+- Hendel et al. (2023), In-Context Learning Creates Task Vectors: https://aclanthology.org/2023.findings-emnlp.624/
+- Yang et al. (2026), Shared Lexical Task Representations Explain Behavioral Variability in LLMs: https://proceedings.mlr.press/v306/yang26al.html
+- Min et al. (2022), Rethinking the Role of Demonstrations: https://aclanthology.org/2022.emnlp-main.759/
+
+### Impact Check
+- 本次属于已有研究的 **延期状态与研究入口补充**，不改变此前工作模型的有效边界。
+- 下一次用户恢复“反馈证据/Skill 修订”时，应回读本文第 3–6 节和本节，不能把当前 Prompt 研究误作已完成的因果反馈研究。
