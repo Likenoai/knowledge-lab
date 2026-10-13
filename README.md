@@ -37,6 +37,7 @@
 
 - `research/decision-system/`：决策系统
 - `research/learning-science/`：学习科学
+- `research/organizational-learning/`：组织学习、错误自我强化、Agent Skill 反馈与证据治理
 - `research/structure-mapping/`：结构映射
 - `research/genre-studies/`：题材研究
 - `research/visualization/`：可视化
