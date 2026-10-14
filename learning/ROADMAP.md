@@ -264,3 +264,9 @@ Decision Integration 与 Externalization / Feedback 继续作为贯穿层。
 → 现实反馈
 → 下一轮更新
 ~~~
+
+
+## 专项训练路线｜LLM 使用与 Prompt 机制诊断（2026-10-14）
+
+- [LLM 使用能力训练：机制诊断与实验路线 v0.1](llm-usage/01_LLM使用能力训练_机制诊断与实验路线_v0.1.md)：从任务表征、失败归因、干预选择、评测，进入 Agent 与 Transformer 机制。当前停点 M1 任务表征。
+- 本专项路线沿用 Epistemic Loop 与 Mastery Loop；真实实操结果应回写专项文件的训练记录，不把一次成功视为技能已经形成。
